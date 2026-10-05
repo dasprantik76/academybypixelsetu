@@ -113,7 +113,7 @@ class PublicAcademyApp {
     const hash = window.location.hash.replace('#', '');
     if (hash === 'courses') {
       this.switchView('courses');
-    } else if (hash === 'student' || hash === 'registration' || hash === 'student-registration') {
+    } else if (hash === 'student-registration' || hash === 'registration') {
       this.switchView('student');
     } else if (hash === 'student-verification' || hash === 'verification') {
       this.switchView('student-verification');
@@ -737,11 +737,22 @@ class PublicAcademyApp {
     }
 
     // Student Nav Item Toggle & Submenu Links
+    // Student Nav Item Toggle & Submenu Links
     if (this.navStudentLink) {
       this.navStudentLink.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
         this.toggleStudentDropdown();
+      });
+    }
+
+    if (this.navStudentDropdownItem) {
+      this.navStudentDropdownItem.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-dropdown-item')) {
+          e.preventDefault();
+          e.stopPropagation();
+          this.toggleStudentDropdown();
+        }
       });
     }
 
@@ -806,7 +817,7 @@ class PublicAcademyApp {
       const hash = window.location.hash.replace('#', '');
       if (hash === 'courses') {
         this.switchView('courses', false);
-      } else if (hash === 'student' || hash === 'registration' || hash === 'student-registration') {
+      } else if (hash === 'student-registration' || hash === 'registration') {
         this.switchView('student', false);
       } else if (hash === 'student-verification' || hash === 'verification') {
         this.switchView('student-verification', false);
