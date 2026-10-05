@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelSetu Cloud | Super Admin Control Plane</title>
+  <meta name="description" content="Centralized Multi-Tenant Administration Control Plane for PixelSetu Academy Platform">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Super Admin Dedicated Stylesheet -->
+  <link rel="stylesheet" href="superadmin-style.css?v=1.0">
+  <script src="admin-config.js?v=3.3"></script>
+</head>
+<body class="superadmin-body">
+
+  <!-- Top Global Command Bar -->
+  <header class="sa-top-bar">
+    <div class="sa-brand-group">
+      <div class="sa-brand-logo">
+        <i class="fa-solid fa-layer-group"></i>
+      </div>
+      <div class="sa-brand-text">
+        <h1>
+          PixelSetu Cloud
+          <span class="sa-platform-tag">Super Admin</span>
+        </h1>
+        <div class="sa-subline">Central Multi-Tenant Platform Control Plane</div>
+      </div>
+    </div>
+
+    <div class="sa-top-actions">
+      <!-- Live Heartbeat -->
+      <div class="sa-status-indicator" id="platformStatusIndicator" title="MongoDB Atlas & Platform Operational">
+        <span class="pulse-dot"></span>
+        <span id="platformStatusText">Platform Live</span>
+      </div>
+
+      <!-- Quick Tenant Portal Jump -->
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <select class="sa-jump-select" id="quickTenantJumpSelect" aria-label="Jump to Academy Portal">
+          <option value="">⚡ Inspect Academy Portal...</option>
+        </select>
+        <button type="button" class="btn-sa btn-sa-secondary btn-sa-sm" id="btnLaunchSelectedTenant" title="Launch Academy Portal in Admin Mode">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Open
+        </button>
+      </div>
+
+      <!-- User Profile Badge -->
+      <div class="sa-user-pill">
+        <div class="sa-user-avatar" id="saUserAvatar">P</div>
+        <div class="sa-user-meta">
+          <span class="sa-user-name" id="saUserName">Prantik Das</span>
+          <span class="sa-user-role">Super Admin</span>
+        </div>
+      </div>
+
+      <!-- Sign Out -->
+      <button type="button" class="sa-btn-logout" id="btnSaLogout" title="Sign Out from Super Admin">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Secondary Tab Navigation -->
+  <nav class="sa-nav-bar">
+    <div class="sa-tabs" id="saNavTabs">
+      <button type="button" class="sa-tab active" data-view="overview" id="tabOverview">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Platform Overview</span>
+      </button>
+      <button type="button" class="sa-tab" data-view="tenants" id="tabTenants">
+        <i class="fa-solid fa-building-columns"></i>
+        <span>Academies & Tenants</span>
+        <span class="badge badge-pending" id="navPendingBadge" style="display: none;">0</span>
+      </button>
+      <button type="button" class="sa-tab" data-view="students" id="tabStudents">
+        <i class="fa-solid fa-user-graduate"></i>
+        <span>Network Students</span>
+      </button>
+      <button type="button" class="sa-tab" data-view="infrastructure" id="tabInfrastructure">
+        <i class="fa-solid fa-server"></i>
+        <span>Infrastructure & Health</span>
+      </button>
+    </div>
+
+    <div class="sa-nav-quick-actions">
+      <button type="button" class="btn-sa btn-sa-primary" id="btnOpenProvisionModal">
+        <i class="fa-solid fa-plus"></i> Provision Academy
+      </button>
+      <button type="button" class="btn-sa btn-sa-secondary" id="btnGlobalRefresh" title="Refresh Platform Data">
+        <i class="fa-solid fa-rotate"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="sa-main-content">
+
+    <!-- View: Platform Overview -->
+    <div id="viewOverview" class="sa-view-pane">
+      
+      <!-- Pending Approvals Alert Banner (Only if pending tenants exist) -->
+      <div class="sa-pending-banner" id="saPendingBanner" style="display: none; margin-bottom: 1.5rem;">
+        <div class="sa-pending-left">
+          <div class="sa-pending-icon">
+            <i class="fa-solid fa-bell"></i>
+          </div>
+          <div>
+            <div class="sa-pending-title">Academy Approvals Pending</div>
+            <div class="sa-pending-desc" id="saPendingBannerText">You have 0 academy registration requests waiting for activation.</div>
+          </div>
+        </div>
+        <button type="button" class="btn-sa btn-sa-success" id="btnJumpToPending">
+          <i class="fa-solid fa-list-check"></i> Review Requests
+        </button>
+      </div>
+
+      <!-- KPI Grid -->
+      <div class="sa-kpi-grid">
+        <div class="glass-panel sa-kpi-card">
+          <div class="sa-kpi-header">
+            <span class="sa-kpi-title">Total Academies</span>
+            <div class="sa-kpi-icon"><i class="fa-solid fa-school"></i></div>
+          </div>
+          <div class="sa-kpi-value" id="kpiTotalTenants">0</div>
+          <div class="sa-kpi-footer">
+            <span class="badge badge-active" id="kpiActiveTenantsBadge">0 Active</span>
+            <span class="badge badge-pending" id="kpiPendingTenantsBadge">0 Pending</span>
+          </div>
+        </div>
+
+        <div class="glass-panel sa-kpi-card kpi-accent-emerald">
+          <div class="sa-kpi-header">
+            <span class="sa-kpi-title">Network Students</span>
+            <div class="sa-kpi-icon" style="color: var(--success);"><i class="fa-solid fa-users"></i></div>
+          </div>
+          <div class="sa-kpi-value" id="kpiTotalStudents">0</div>
+          <div class="sa-kpi-footer">Across all registered academies</div>
+        </div>
+
+        <div class="glass-panel sa-kpi-card kpi-accent-cyan">
+          <div class="sa-kpi-header">
+            <span class="sa-kpi-title">Platform Courses</span>
+            <div class="sa-kpi-icon" style="color: #06b6d4;"><i class="fa-solid fa-book-open"></i></div>
+          </div>
+          <div class="sa-kpi-value" id="kpiTotalCourses">0</div>
+          <div class="sa-kpi-footer">Offered nationwide</div>
+        </div>
+
+        <div class="glass-panel sa-kpi-card kpi-accent-amber">
+          <div class="sa-kpi-header">
+            <span class="sa-kpi-title">Certificates Issued</span>
+            <div class="sa-kpi-icon" style="color: var(--warning);"><i class="fa-solid fa-award"></i></div>
+          </div>
+          <div class="sa-kpi-value" id="kpiTotalCertificates">0</div>
+          <div class="sa-kpi-footer">Verifiable online via QR & canvas</div>
+        </div>
+      </div>
+
+      <!-- Quick Platform Launchpad -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+        
+        <!-- Recent Academies Activity -->
+        <div class="glass-panel" style="padding: 1.5rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <h3 style="font-size: 1rem; font-weight: 700; color: #fff;">
+              <i class="fa-solid fa-building-circle-check" style="color: var(--primary-light); margin-right: 0.5rem;"></i>
+              Active Academies on Platform
+            </h3>
+            <button type="button" class="btn-sa btn-sa-secondary btn-sa-sm" id="btnViewAllTenantsLink">View All</button>
+          </div>
+          <div id="overviewTenantsList" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Platform System Summary -->
+        <div class="glass-panel" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+          <h3 style="font-size: 1rem; font-weight: 700; color: #fff;">
+            <i class="fa-solid fa-shield-halved" style="color: var(--success); margin-right: 0.5rem;"></i>
+            Platform Architecture
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.8125rem;">
+            <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);">
+              <span style="color: var(--text-muted);">Database</span>
+              <span style="font-weight: 600; color: #fff;">MongoDB Atlas (Partitioned)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);">
+              <span style="color: var(--text-muted);">Media CDN</span>
+              <span style="font-weight: 600; color: #fff;">ImageKit Student Photos</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);">
+              <span style="color: var(--text-muted);">Subdomain Engine</span>
+              <span style="font-weight: 600; color: #fff;">*.pixelsetu.com</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);">
+              <span style="color: var(--text-muted);">Super Admin</span>
+              <span style="font-weight: 600; color: var(--primary-light);">dasprantik76@gmail.com</span>
+            </div>
+          </div>
+
+          <div style="margin-top: auto; padding-top: 1rem;">
+            <a href="admin.html" target="_blank" class="btn-sa btn-sa-secondary" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-desktop"></i> Open Academy Owner Portal
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- View: Academies & Tenants Directory -->
+    <div id="viewTenants" class="sa-view-pane" style="display: none;">
+      
+      <!-- Toolbar -->
+      <div class="glass-panel sa-toolbar">
+        <div class="sa-filter-group" id="tenantFilters">
+          <button type="button" class="sa-filter-btn active" data-filter="all">All Academies</button>
+          <button type="button" class="sa-filter-btn" data-filter="pending">
+            Pending <span class="badge badge-pending" id="filterPendingBadge">0</span>
+          </button>
+          <button type="button" class="sa-filter-btn" data-filter="active">Active</button>
+          <button type="button" class="sa-filter-btn" data-filter="suspended">Suspended</button>
+        </div>
+
+        <div class="sa-search-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" class="sa-search-input" id="tenantSearchInput" placeholder="Search by name, owner, email, or slug...">
+        </div>
+      </div>
+
+      <!-- Tenants Table Container -->
+      <div class="glass-panel sa-table-container" style="margin-top: 1.25rem;">
+        <table class="sa-table" id="saTenantsTable">
+          <thead>
+            <tr>
+              <th>Academy & Domain</th>
+              <th>Owner & Contact</th>
+              <th>Platform Records</th>
+              <th>Status</th>
+              <th style="text-align: right;">Master Actions</th>
+            </tr>
+          </thead>
+          <tbody id="saTenantsTableBody">
+            <tr>
+              <td colspan="5" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                <i class="fa-solid fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Loading platform tenants...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- View: Network Students Registry -->
+    <div id="viewStudents" class="sa-view-pane" style="display: none;">
+      
+      <div class="glass-panel sa-toolbar">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <div style="font-weight: 700; color: #fff; font-size: 0.9375rem;">
+            <i class="fa-solid fa-users" style="color: var(--primary-light); margin-right: 0.4rem;"></i>
+            Global Student Search
+          </div>
+          <select class="sa-input" id="studentAcademyFilter" style="padding: 0.4rem 0.75rem; font-size: 0.8125rem;">
+            <option value="all">All Academies</option>
+          </select>
+        </div>
+
+        <div class="sa-search-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" class="sa-search-input" id="studentSearchInput" placeholder="Search by name, enrollment ID, phone, or email...">
+        </div>
+      </div>
+
+      <div class="glass-panel sa-table-container" style="margin-top: 1.25rem;">
+        <table class="sa-table" id="saStudentsTable">
+          <thead>
+            <tr>
+              <th>Enrollment ID</th>
+              <th>Student Name</th>
+              <th>Academy / Tenant</th>
+              <th>Enrolled Course</th>
+              <th>Join Date</th>
+              <th>Cert / Status</th>
+            </tr>
+          </thead>
+          <tbody id="saStudentsTableBody">
+            <tr>
+              <td colspan="6" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                <i class="fa-solid fa-spinner fa-spin" style="margin-right: 0.5rem;"></i> Loading global student registry...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- View: Infrastructure & Health -->
+    <div id="viewInfrastructure" class="sa-view-pane" style="display: none;">
+      
+      <div class="infra-grid">
+        <div class="glass-panel infra-item">
+          <div class="infra-meta">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+              <i class="fa-solid fa-database" style="color: var(--success); font-size: 1.1rem;"></i>
+              <h4>MongoDB Atlas Connection</h4>
+            </div>
+            <p id="infraMongoStatus">Connected to cluster via MONGODB_URI</p>
+          </div>
+          <span class="badge badge-active" id="badgeMongoStatus">ONLINE</span>
+        </div>
+
+        <div class="glass-panel infra-item">
+          <div class="infra-meta">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+              <i class="fa-solid fa-cloud-arrow-up" style="color: #06b6d4; font-size: 1.1rem;"></i>
+              <h4>ImageKit Media CDN</h4>
+            </div>
+            <p>Signed serverless upload authentication active</p>
+          </div>
+          <span class="badge badge-active">CONFIGURED</span>
+        </div>
+
+        <div class="glass-panel infra-item">
+          <div class="infra-meta">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+              <i class="fa-brands fa-google" style="color: #ea4335; font-size: 1.1rem;"></i>
+              <h4>Google Identity Services</h4>
+            </div>
+            <p>OAuth2 RSA-SHA256 JWT Server Verification</p>
+          </div>
+          <span class="badge badge-active">ACTIVE</span>
+        </div>
+
+        <div class="glass-panel infra-item">
+          <div class="infra-meta">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+              <i class="fa-solid fa-network-wired" style="color: var(--primary-light); font-size: 1.1rem;"></i>
+              <h4>Serverless Core API</h4>
+            </div>
+            <p id="infraApiPing">Ping: checking...</p>
+          </div>
+          <button type="button" class="btn-sa btn-sa-secondary btn-sa-sm" id="btnTestApiPing">
+            <i class="fa-solid fa-bolt"></i> Ping Test
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Modal: Provision New Academy Tenant -->
+  <div class="sa-modal-backdrop" id="provisionModal" style="display: none;">
+    <div class="sa-modal-card">
+      <div class="sa-modal-header">
+        <h3>Provision New Academy</h3>
+        <button type="button" class="sa-btn-logout" id="btnCloseProvisionModal" style="width: 28px; height: 28px;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form id="provisionAcademyForm">
+        <div class="sa-modal-body">
+          <div class="sa-form-group">
+            <label for="newAcademyName">Academy Name *</label>
+            <input type="text" class="sa-input" id="newAcademyName" required placeholder="e.g. Apex Technical Institute">
+          </div>
+          <div class="sa-form-group">
+            <label for="newOwnerName">Owner / Director Name *</label>
+            <input type="text" class="sa-input" id="newOwnerName" required placeholder="e.g. Rajesh Sharma">
+          </div>
+          <div class="sa-form-group">
+            <label for="newOwnerEmail">Owner Google Account Email *</label>
+            <input type="email" class="sa-input" id="newOwnerEmail" required placeholder="e.g. director@apex.edu">
+          </div>
+          <div class="sa-form-group">
+            <label for="newSlug">Public Subdomain Slug *</label>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <input type="text" class="sa-input" id="newSlug" required placeholder="e.g. apex" style="flex: 1;">
+              <span style="font-size: 0.8125rem; color: var(--text-muted); font-weight: 600;">.pixelsetu.com</span>
+            </div>
+          </div>
+          <div class="sa-form-group">
+            <label for="newCategory">Category</label>
+            <input type="text" class="sa-input" id="newCategory" placeholder="e.g. Computer Science & Software">
+          </div>
+          <div class="sa-form-group">
+            <label for="newPhone">Contact Phone</label>
+            <input type="text" class="sa-input" id="newPhone" placeholder="e.g. 9876543210">
+          </div>
+        </div>
+        <div class="sa-modal-footer">
+          <button type="button" class="btn-sa btn-sa-secondary" id="btnCancelProvision">Cancel</button>
+          <button type="submit" class="btn-sa btn-sa-primary" id="btnSubmitProvision">
+            <i class="fa-solid fa-check"></i> Provision Academy
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="saToast" class="sa-toast" style="display: none;"></div>
+
+  <!-- Dedicated Super Admin Logic Script -->
+  <script src="superadmin-script.js?v=1.2"></script>
+</body>
+</html>

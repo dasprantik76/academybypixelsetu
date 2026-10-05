@@ -35,11 +35,15 @@ function notifyLiveReload() {
 const publicFiles = [
   'index.html',
   'admin.html',
+  'superadmin.html',
+  'superadmin-style.css',
+  'superadmin-script.js',
   'admin-config.js',
   'admin-script.js',
   'certificate-canvas.js',
   'admin-style.css',
-  'assets'
+  'assets',
+  'public-site'
 ];
 
 let syncTimer = null;
@@ -150,10 +154,38 @@ const server = http.createServer(async (req, res) => {
       res.writeHead(204).end();
       return;
     }
+
     const relative = decodeURIComponent(url.pathname).replace(/^\/+/, '') || 'index.html';
     let targetRoot = path.join(root, 'public');
     let targetRelative = relative;
-    if (relative.startsWith('public-site/') || relative === 'public-site') {
+
+    if (url.pathname === '/a' || url.pathname === '/a/') {
+      res.setHeader('Location', '/');
+      return res.status(302).end();
+    }
+    if (url.pathname.startsWith('/a/')) {
+      const cleanPath = url.pathname.replace(/^\/a\//, '');
+      const possibleExt = path.extname(cleanPath);
+      if (possibleExt && types[possibleExt]) {
+        const targetFilename = cleanPath.split('/').pop();
+        let assetPath = path.join(root, 'public-site', targetFilename);
+        if (cleanPath.includes('assets/')) {
+          const sub = cleanPath.slice(cleanPath.indexOf('assets/'));
+          assetPath = path.join(root, 'public-site', sub);
+        }
+        targetRoot = path.join(root, 'public-site');
+        targetRelative = path.relative(targetRoot, assetPath);
+      } else {
+        targetRoot = path.join(root, 'public-site');
+        targetRelative = 'index.html';
+      }
+    } else if (url.pathname.startsWith('/academy/')) {
+      const slug = url.pathname.replace(/^\/academy\/?/, '').trim();
+      if (slug) {
+        res.setHeader('Location', `/a/${encodeURIComponent(slug)}`);
+        return res.status(302).end();
+      }
+    } else if (relative.startsWith('public-site/') || relative === 'public-site') {
       targetRoot = path.join(root, 'public-site');
       targetRelative = relative.replace(/^public-site\/?/, '') || 'index.html';
     }
@@ -191,3 +223,11 @@ const PORT = Number(process.env.PORT || 4000);
 server.listen(PORT, () => {
   console.log(`Live Server running at http://localhost:${PORT} and http://127.0.0.1:${PORT}`);
 });
+
+if (PORT !== 3000) {
+  const server3000 = http.createServer((req, res) => server.emit('request', req, res));
+  server3000.on('error', () => {});
+  server3000.listen(3000, () => {
+    console.log(`Also listening on port 3000 at http://localhost:3000`);
+  });
+}

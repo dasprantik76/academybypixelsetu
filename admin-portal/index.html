@@ -14,8 +14,8 @@
   <!-- Google Identity Services SDK -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="admin-style.css?v=2.3">
-  <script src="admin-config.js?v=3.2"></script>
+  <link rel="stylesheet" href="admin-style.css?v=2.5">
+  <script src="admin-config.js?v=3.4"></script>
   <style>
     .btn-google-action {
       display: flex;
@@ -68,7 +68,6 @@
       <!-- Google Sign In Section -->
       <div class="login-actions" style="margin: 1.75rem 0 1rem 0; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
         <div id="googleSignInBtn" aria-label="Sign in with Google"></div>
-
       </div>
 
       <!-- Footer Security Notice -->
@@ -89,14 +88,18 @@
     // Clean up any legacy keys
     localStorage.removeItem('educore_google_client_id');
 
-    // Check if already logged in -> redirect to admin dashboard
+    // Check if already logged in -> redirect to superadmin or admin dashboard
     const existingSession = localStorage.getItem(SESSION_KEY);
     if (existingSession) {
       try {
         const session = JSON.parse(existingSession);
         const userEmail = (session?.email || '').toLowerCase().trim();
         if (session && session.provider === 'google' && userEmail) {
-          window.location.href = 'admin.html' + (window.location.hash || '');
+          if (userEmail === 'dasprantik76@gmail.com' || session.isSuperAdmin) {
+            window.location.href = 'superadmin.html';
+          } else {
+            window.location.href = 'admin.html' + (window.location.hash || '');
+          }
         } else {
           localStorage.removeItem(SESSION_KEY);
         }

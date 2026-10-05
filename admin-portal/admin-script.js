@@ -137,8 +137,8 @@ function getInboxIconSvg() {
 const DEFAULT_INBOX_MESSAGES = [
   {
     id: "msg_101",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Sourav Mukherjee",
     phone: "9830145291",
     course: "Certificate in Financial Accounting (Tally Prime & GST)",
@@ -148,8 +148,8 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_102",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Priyanka Sengupta",
     phone: "9874120365",
     course: "Diploma in Computer Applications (DCA)",
@@ -159,8 +159,8 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_103",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Subhajit Karmakar",
     phone: "9123456780",
     course: "Full Stack Web Development",
@@ -170,8 +170,8 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_104",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Ananya Roychowdhury",
     phone: "9433219087",
     course: "Advanced Excel & Business Analytics",
@@ -181,8 +181,8 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_105",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Debjit Banerjee",
     phone: "9836541298",
     course: "Desktop Publishing & Graphic Design",
@@ -192,8 +192,8 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_106",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Riya Chakraborty",
     phone: "9748231905",
     course: "Python Programming & Data Science",
@@ -203,8 +203,8 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_107",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Tanmay Dutta",
     phone: "9831098234",
     course: "Diploma in Computer Applications (DCA)",
@@ -215,8 +215,8 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_108",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Sneha Bhattacharya",
     phone: "9051876432",
     course: "Certificate in Financial Accounting (Tally Prime & GST)",
@@ -227,8 +227,8 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_109",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Arindam Halder",
     phone: "9874561230",
     course: "Hardware & Networking Essentials",
@@ -239,8 +239,8 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_110",
-    ownerEmail: "dasprantik76@gmail.com",
-    academySlug: "prantik",
+    ownerEmail: "rcavirup@gmail.com",
+    academySlug: "diganta",
     name: "Moumita Paul",
     phone: "9432109876",
     course: "Full Stack Web Development",
@@ -254,7 +254,7 @@ const DEFAULT_INBOX_MESSAGES = [
 const DEFAULT_BATCHES = [
   {
     "id": "6e3812a3-9c16-4c92-810d-91d8c1a34b9c",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-13T09:38:36.607Z",
     "name": "Full Stack Web Development - Batch 2026",
     "status": "Active",
@@ -272,7 +272,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "666b2ca0-cc40-4857-a244-dbd5bd6c8558",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-12T11:02:27.287Z",
     "name": "DCC Course",
     "status": "Active",
@@ -289,7 +289,7 @@ const DEFAULT_BATCHES = [
     "grade": "A+"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "22ffd44f-bdfb-4ae5-aeee-65fc7d6b883c",
     "createdAt": "2026-09-11T17:29:02.591Z",
     "name": "New Batch 2021",
@@ -306,7 +306,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "d751d0a3-6fbf-4dd9-90aa-4872718ccd5a",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-11T13:52:29.133Z",
     "name": "computer science",
     "status": "Completed",
@@ -326,7 +326,7 @@ const DEFAULT_BATCHES = [
     "grade": "A+"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "360c0a7b-dd41-4988-9e88-16ad6a123f33",
     "createdAt": "2026-09-10T15:41:50.551Z",
     "name": "ABC",
@@ -342,7 +342,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "ff4eff8d-e437-4476-ba82-9c3d88067f60",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-10T15:34:22.539Z",
     "name": "Python for Data Analytics - Morning Cohort",
     "status": "Active",
@@ -357,7 +357,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "46703bae-aba5-468d-9f57-a1ddfcafb62c",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-08T10:56:46.934Z",
     "name": "Tally Prime & GST Filing - Weekend Batch",
     "status": "Active",
@@ -378,7 +378,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "af86a220-831a-4c25-9287-5b62ad4d00d1",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-05T08:15:45.050Z",
     "name": "Advanced Excel & MIS Reporting - Fast Track",
     "status": "Completed",
@@ -399,7 +399,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-09-05T08:15:45.050Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "64b3974f-848b-43a3-a77e-b580959c3b2e",
     "createdAt": "2026-09-02T18:03:54.477Z",
     "name": "Graphic Design & UI/UX - Batch Alpha",
@@ -425,7 +425,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "af929672-216c-4f3c-b5fd-db314934ca0c",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-31T14:35:44.976Z",
     "name": "Cybersecurity & Ethical Hacking - Cohort 1",
     "status": "Active",
@@ -450,7 +450,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-31T14:35:44.976Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "a0357697-9e15-4d7f-9d5f-80719dd77105",
     "createdAt": "2026-08-28T19:29:32.922Z",
     "name": "Diploma in Computer Applications (DCA) - Regular",
@@ -474,7 +474,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "b12bb9b2-e59d-469e-9830-103282c99e6b",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-26T12:02:13.493Z",
     "name": "Cloud Computing & AWS - Evening Batch",
     "status": "Active",
@@ -489,7 +489,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "25e45c23-c0d9-40bc-9461-9e78cb5fabfe",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-24T14:41:04.297Z",
     "name": "Digital Marketing & SEO - Batch 2026-A",
     "status": "Completed",
@@ -509,7 +509,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "ae43300f-cefb-4860-b94f-0a174e43b69b",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-21T16:10:35.675Z",
     "name": "Java Enterprise & Spring Boot - Weekend Intensive",
     "status": "Active",
@@ -525,7 +525,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-21T16:10:35.675Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "b7e12059-53bd-4b11-8ede-b8d45c41967e",
     "createdAt": "2026-08-18T18:01:08.148Z",
     "name": "AutoCAD 2D/3D & Interior Drafting - Batch 3",
@@ -545,7 +545,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-18T18:01:08.148Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "872ad8c1-fe23-4734-b2e3-289a2a224fac",
     "createdAt": "2026-08-16T23:22:11.177Z",
     "name": "Computer Hardware & Networking - Morning 1",
@@ -564,7 +564,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "ef5221d4-a9fb-4d36-8054-e6359d7782a9",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-13T23:31:46.243Z",
     "name": "React & Next.js Masterclass - Cohort B",
     "status": "Active",
@@ -578,7 +578,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-13T23:31:46.243Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "68530de7-71f1-4292-b770-50cbb396623a",
     "createdAt": "2026-08-12T03:05:40.728Z",
     "name": "Financial Accounting with Tally - Batch Delta",
@@ -600,7 +600,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-12T03:05:40.728Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "c697dff2-e7b6-4b55-8edf-bf57de3491a2",
     "createdAt": "2026-08-09T12:29:44.247Z",
     "name": "C++ & Algorithms - Winter Cohort",
@@ -621,7 +621,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "07c8a65d-da29-4cbc-ab78-95b5018e8fbc",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-06T05:40:42.880Z",
     "name": "Office Automation & Typing - Regular Batch",
     "status": "Active",
@@ -635,7 +635,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "8c2694a8-62d1-4574-a98c-2aa515b09153",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-03T17:56:23.714Z",
     "name": "Flutter & Mobile App Development - Weekend",
     "status": "Active",
@@ -658,7 +658,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "89ee35d0-c9f8-4206-93ea-2e93d5c19e68",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-01T20:28:22.458Z",
     "name": "Artificial Intelligence & Prompt Engineering - Cohort 2",
     "status": "Active",
@@ -677,7 +677,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-01T20:28:22.458Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "f54c9bf4-4ea1-4f99-a0f9-06d3f0b25014",
     "createdAt": "2026-07-30T10:47:11.803Z",
     "name": "DTP, InDesign & Photoshop - Evening Batch",
@@ -702,7 +702,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-07-30T10:47:11.803Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "1d403882-815e-45b6-bb76-5b54ec3a51ea",
     "createdAt": "2026-07-28T02:31:56.036Z",
     "name": "SQL & Database Administration - Fast Track",
@@ -718,7 +718,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-07-28T02:31:56.036Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "72f3a4af-5b8f-4a12-a6b5-7940f0c06767",
     "createdAt": "2026-07-25T14:16:02.899Z",
     "name": "IT Support & System Administration - Batch 4",
@@ -738,7 +738,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-07-25T14:16:02.899Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "6a5aabdf-f78a-4abb-bb36-683b703e1d0f",
     "createdAt": "2026-07-22T12:55:11.620Z",
     "name": "Web Design & Frontend Development - Cohort Gamma",
@@ -753,7 +753,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "615a4275-6c74-40ee-9840-2d7b28965654",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-07-20T10:25:42.909Z",
     "name": "Node.js & Microservices - Weekend Cohort",
     "status": "Active",
@@ -772,7 +772,7 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "8dcf54cd-92cd-4386-b3f7-fc10d2dd1c5a",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-07-18T01:51:06.481Z",
     "name": "Certificate in Financial Management (CFM) - Batch 2",
     "status": "Completed",
@@ -793,7 +793,7 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-07-18T01:51:06.481Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "a1ab6746-a5f4-4c1e-a4ab-0415e17c5ac3",
     "createdAt": "2026-07-15T12:11:18.614Z",
     "name": "Python Django & REST API - Evening Cohort",
@@ -815,12 +815,14 @@ const DEFAULT_BATCHES = [
 // 2. State & Storage Management
 // ==========================================================================
 class AcademyStore {
-  constructor(academySlug = 'prantik') {
-    this.ownerEmail = (academySlug || 'prantik').toLowerCase().trim();
+  constructor(academySlug = 'diganta') {
+    this.ownerEmail = (academySlug || 'diganta').toLowerCase().trim();
     this.courses = [];
     this.students = [];
     this.messages = [];
     this.batches = [];
+    this.tenantStatus = 'active';
+    this.isSuperAdmin = false;
     this.init();
   }
 
@@ -829,11 +831,20 @@ class AcademyStore {
   }
 
   init() {
+    const isSuperAdminEmail = this.ownerEmail === 'dasprantik76@gmail.com';
+    const isMainDigantaEmail = this.ownerEmail === 'rcavirup@gmail.com' || this.ownerEmail === 'diganta';
+    this.tenantStatus = localStorage.getItem(this.getStorageKey('educore_tenant_status')) || (isSuperAdminEmail || isMainDigantaEmail || this.ownerEmail === 'prantik' ? 'active' : 'pending');
+    this.isSuperAdmin = isSuperAdminEmail;
+    if (!isSuperAdminEmail) {
+      localStorage.removeItem(this.getStorageKey('educore_is_super_admin'));
+      localStorage.removeItem('educore_is_super_admin');
+    }
     const rawCourses = localStorage.getItem(this.getStorageKey(STORAGE_KEYS.COURSES));
     const rawStudents = localStorage.getItem(this.getStorageKey(STORAGE_KEYS.STUDENTS));
     const rawMessages = localStorage.getItem(this.getStorageKey(STORAGE_KEYS.MESSAGES));
     const rawBatches = localStorage.getItem(this.getStorageKey(STORAGE_KEYS.BATCHES));
 
+    const isDiganta = isMainDigantaEmail || isSuperAdminEmail || this.ownerEmail === 'prantik';
     if (rawCourses) {
       try {
         this.courses = JSON.parse(rawCourses) || [];
@@ -841,14 +852,14 @@ class AcademyStore {
         this.courses = [];
       }
     } else {
-      this.courses = this.ownerEmail.includes('poulami') ? [] : DEFAULT_COMPUTER_COURSES.map(course => ({ ...course }));
+      this.courses = isDiganta ? DEFAULT_COMPUTER_COURSES.map(course => ({ ...course })) : [];
       if (this.courses.length > 0) {
         localStorage.setItem(this.getStorageKey(STORAGE_KEYS.COURSES), JSON.stringify(this.courses));
       }
     }
 
     const seedVersionKey = this.getStorageKey('educore_course_seed_version');
-    if (!this.ownerEmail.includes('poulami') && localStorage.getItem(seedVersionKey) !== COURSE_SEED_VERSION) {
+    if (isDiganta && localStorage.getItem(seedVersionKey) !== COURSE_SEED_VERSION) {
       const existingIds = new Set(this.courses.map(course => course.id));
       DEFAULT_COMPUTER_COURSES.forEach(course => {
         if (!existingIds.has(course.id)) this.courses.push({ ...course });
@@ -875,11 +886,11 @@ class AcademyStore {
       }
     }
     if (!Array.isArray(this.messages) || this.messages.length === 0) {
-      this.messages = JSON.parse(JSON.stringify(DEFAULT_INBOX_MESSAGES));
+      this.messages = isDiganta ? JSON.parse(JSON.stringify(DEFAULT_INBOX_MESSAGES)) : [];
     }
     try { this.batches = JSON.parse(rawBatches || '[]') || []; } catch { this.batches = []; }
     if (!Array.isArray(this.batches) || this.batches.length === 0) {
-      this.batches = JSON.parse(JSON.stringify(DEFAULT_BATCHES));
+      this.batches = isDiganta ? JSON.parse(JSON.stringify(DEFAULT_BATCHES)) : [];
     }
 
     // Ensure historical/existing records have createdAt timestamps for accurate New to Old sorting
@@ -907,11 +918,26 @@ class AcademyStore {
   // Asynchronously synchronize with MongoDB Multi-Tenant Cloud Storage (/api/data)
   async fetchCloudData(onLoadedCallback) {
     try {
-      const response = await fetch(`/api/data?academy=${encodeURIComponent(this.ownerEmail)}&admin=1`, { cache: 'no-store' });
+      const queryParam = this.ownerEmail.includes('@')
+        ? `ownerEmail=${encodeURIComponent(this.ownerEmail)}`
+        : `academy=${encodeURIComponent(this.ownerEmail)}`;
+      const response = await fetch(`/api/data?${queryParam}&admin=1`, { cache: 'no-store' });
       if (!response.ok) return false;
       const json = await response.json();
-      if (json && json.success && json.data) {
-        const { profile, courses, students, messages, batches, authToken } = json.data;
+      if (json && json.success) {
+        if (json.tenant) {
+          this.tenantStatus = json.tenant.status || (this.isSuperAdmin ? 'active' : 'pending');
+          this.isSuperAdmin = Boolean(json.tenant.isSuperAdmin) && (this.ownerEmail === 'dasprantik76@gmail.com');
+          localStorage.setItem(this.getStorageKey('educore_tenant_status'), this.tenantStatus);
+          if (this.isSuperAdmin) {
+            localStorage.setItem(this.getStorageKey('educore_is_super_admin'), 'true');
+          } else {
+            localStorage.removeItem(this.getStorageKey('educore_is_super_admin'));
+            localStorage.removeItem('educore_is_super_admin');
+          }
+        }
+        if (json.data) {
+          const { profile, courses, students, messages, batches, authToken } = json.data;
 
         if (Array.isArray(courses)) {
           this.courses = courses;
@@ -952,9 +978,10 @@ class AcademyStore {
         }
         return true;
       }
-    } catch (e) {
-      console.info('[AcademyStore] Operating in local storage caching for', this.ownerEmail);
     }
+  } catch (e) {
+    console.info('[AcademyStore] Operating in local storage caching for', this.ownerEmail);
+  }
     return false;
   }
 
@@ -967,7 +994,8 @@ class AcademyStore {
           action,
           payload: {
             ...payload,
-            academySlug: this.ownerEmail
+            ownerEmail: this.ownerEmail,
+            academySlug: this.getAcademyProfile()?.slug || this.ownerEmail
           }
         })
       });
@@ -976,6 +1004,14 @@ class AcademyStore {
     } catch (e) {
       return false;
     }
+  }
+
+  async getAllTenants() {
+    return await this.syncToCloud('get_all_tenants', {});
+  }
+
+  async updateTenantStatus(targetOwnerEmail, status) {
+    return await this.syncToCloud('update_tenant_status', { targetOwnerEmail, status });
   }
 
   save() {
@@ -1094,15 +1130,31 @@ class AcademyStore {
           slug: 'poulami'
         };
       }
-      return {
-        academyName: 'Diganta Computer Centre',
-        ownerName: 'Prantik Das',
-        email: 'swarupkhan1@gmail.com',
-        phone: '9733894742',
-        secondaryPhone: '9733894742',
-        whatsapp: '9733894742',
-        slug: 'prantik'
-      };
+      if (this.ownerEmail === 'rcavirup@gmail.com' || this.ownerEmail === 'diganta') {
+        return {
+          academyName: 'Diganta Computer Centre',
+          ownerName: 'Diganta',
+          email: 'rcavirup@gmail.com',
+          phone: '9733894742',
+          secondaryPhone: '9733894742',
+          whatsapp: '9733894742',
+          address: 'Shyampur, Howrah',
+          slug: 'diganta',
+          studentIdPrefix: 'DCC/SMP/'
+        };
+      }
+      if (this.ownerEmail === 'rcavirup@gmail.com' || this.ownerEmail === 'prantik' || this.ownerEmail === 'diganta') {
+        return {
+          academyName: 'PixelSetu Academy Platform',
+          ownerName: 'Prantik Das',
+          email: 'rcavirup@gmail.com',
+          phone: '9733894742',
+          secondaryPhone: '9733894742',
+          whatsapp: '9733894742',
+          slug: 'prantik'
+        };
+      }
+      return null;
     }
     try {
       return JSON.parse(raw);
@@ -1302,6 +1354,30 @@ const store = new AcademyStore(activeAcademySlug);
 // ==========================================================================
 class UIController {
   constructor() {
+    // Check for local development auto-login parameter (?dev=superadmin or ?dev=rcavirup or ?dev=new)
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const devParam = new URLSearchParams(window.location.search).get('dev');
+    if (isLocalhost && devParam) {
+      let email = 'dasprantik76@gmail.com';
+      let name = 'Prantik Das (Super Admin)';
+      if (devParam === 'rcavirup' || devParam === 'diganta') {
+        email = 'rcavirup@gmail.com';
+        name = 'Diganta';
+      } else if (devParam === 'new' || devParam === 'pending') {
+        email = 'newtenant@academy.com';
+        name = 'New Academy Owner';
+      } else if (devParam.includes('@')) {
+        email = devParam.toLowerCase().trim();
+        name = email.split('@')[0];
+      }
+      localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify({
+        name,
+        email,
+        provider: 'google',
+        loggedInAt: Date.now()
+      }));
+    }
+
     // Check Authentication Session Gate
     const rawSession = localStorage.getItem(STORAGE_KEYS.SESSION);
     if (!rawSession) {
@@ -1323,15 +1399,41 @@ class UIController {
       return;
     }
 
-    // Keep storage and cloud requests scoped to the configured academy.
-    store.ownerEmail = activeAcademySlug;
+    // Keep storage and cloud requests scoped to the authenticated administrator.
+    const userEmail = (this.session?.email || '').toLowerCase().trim();
+    const isMasterSuperAdmin = userEmail === 'dasprantik76@gmail.com' || Boolean(this.session?.isSuperAdmin);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const impersonateEmail = urlParams.get('impersonate')?.toLowerCase().trim();
+
+    if (isMasterSuperAdmin && impersonateEmail) {
+      store.ownerEmail = impersonateEmail;
+      store.isImpersonating = true;
+      store.masterSuperAdminEmail = userEmail;
+    } else {
+      store.ownerEmail = userEmail || activeAcademySlug;
+      store.isImpersonating = false;
+    }
     store.init();
 
+    const isSuperAdminUser = isMasterSuperAdmin;
+    if (isSuperAdminUser) {
+      document.body.classList.add('is-superadmin');
+    } else {
+      document.body.classList.remove('is-superadmin');
+    }
+
     const initialHash = (window.location.hash || '').replace('#', '');
-    const validViews = ['dashboard', 'students', 'courses', 'batches', 'certificates', 'idcards', 'inbox', 'personalisation'];
-    const targetView = validViews.includes(initialHash) ? initialHash : 'dashboard';
+    if (initialHash === 'tenants') {
+      window.location.replace('superadmin.html');
+      return;
+    }
+    const validViews = ['dashboard', 'students', 'courses', 'batches', 'certificates', 'idcards', 'inbox', 'branding', 'personalisation'];
+    let targetView = validViews.includes(initialHash) ? initialHash : 'dashboard';
     this.currentView = targetView;
     this.confirmCallback = null;
+    this.platformTenants = [];
+    this.tenantActiveFilter = 'all';
 
     // Filter states
     this.studentSearchQuery = '';
@@ -1351,27 +1453,53 @@ class UIController {
     this.bindEvents();
     if (targetView !== 'dashboard') {
       this.applyViewLayout(targetView);
+      if (targetView === 'personalisation') {
+        this.populatePersonalisationForm();
+      }
+      if (targetView === 'branding') {
+        this.populateBrandingForm();
+      }
     }
     this.render();
     this.startAuthCountdownTimer();
-    this.dashboardGreetingTimer = setInterval(() => this.updateDashboardGreeting(), 60000);
     this.updatePublicSiteLink();
+    this.checkAccountStatus();
 
     // Synchronize with Multi-Tenant MongoDB cloud storage in background
     store.fetchCloudData(() => {
       this.populateCourseFilterDropdown();
       this.populateBatchFilterDropdown();
       this.populateCourseDropdownInStudentModal();
+      if (this.currentView === 'personalisation') {
+        this.populatePersonalisationForm();
+      }
+      if (this.currentView === 'branding') {
+        this.populateBrandingForm();
+      }
       this.render();
       this.updatePublicSiteLink();
+      this.checkAccountStatus();
     });
 
     // Auto-refresh data when switching back to this browser tab
     window.addEventListener('focus', () => {
       store.fetchCloudData(() => {
+        if (this.currentView === 'personalisation') {
+          this.populatePersonalisationForm();
+        }
+        if (this.currentView === 'branding') {
+          this.populateBrandingForm();
+        }
         this.render();
       });
     });
+  }
+
+  updateSuperAdminState() {
+    // Academy owner portal remains completely clean with no superadmin controls
+    if (this.navTenants) {
+      this.navTenants.style.setProperty('display', 'none', 'important');
+    }
   }
 
   getRootDomain() {
@@ -1379,10 +1507,21 @@ class UIController {
   }
 
   getPublicUrlForSlug(slug) {
+    const cleanSlug = (slug || '').toLowerCase().trim();
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const configuredSites = window.ADMIN_PORTAL_CONFIG?.publicSites || {};
-    return configuredSites[slug]
-      || window.ADMIN_PORTAL_CONFIG?.defaultPublicSiteUrl
-      || 'https://diganta.pixelsetu.com';
+
+    // Dedicated custom production domain if explicitly mapped in config and not in local dev
+    if (!isLocalhost && cleanSlug && configuredSites[cleanSlug]) {
+      return configuredSites[cleanSlug];
+    }
+
+    // Default: Clean slug-based public website URL: /a/<slug>
+    const baseOrigin = window.location.origin || 'https://academy.pixelsetu.com';
+    if (!cleanSlug) {
+      return `${baseOrigin}/a/`;
+    }
+    return `${baseOrigin}/a/${encodeURIComponent(cleanSlug)}`;
   }
 
   getCertificateVerificationUrl(student) {
@@ -1396,7 +1535,7 @@ class UIController {
 
   updatePublicSiteLink() {
     const profile = store.getAcademyProfile();
-    const slug = profile?.slug || (this.session?.email?.includes('poulami') ? 'poulami' : 'prantik');
+    const slug = profile?.slug || (this.session?.email?.includes('poulami') ? 'poulami' : (this.session?.email?.includes('diganta') ? 'diganta' : ''));
     const publicUrl = this.getPublicUrlForSlug(slug);
 
     const btnViewPublicSite = document.getElementById('btnViewPublicSite');
@@ -1434,6 +1573,28 @@ class UIController {
     this.sidebarUserName = document.getElementById('sidebarUserName');
     this.sidebarUserEmail = document.getElementById('sidebarUserEmail');
     this.btnLogout = document.getElementById('btnLogout');
+
+    // Account on Hold Elements
+    this.accountOnHoldScreen = document.getElementById('accountOnHoldScreen');
+    this.holdAcademyName = document.getElementById('holdAcademyName');
+    this.holdSubdomainUrl = document.getElementById('holdSubdomainUrl');
+    this.holdOwnerName = document.getElementById('holdOwnerName');
+    this.holdOwnerEmail = document.getElementById('holdOwnerEmail');
+    this.holdStatusBadge = document.getElementById('holdStatusBadge');
+    this.btnRefreshHoldStatus = document.getElementById('btnRefreshHoldStatus');
+    this.btnHoldLogout = document.getElementById('btnHoldLogout');
+
+    // Super Admin Elements
+    this.navTenants = document.getElementById('nav-tenants');
+    this.pendingTenantsBadge = document.getElementById('pendingTenantsBadge');
+    this.statTotalTenants = document.getElementById('statTotalTenants');
+    this.statPendingTenants = document.getElementById('statPendingTenants');
+    this.statActiveTenants = document.getElementById('statActiveTenants');
+    this.pillPendingCount = document.getElementById('pillPendingCount');
+    this.tenantSearchQuery = document.getElementById('tenantSearchQuery');
+    this.tenantFilterGroup = document.getElementById('tenantFilterGroup');
+    this.tenantsTableBody = document.getElementById('tenantsTableBody');
+    this.btnRefreshTenants = document.getElementById('btnRefreshTenants');
 
     // Dashboard Elements
     this.statTotalStudents = document.getElementById('statTotalStudents');
@@ -1877,6 +2038,7 @@ class UIController {
     this.settingsOwnerName = document.getElementById('settingsOwnerName');
     this.settingsSubdomainSlug = document.getElementById('settingsSubdomainSlug');
     this.settingsSubdomainSuffix = document.getElementById('settingsSubdomainSuffix');
+    this.settingsSlugPrefix = document.getElementById('settingsSlugPrefix');
     this.btnCloseAcademySettingsModal = document.getElementById('btnCloseAcademySettingsModal');
     this.btnCancelAcademySettings = document.getElementById('btnCancelAcademySettings');
 
@@ -1887,32 +2049,139 @@ class UIController {
     this.onboardingOwnerName = document.getElementById('onboardingOwnerName');
     this.onboardingSubdomainSlug = document.getElementById('onboardingSubdomainSlug');
     this.onboardingSubdomainSuffix = document.getElementById('onboardingSubdomainSuffix');
+    this.onboardingSlugPrefix = document.getElementById('onboardingSlugPrefix');
     // Personalisation View Elements
     this.navPersonalisation = document.getElementById('nav-personalisation');
     this.viewPersonalisation = document.getElementById('view-personalisation');
     this.btnPersonalisationPreviewLive = document.getElementById('btnPersonalisationPreviewLive');
     this.btnSavePersonalisationTop = document.getElementById('btnSavePersonalisationTop');
     this.personalisationForm = document.getElementById('personalisationForm');
+    this.persTabBtns = document.querySelectorAll('.pers-tab-btn');
+    this.persTabPanes = document.querySelectorAll('.pers-tab-pane');
     this.persSubdomainSlug = document.getElementById('persSubdomainSlug');
     this.persFullUrlPreview = document.getElementById('persFullUrlPreview');
     this.btnPersCopyLink = document.getElementById('btnPersCopyLink');
     this.persAcademyName = document.getElementById('persAcademyName');
     this.persCategory = document.getElementById('persCategory');
+    this.persHeroTitle1 = document.getElementById('persHeroTitle1');
+    this.persHeroTitle2 = document.getElementById('persHeroTitle2');
     this.persHeroTagline = document.getElementById('persHeroTagline');
     this.persOwnerName = document.getElementById('persOwnerName');
     this.persHeroDesc = document.getElementById('persHeroDesc');
-    this.persPhone = document.getElementById('persPhone');
-    this.persSecondaryPhone = document.getElementById('persSecondaryPhone');
-    this.persEmail = document.getElementById('persEmail');
-    this.persAddress = document.getElementById('persAddress');
-    this.persPinCode = document.getElementById('persPinCode');
+    this.heroPhotos = [];
+    this.persHeroPhotosFile = document.getElementById('persHeroPhotosFile');
+    this.btnUploadHeroPhotos = document.getElementById('btnUploadHeroPhotos');
+    this.heroPhotosDropZone = document.getElementById('heroPhotosDropZone');
+    this.heroPhotosGrid = document.getElementById('heroPhotosGrid');
+    this.heroPhotosCountBadge = document.getElementById('heroPhotosCountBadge');
+    this.heroMultiActions = document.getElementById('heroMultiActions');
+    this.heroUploadPromptText = document.getElementById('heroUploadPromptText');
+    this.persHeroImg1 = document.getElementById('persHeroImg1');
+    this.persHeroImg2 = document.getElementById('persHeroImg2');
+    this.persNotice1 = document.getElementById('persNotice1');
+    this.persNotice2 = document.getElementById('persNotice2');
+    this.persNotice3 = document.getElementById('persNotice3');
+    this.persBannerPhone = document.getElementById('persBannerPhone');
+    this.persBannerTagline = document.getElementById('persBannerTagline');
+    this.persEstYear = document.getElementById('persEstYear');
     this.persAboutHeadline = document.getElementById('persAboutHeadline');
+    this.persAboutDirector = document.getElementById('persAboutDirector');
     this.persAboutStory = document.getElementById('persAboutStory');
+    this.persAboutStoryImg = document.getElementById('persAboutStoryImg');
+    this.persAboutStoryImgFile = document.getElementById('persAboutStoryImgFile');
+    this.btnUploadAboutStoryImg = document.getElementById('btnUploadAboutStoryImg');
+    this.btnRemoveAboutStoryImg = document.getElementById('btnRemoveAboutStoryImg');
+    this.aboutStoryDropZone = document.getElementById('aboutStoryDropZone');
+    this.persAboutStoryPreviewImg = document.getElementById('persAboutStoryPreviewImg');
+    this.persAboutStoryPlaceholder = document.getElementById('persAboutStoryPlaceholder');
     this.persHighlight1 = document.getElementById('persHighlight1');
     this.persHighlight2 = document.getElementById('persHighlight2');
     this.persHighlight3 = document.getElementById('persHighlight3');
     this.persHighlight4 = document.getElementById('persHighlight4');
+    this.persLogoUrl = document.getElementById('persLogoUrl');
+    this.persLogoFile = document.getElementById('persLogoFile');
+    this.btnUploadLogo = document.getElementById('btnUploadLogo');
+    this.btnRemoveLogo = document.getElementById('btnRemoveLogo');
+    this.logoDropZone = document.getElementById('logoDropZone');
+    this.persLogoPreviewImg = document.getElementById('persLogoPreviewImg');
+    this.persLogoPreviewPlaceholder = document.getElementById('persLogoPreviewPlaceholder');
+    this.persFaviconUrl = document.getElementById('persFaviconUrl');
+    this.persFaviconFile = document.getElementById('persFaviconFile');
+    this.btnUploadFavicon = document.getElementById('btnUploadFavicon');
+    this.btnRemoveFavicon = document.getElementById('btnRemoveFavicon');
+    this.faviconDropZone = document.getElementById('faviconDropZone');
+    this.persFaviconPreviewImg = document.getElementById('persFaviconPreviewImg');
+    this.persFaviconPreviewPlaceholder = document.getElementById('persFaviconPreviewPlaceholder');
+    this.persSignatureUrl = document.getElementById('persSignatureUrl');
+    this.persSignatureFile = document.getElementById('persSignatureFile');
+    this.btnUploadSignature = document.getElementById('btnUploadSignature');
+    this.btnRemoveSignature = document.getElementById('btnRemoveSignature');
+    this.signatureDropZone = document.getElementById('signatureDropZone');
+    this.persSignaturePreviewImg = document.getElementById('persSignaturePreviewImg');
+    this.persSignaturePreviewPlaceholder = document.getElementById('persSignaturePreviewPlaceholder');
+    this.accreditationLogos = [];
+    this.persAccreditationUrls = document.getElementById('persAccreditationUrls');
+    this.persAccreditationsFile = document.getElementById('persAccreditationsFile');
+    this.btnUploadAccreditations = document.getElementById('btnUploadAccreditations');
+    this.accreditationsDropZone = document.getElementById('accreditationsDropZone');
+    this.persAccreditationsGrid = document.getElementById('persAccreditationsGrid');
+    this.accreditationsCountBadge = document.getElementById('accreditationsCountBadge');
+    this.persGalleryHeading = document.getElementById('persGalleryHeading');
+    this.persGallerySubtitle = document.getElementById('persGallerySubtitle');
+    this.galleryPhotos = [];
+    this.persGalleryUrls = document.getElementById('persGalleryUrls');
+    this.persGalleryFiles = document.getElementById('persGalleryFiles');
+    this.btnUploadGalleryPhotos = document.getElementById('btnUploadGalleryPhotos');
+    this.galleryDropZone = document.getElementById('galleryDropZone');
+    this.persGalleryGrid = document.getElementById('persGalleryGrid');
+    this.galleryCountBadge = document.getElementById('galleryCountBadge');
+    this.persPhone = document.getElementById('persPhone');
+    this.persSecondaryPhone = document.getElementById('persSecondaryPhone');
+    this.persEmail = document.getElementById('persEmail');
+    this.persBranch1 = document.getElementById('persBranch1');
+    this.persBranch2 = document.getElementById('persBranch2');
+    this.persAddress = document.getElementById('persAddress');
+    this.persPinCode = document.getElementById('persPinCode');
+    this.persMapUrl = document.getElementById('persMapUrl');
+    this.persSocialWhatsapp = document.getElementById('persSocialWhatsapp');
+    this.persSocialFacebook = document.getElementById('persSocialFacebook');
+    this.persSocialInstagram = document.getElementById('persSocialInstagram');
+    this.persSocialYoutube = document.getElementById('persSocialYoutube');
+    this.persSocialLinkedin = document.getElementById('persSocialLinkedin');
+    this.persSocialTwitter = document.getElementById('persSocialTwitter');
+    this.persFooterBio = document.getElementById('persFooterBio');
+    this.persFooterProof = document.getElementById('persFooterProof');
+    this.persFooterCopyright = document.getElementById('persFooterCopyright');
     this.btnSavePersonalisation = document.getElementById('btnSavePersonalisation');
+    this.btnPublishPersonalisation = document.getElementById('btnPublishPersonalisation');
+
+    // Section Visibility Toggles
+    this.sectionVisibilityCheckboxes = document.querySelectorAll('.section-visibility-checkbox');
+    this.toggleVisibilityHero = document.getElementById('toggleVisibilityHero');
+    this.toggleVisibilityBanner = document.getElementById('toggleVisibilityBanner');
+    this.toggleVisibilityAbout = document.getElementById('toggleVisibilityAbout');
+    this.toggleVisibilityAccreditations = document.getElementById('toggleVisibilityAccreditations');
+    this.toggleVisibilityGallery = document.getElementById('toggleVisibilityGallery');
+    this.toggleVisibilityContact = document.getElementById('toggleVisibilityContact');
+    this.toggleVisibilitySocials = document.getElementById('toggleVisibilitySocials');
+    this.toggleVisibilityFooter = document.getElementById('toggleVisibilityFooter');
+
+    // Branding View Elements
+    this.navBranding = document.getElementById('nav-branding');
+    this.viewBranding = document.getElementById('view-branding');
+    this.brandingForm = document.getElementById('brandingForm');
+    this.brandingAcademyName = document.getElementById('brandingAcademyName');
+    this.brandingPhone = document.getElementById('brandingPhone');
+    this.brandingEmail = document.getElementById('brandingEmail');
+    this.brandingLogoDropZone = document.getElementById('brandingLogoDropZone');
+    this.brandingLogoPreviewBox = document.getElementById('brandingLogoPreviewBox');
+    this.brandingLogoImg = document.getElementById('brandingLogoImg');
+    this.brandingLogoPlaceholder = document.getElementById('brandingLogoPlaceholder');
+    this.brandingLogoFileInput = document.getElementById('brandingLogoFileInput');
+    this.btnUploadBrandingLogo = document.getElementById('btnUploadBrandingLogo');
+    this.btnRemoveBrandingLogo = document.getElementById('btnRemoveBrandingLogo');
+    this.brandingLogoUrl = document.getElementById('brandingLogoUrl');
+    this.btnSaveBranding = document.getElementById('btnSaveBranding');
 
     this.toastContainer = document.getElementById('toastContainer');
   }
@@ -2031,7 +2300,7 @@ class UIController {
     if (this.btnCopyPublicUrl) {
       this.btnCopyPublicUrl.addEventListener('click', () => {
         const profile = store.getAcademyProfile();
-        const slug = profile?.slug || (this.session?.email?.includes('poulami') ? 'poulami' : 'prantik');
+        const slug = profile?.slug || (this.session?.email?.includes('poulami') ? 'poulami' : (this.session?.email?.includes('prantik') ? 'prantik' : ''));
         const url = this.getPublicUrlForSlug(slug);
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -2076,14 +2345,164 @@ class UIController {
       });
     }
 
-    if (this.personalisationForm) {
-      this.personalisationForm.addEventListener('submit', (e) => this.handleSavePersonalisation(e));
+    // Personalisation Section Tabs Switching
+    if (this.persTabBtns) {
+      this.persTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tabKey = btn.getAttribute('data-tab');
+          this.switchPersonalisationTab(tabKey);
+        });
+      });
     }
 
-    if (this.btnSavePersonalisationTop) {
-      this.btnSavePersonalisationTop.addEventListener('click', () => {
-        if (this.personalisationForm) this.personalisationForm.requestSubmit();
+    // Section Visibility Toggle Switches (Instant toggle & auto-save)
+    if (this.sectionVisibilityCheckboxes) {
+      this.sectionVisibilityCheckboxes.forEach(chk => {
+        chk.addEventListener('change', async () => {
+          const sectionKey = chk.getAttribute('data-section');
+          const isVisible = chk.checked;
+          this.updateSectionVisibilityPill(sectionKey, isVisible);
+
+          const currentProfile = store.getAcademyProfile() || {};
+          const secVis = { ...(currentProfile.sectionVisibility || {}) };
+          secVis[sectionKey] = isVisible;
+          const updatedProfile = {
+            ...currentProfile,
+            sectionVisibility: secVis,
+            updatedAt: Date.now()
+          };
+          try {
+            await store.saveAcademyProfile(updatedProfile);
+            const secName = sectionKey.charAt(0).toUpperCase() + sectionKey.slice(1);
+            this.showToast(
+              isVisible ? `${secName} Section Visible` : `${secName} Section Hidden`,
+              `${secName} section is now ${isVisible ? 'visible on' : 'hidden from'} your public website.`,
+              'info'
+            );
+          } catch (err) {
+            console.error('[Admin] Failed saving section visibility:', err);
+          }
+        });
       });
+    }
+
+    // Initialize Personalisation Image Uploaders
+    this.initPersonalisationUploaders();
+
+    if (this.btnSavePersonalisation) {
+      this.btnSavePersonalisation.addEventListener('click', (e) => this.handleSavePersonalisation(e, { publish: false }));
+    }
+
+    if (this.btnPublishPersonalisation) {
+      this.btnPublishPersonalisation.addEventListener('click', (e) => this.handleSavePersonalisation(e, { publish: true }));
+    }
+
+    if (this.personalisationForm) {
+      this.personalisationForm.addEventListener('submit', (e) => this.handleSavePersonalisation(e, { publish: false }));
+    }
+
+    // Branding Form & Logo Uploader Handlers
+    if (this.btnUploadBrandingLogo && this.brandingLogoFileInput) {
+      this.btnUploadBrandingLogo.addEventListener('click', () => {
+        this.brandingLogoFileInput.click();
+      });
+    }
+
+    if (this.brandingLogoFileInput) {
+      this.brandingLogoFileInput.addEventListener('change', (e) => {
+        const file = e.target.files?.[0];
+        if (file) this.handleBrandingLogoSelection(file);
+      });
+    }
+
+    if (this.btnRemoveBrandingLogo) {
+      this.btnRemoveBrandingLogo.addEventListener('click', () => {
+        this.updateBrandingLogoPreview('');
+        this.showToast('Logo Removed', 'Click "Save Changes" to save this change.', 'info');
+      });
+    }
+
+    if (this.brandingLogoUrl) {
+      this.brandingLogoUrl.addEventListener('input', () => {
+        this.updateBrandingLogoPreview(this.brandingLogoUrl.value);
+      });
+    }
+
+    if (this.brandingLogoDropZone) {
+      ['dragenter', 'dragover'].forEach(eventName => {
+        this.brandingLogoDropZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          this.brandingLogoDropZone.classList.add('is-dragover');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        this.brandingLogoDropZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          this.brandingLogoDropZone.classList.remove('is-dragover');
+        });
+      });
+
+      this.brandingLogoDropZone.addEventListener('drop', (e) => {
+        const file = e.dataTransfer?.files?.[0];
+        if (file) {
+          this.handleBrandingLogoSelection(file);
+        }
+      });
+    }
+
+    // Hero Photos Multi-Uploader Handlers (Up to 5 Photos)
+    if (this.btnUploadHeroPhotos && this.persHeroPhotosFile) {
+      this.btnUploadHeroPhotos.addEventListener('click', () => {
+        if (this.heroPhotos.length >= 5) {
+          this.showToast('Limit Reached', 'Maximum 5 hero banner photos can be added. Remove one to replace.', 'info');
+          return;
+        }
+        this.persHeroPhotosFile.click();
+      });
+    }
+
+    if (this.persHeroPhotosFile) {
+      this.persHeroPhotosFile.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files || []);
+        if (files.length > 0) {
+          this.handleHeroPhotosSelection(files);
+        }
+        this.persHeroPhotosFile.value = '';
+      });
+    }
+
+    if (this.heroPhotosDropZone) {
+      ['dragenter', 'dragover'].forEach(name => {
+        this.heroPhotosDropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          this.heroPhotosDropZone.classList.add('is-dragover');
+        });
+      });
+      ['dragleave', 'drop'].forEach(name => {
+        this.heroPhotosDropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          this.heroPhotosDropZone.classList.remove('is-dragover');
+        });
+      });
+      this.heroPhotosDropZone.addEventListener('drop', (e) => {
+        const files = Array.from(e.dataTransfer?.files || []);
+        if (files.length > 0) {
+          this.handleHeroPhotosSelection(files);
+        }
+      });
+    }
+
+    if (this.btnSaveBranding) {
+      this.btnSaveBranding.addEventListener('click', (e) => this.handleSaveBranding(e));
+    }
+
+    if (this.brandingForm) {
+      this.brandingForm.addEventListener('submit', (e) => this.handleSaveBranding(e));
     }
 
     if (this.btnOpenSubdomainSettings) {
@@ -2126,7 +2545,7 @@ class UIController {
 
         const currentProfile = store.getAcademyProfile() || {};
         if (!slug) {
-          slug = currentProfile.slug || (this.session?.email?.includes('poulami') ? 'poulami' : 'prantik');
+          slug = currentProfile.slug || (this.session?.email?.includes('poulami') ? 'poulami' : (this.session?.email?.includes('prantik') ? 'prantik' : ''));
         }
 
         const submitBtn = this.academySettingsForm.querySelector('button[type="submit"]');
@@ -2177,12 +2596,18 @@ class UIController {
           slug = academyName.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'academy';
         }
 
+        const isSuperAdmin = store.isSuperAdmin;
         const profile = {
           academyName,
           ownerName,
           slug,
+          ownerEmail: store.ownerEmail,
+          status: isSuperAdmin ? 'active' : 'pending',
+          studentIdPrefix: `${slug.toUpperCase().slice(0, 4)}/`,
+          requestedAt: new Date().toISOString(),
           configuredAt: Date.now()
         };
+        store.tenantStatus = profile.status;
         store.saveAcademyProfile(profile);
 
         if (this.session) {
@@ -2191,9 +2616,14 @@ class UIController {
         }
 
         this.closeOnboardingModal();
-        this.render();
-        this.updatePublicSiteLink();
-        this.showToast('Setup Complete', `Welcome to ${academyName}! Your subdomain (${slug}) is live.`, 'success');
+        this.checkAccountStatus();
+        if (profile.status === 'active') {
+          this.render();
+          this.updatePublicSiteLink();
+          this.showToast('Setup Complete', `Welcome to ${academyName}! Your subdomain (${slug}) is live.`, 'success');
+        } else {
+          this.showToast('Registration Received', 'Your academy has been submitted for review. Your account is on hold pending approval.', 'info');
+        }
       });
     }
 
@@ -2202,6 +2632,9 @@ class UIController {
       item.addEventListener('click', (e) => {
         e.preventDefault();
         const view = item.getAttribute('data-view');
+        if (view === 'tenants' && (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com')) {
+          return;
+        }
         this.switchView(view);
         this.closeSidebar();
       });
@@ -2210,7 +2643,11 @@ class UIController {
     // Hash change handler for browser back/forward
     window.addEventListener('hashchange', () => {
       const hash = window.location.hash.replace('#', '');
-      if (['dashboard', 'students', 'courses', 'batches', 'certificates', 'idcards', 'inbox', 'personalisation'].includes(hash)) {
+      if (['dashboard', 'students', 'courses', 'batches', 'certificates', 'idcards', 'inbox', 'branding', 'personalisation', 'tenants'].includes(hash)) {
+        if (hash === 'tenants' && (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com')) {
+          this.switchView('dashboard', true);
+          return;
+        }
         this.switchView(hash, false);
       }
     });
@@ -2295,6 +2732,67 @@ class UIController {
             this.showToast('Data Cleared', 'All student and course records have been cleared.', 'info');
           }
         });
+      });
+    }
+
+    // Account on Hold Actions
+    if (this.btnRefreshHoldStatus) {
+      this.btnRefreshHoldStatus.addEventListener('click', async () => {
+        setButtonLoading(this.btnRefreshHoldStatus, true);
+        try {
+          await store.fetchCloudData();
+          this.checkAccountStatus();
+          if (store.tenantStatus === 'active') {
+            this.render();
+            this.showToast('Account Approved!', 'Your academy is active. Welcome to your dashboard!', 'success');
+          } else {
+            this.showToast('Status Checked', 'Your account is still awaiting approval.', 'info');
+          }
+        } catch (err) {
+          this.showToast('Check Failed', 'Could not refresh status at this time.', 'error');
+        } finally {
+          setButtonLoading(this.btnRefreshHoldStatus, false);
+        }
+      });
+    }
+
+    if (this.btnHoldLogout) {
+      this.btnHoldLogout.addEventListener('click', () => {
+        localStorage.removeItem(STORAGE_KEYS.SESSION);
+        if (window.google?.accounts?.id) {
+          window.google.accounts.id.disableAutoSelect();
+        }
+        window.location.href = 'index.html';
+      });
+    }
+
+    // Super Admin Platform Tenants Controls
+    if (this.btnRefreshTenants) {
+      this.btnRefreshTenants.addEventListener('click', async () => {
+        setButtonLoading(this.btnRefreshTenants, true);
+        try {
+          await this.loadPlatformTenants();
+          this.showToast('Refreshed', 'Platform tenant list updated.', 'info');
+        } finally {
+          setButtonLoading(this.btnRefreshTenants, false);
+        }
+      });
+    }
+
+    if (this.tenantSearchQuery) {
+      this.tenantSearchQuery.addEventListener('input', () => {
+        this.renderTenantsTable();
+      });
+    }
+
+    if (this.tenantFilterGroup) {
+      this.tenantFilterGroup.addEventListener('click', (e) => {
+        const btn = e.target.closest('.tenant-filter-btn');
+        if (!btn) return;
+        this.tenantFilterGroup.querySelectorAll('.tenant-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        this.tenantActiveFilter = btn.dataset.filter || 'all';
+        this.renderTenantsTable();
       });
     }
 
@@ -3270,6 +3768,12 @@ class UIController {
   }
 
   applyViewLayout(viewName) {
+    if (viewName === 'tenants' && (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com')) {
+      this.switchView('dashboard', true);
+      return;
+    }
+    this.updateSuperAdminState();
+
     this.navItems.forEach(item => {
       if (item.getAttribute('data-view') === viewName) {
         item.classList.add('active');
@@ -3323,12 +3827,24 @@ class UIController {
         title: 'Inbox',
         subtitle: 'Messages received from your public website'
       },
+      branding: {
+        icon: '<i class="fa-solid fa-palette"></i>',
+        theme: 'theme-dashboard',
+        title: 'Academy Branding',
+        subtitle: 'Update your official academy brand name, logo, phone, and email address'
+      },
       certificates: { icon: '<i class="fa-solid fa-certificate"></i>', theme: 'theme-dashboard', title: 'Student Certificates', subtitle: 'Preview and download certificates for completed students' },
       personalisation: {
         icon: '<i class="fa-solid fa-sliders"></i>',
         theme: 'theme-dashboard',
         title: 'Personalisation',
         subtitle: 'Customize your public website branding and settings'
+      },
+      tenants: {
+        icon: '<i class="fa-solid fa-shield-halved"></i>',
+        theme: 'theme-dashboard',
+        title: 'Platform Tenants & Approvals',
+        subtitle: 'Review registrations, approve tenant academies, and monitor live subdomains'
       }
     };
 
@@ -3342,6 +3858,9 @@ class UIController {
   }
 
   switchView(viewName, updateHash = true) {
+    if (viewName === 'tenants' && (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com')) {
+      viewName = 'dashboard';
+    }
     this.currentView = viewName;
     if (updateHash) {
       window.location.hash = viewName;
@@ -3354,54 +3873,233 @@ class UIController {
       const grid = view?.querySelector('.batches-grid, .courses-grid');
       view?.querySelector('.view-header-bar')?.classList.toggle('is-scrolled', (grid?.scrollTop || 0) > 2);
     }
+    if (viewName === 'branding') {
+      this.populateBrandingForm();
+    }
+    if (viewName === 'personalisation') {
+      this.populatePersonalisationForm();
+    }
+    if (viewName === 'tenants' && store.isSuperAdmin && store.ownerEmail === 'dasprantik76@gmail.com') {
+      this.loadPlatformTenants();
+    }
     store.fetchCloudData(() => {
       this.render();
+      if (this.currentView === 'branding') {
+        this.populateBrandingForm();
+      }
+      if (this.currentView === 'personalisation') {
+        this.populatePersonalisationForm();
+      }
+      if (viewName === 'tenants' && store.isSuperAdmin && store.ownerEmail === 'dasprantik76@gmail.com') {
+        this.loadPlatformTenants();
+      }
     });
+  }
+
+  switchPersonalisationTab(tabKey) {
+    if (!this.persTabBtns || !this.persTabPanes) return;
+    this.persTabBtns.forEach(btn => {
+      const match = btn.getAttribute('data-tab') === tabKey;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-selected', match ? 'true' : 'false');
+    });
+    this.persTabPanes.forEach(pane => {
+      const paneId = `tab-pane-${tabKey}`;
+      pane.classList.toggle('active', pane.id === paneId);
+    });
+  }
+
+  updateImgPreview(input, imgElem, placeholderElem) {
+    if (!input || !imgElem) return;
+    const url = (input.value || '').trim();
+    if (url) {
+      imgElem.src = url;
+      imgElem.onload = () => {
+        imgElem.style.display = 'block';
+        if (placeholderElem) placeholderElem.style.display = 'none';
+      };
+      imgElem.onerror = () => {
+        imgElem.style.display = 'none';
+        if (placeholderElem) {
+          placeholderElem.style.display = 'block';
+          placeholderElem.innerHTML = '<span style="color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Image failed to load</span>';
+        }
+      };
+    } else {
+      imgElem.style.display = 'none';
+      if (placeholderElem) {
+        placeholderElem.style.display = 'block';
+      }
+    }
+  }
+
+  renderGalleryPreview() {
+    this.renderGalleryPhotosGrid();
+  }
+
+  updateSectionVisibilityPill(sectionKey, isVisible) {
+    const capitalized = sectionKey.charAt(0).toUpperCase() + sectionKey.slice(1);
+    const pill = document.getElementById(`pillVisibility${capitalized}`);
+    if (!pill) return;
+    if (isVisible) {
+      pill.className = 'visibility-pill is-visible';
+      pill.innerHTML = '<span class="visibility-dot"></span><span class="visibility-state-text">Visible</span>';
+    } else {
+      pill.className = 'visibility-pill is-hidden';
+      pill.innerHTML = '<span class="visibility-dot"></span><span class="visibility-state-text">Hidden</span>';
+    }
   }
 
   populatePersonalisationForm() {
     const profile = store.getAcademyProfile() || {};
-    const defaultSlug = this.session?.email?.includes('poulami') ? 'poulami' : 'prantik';
+    const defaultSlug = this.session?.email?.includes('poulami')
+      ? 'poulami'
+      : (this.session?.email?.includes('diganta') ? 'diganta' : (this.session?.email?.includes('prantik') ? 'diganta' : (this.session?.email ? this.session.email.split('@')[0].replace(/[^a-z0-9]/g, '') : 'diganta')));
     const slug = profile.slug || defaultSlug;
 
+    // Tab 1: Hero Section & Public Address
     if (this.persSubdomainSlug) this.persSubdomainSlug.value = slug;
     if (this.persFullUrlPreview) this.persFullUrlPreview.textContent = this.getPublicUrlForSlug(slug);
     if (this.btnPersonalisationPreviewLive) this.btnPersonalisationPreviewLive.href = this.getPublicUrlForSlug(slug);
 
     if (this.persAcademyName) this.persAcademyName.value = profile.academyName || '';
     if (this.persCategory) this.persCategory.value = profile.category || '';
-    if (this.persHeroTagline) this.persHeroTagline.value = profile.tagline || 'Admissions & Registrations Open 2026';
+    if (this.persHeroTitle1) this.persHeroTitle1.value = profile.heroTitleLine1 || '';
+    if (this.persHeroTitle2) this.persHeroTitle2.value = profile.heroTitleLine2 || '';
+    if (this.persHeroTagline) this.persHeroTagline.value = profile.tagline || 'Student Registration';
     if (this.persOwnerName) this.persOwnerName.value = profile.ownerName || this.session?.name || '';
-    if (this.persHeroDesc) this.persHeroDesc.value = profile.heroDesc || profile.about || 'Empowering learners with industry-standard courses and certified training.';
-    if (this.persPhone) this.persPhone.value = profile.phone || '';
-    if (this.persSecondaryPhone) this.persSecondaryPhone.value = profile.secondaryPhone || profile.whatsapp || '';
-    if (this.persEmail) this.persEmail.value = profile.email || this.session?.email || '';
-    if (this.persAddress) this.persAddress.value = profile.address || '';
-    if (this.persPinCode) this.persPinCode.value = profile.pincode || '';
-    if (this.persAboutHeadline) this.persAboutHeadline.value = profile.aboutHeadline || `Welcome to ${profile.academyName || 'Our Academy'}`;
+    if (this.persHeroDesc) this.persHeroDesc.value = (profile.heroDesc !== undefined && profile.heroDesc !== null) ? profile.heroDesc : '';
+    if (Array.isArray(profile.heroPhotos)) {
+      this.heroPhotos = profile.heroPhotos.filter(Boolean).slice(0, 5);
+    } else {
+      const legacy = [profile.heroImg1, profile.heroImg2].filter(Boolean);
+      this.heroPhotos = legacy.slice(0, 5);
+    }
+    this.renderHeroPhotosGrid();
+
+    // Tab 2: Top Notice Bar & Badge Banner
+    if (this.persNotice1) this.persNotice1.value = profile.notice1Text || '';
+    if (this.persNotice2) this.persNotice2.value = profile.notice2Text || '';
+    if (this.persNotice3) this.persNotice3.value = profile.notice3Text || '';
+    if (this.persBannerPhone) this.persBannerPhone.value = profile.bannerPhone || profile.phone || '';
+    if (this.persBannerTagline) this.persBannerTagline.value = profile.bannerTagline || 'Building Skills. Creating Futures.';
+    if (this.persEstYear) this.persEstYear.value = profile.estYear || '2005';
+
+    // Tab 3: About Us & Academy Story
+    if (this.persAboutHeadline) this.persAboutHeadline.value = profile.aboutHeadline || `Quality technical education, practical skills, and trusted training since ${profile.estYear || '2005'}.`;
+    if (this.persAboutDirector) this.persAboutDirector.value = profile.aboutDirector || (profile.ownerName ? `Supervised & Directed by ${profile.ownerName}` : '');
     if (this.persAboutStory) this.persAboutStory.value = profile.aboutStory || profile.about || 'Premier professional training academy offering certified courses with modern practical laboratory sessions.';
+    if (this.persAboutStoryImg) {
+      this.persAboutStoryImg.value = profile.aboutStoryImg || '';
+      this.updateAboutStoryPreview(this.persAboutStoryImg.value);
+    }
 
     // Highlights
     const highlights = Array.isArray(profile.aboutHighlights) ? profile.aboutHighlights : [];
-    if (this.persHighlight1) this.persHighlight1.value = highlights[0] || 'Certified Expert & Industry-Experienced Faculty';
-    if (this.persHighlight2) this.persHighlight2.value = highlights[1] || '100% Practical Hands-on Lab Sessions';
+    if (this.persHighlight1) this.persHighlight1.value = highlights[0] || 'ISO 9001:2015 Certified Institute';
+    if (this.persHighlight2) this.persHighlight2.value = highlights[1] || '100% Practical Hands-on Labs';
     if (this.persHighlight3) this.persHighlight3.value = highlights[2] || 'Recognized Government & Industry Certifications';
     if (this.persHighlight4) this.persHighlight4.value = highlights[3] || 'Comprehensive Career Guidance & Placement Assistance';
+
+    // Tab 4: Accreditations & Brand Logos
+    if (this.persLogoUrl) {
+      this.persLogoUrl.value = profile.logoUrl || '';
+      this.updatePersLogoPreview(this.persLogoUrl.value);
+    }
+    if (this.persFaviconUrl) {
+      this.persFaviconUrl.value = profile.faviconUrl || '';
+      this.updatePersFaviconPreview(this.persFaviconUrl.value);
+    }
+    if (this.persSignatureUrl) {
+      this.persSignatureUrl.value = profile.signatureUrl || '';
+      this.updatePersSignaturePreview(this.persSignatureUrl.value);
+    }
+    const accr = Array.isArray(profile.accreditationUrls)
+      ? profile.accreditationUrls
+      : (typeof profile.accreditationUrls === 'string' && profile.accreditationUrls ? profile.accreditationUrls.split('\n').map(u => u.trim()).filter(Boolean) : []);
+    this.accreditationLogos = [...accr];
+    if (this.persAccreditationUrls) {
+      this.persAccreditationUrls.value = this.accreditationLogos.join('\n');
+    }
+    this.renderAccreditationLogosGrid();
+
+    // Tab 5: Gallery Photos
+    if (this.persGalleryHeading) this.persGalleryHeading.value = profile.galleryHeading || 'Our Students';
+    if (this.persGallerySubtitle) this.persGallerySubtitle.value = profile.gallerySubtitle || 'A glimpse into our classrooms, practical sessions, and student learning experiences.';
+    const gallery = Array.isArray(profile.galleryUrls)
+      ? profile.galleryUrls
+      : (typeof profile.galleryUrls === 'string' && profile.galleryUrls ? profile.galleryUrls.split('\n').map(u => u.trim()).filter(Boolean) : []);
+    this.galleryPhotos = [...gallery];
+    if (this.persGalleryUrls) {
+      this.persGalleryUrls.value = this.galleryPhotos.join('\n');
+    }
+    this.renderGalleryPhotosGrid();
+
+    // Tab 6: Contact & Location
+    if (this.persPhone) this.persPhone.value = profile.phone || '';
+    if (this.persSecondaryPhone) this.persSecondaryPhone.value = profile.secondaryPhone || profile.whatsapp || '';
+    if (this.persEmail) this.persEmail.value = profile.email || this.session?.email || '';
+    if (this.persBranch1) this.persBranch1.value = profile.branch1 || '';
+    if (this.persBranch2) this.persBranch2.value = profile.branch2 || '';
+    if (this.persAddress) this.persAddress.value = profile.address || '';
+    if (this.persPinCode) this.persPinCode.value = profile.pincode || '';
+    if (this.persMapUrl) this.persMapUrl.value = profile.mapUrl || '';
+
+    // Tab 7: Connect & Social Channels
+    const socials = profile.socials || {};
+    if (this.persSocialWhatsapp) this.persSocialWhatsapp.value = socials.whatsapp || profile.whatsapp || profile.secondaryPhone || '';
+    if (this.persSocialFacebook) this.persSocialFacebook.value = socials.facebook || profile.facebook || '';
+    if (this.persSocialInstagram) this.persSocialInstagram.value = socials.instagram || profile.instagram || '';
+    if (this.persSocialYoutube) this.persSocialYoutube.value = socials.youtube || profile.youtube || '';
+    if (this.persSocialLinkedin) this.persSocialLinkedin.value = socials.linkedin || profile.linkedin || '';
+    if (this.persSocialTwitter) this.persSocialTwitter.value = socials.twitter || profile.twitter || '';
+
+    // Tab 8: Footer & Copyright
+    if (this.persFooterBio) this.persFooterBio.value = profile.footerBio || 'Practical computer education, professional guidance and certified skills for a brighter digital future.';
+    if (this.persFooterProof) this.persFooterProof.value = profile.footerProof || 'Trusted learning since 2005';
+    if (this.persFooterCopyright) this.persFooterCopyright.value = profile.footerCopyright || `© 2026 ${profile.academyName || 'Academy'}. All rights reserved.`;
+
+    // Populate Section Visibility Toggles (default true)
+    const visibility = profile.sectionVisibility || {};
+    const sectionKeys = ['hero', 'banner', 'about', 'accreditations', 'gallery', 'contact', 'socials', 'footer'];
+    sectionKeys.forEach(sec => {
+      const isVisible = visibility[sec] !== false;
+      const capitalized = sec.charAt(0).toUpperCase() + sec.slice(1);
+      const checkbox = document.getElementById(`toggleVisibility${capitalized}`);
+      if (checkbox) {
+        checkbox.checked = isVisible;
+      }
+      this.updateSectionVisibilityPill(sec, isVisible);
+    });
   }
 
-  async handleSavePersonalisation(e) {
+  async handleSavePersonalisation(e, options = { publish: false }) {
     if (e) e.preventDefault();
 
-    const rawSlug = (this.persSubdomainSlug?.value || '').trim();
-    const sanitizedSlug = rawSlug.toLowerCase().replace(/[^a-z0-9-]/g, '').replace(/^-+|-+$/g, '');
-    if (!sanitizedSlug) {
+    const isPublish = !!(options && options.publish);
+    const activeBtn = isPublish ? this.btnPublishPersonalisation : this.btnSavePersonalisation;
+
+    const existingProfile = store.getAcademyProfile() || {};
+    const rawSlug = this.persSubdomainSlug 
+      ? (this.persSubdomainSlug.value || '').trim() 
+      : (existingProfile.slug || '');
+    const sanitizedSlug = rawSlug 
+      ? (rawSlug.toLowerCase().replace(/[^a-z0-9-]/g, '').replace(/^-+|-+$/g, '') || existingProfile.slug || 'nyce')
+      : (existingProfile.slug || 'nyce');
+    if (this.persSubdomainSlug && !sanitizedSlug) {
       this.showToast('Invalid Subdomain', 'Please provide a valid subdomain (e.g. prantik, my-academy).', 'error');
+      this.switchPersonalisationTab('hero');
+      this.persSubdomainSlug?.focus();
       return;
     }
 
-    const academyName = this.persAcademyName?.value.trim();
-    if (!academyName) {
+    const academyName = this.persAcademyName 
+      ? this.persAcademyName.value.trim() 
+      : (existingProfile.academyName || '');
+    if (this.persAcademyName && !academyName) {
       this.showToast('Required Field', 'Please enter your Academy Brand Name.', 'error');
+      this.switchPersonalisationTab('hero');
+      this.persAcademyName?.focus();
       return;
     }
 
@@ -3412,27 +4110,94 @@ class UIController {
       this.persHighlight4?.value.trim()
     ].filter(Boolean);
 
-    setButtonLoading(this.btnSavePersonalisation, true);
-    setButtonLoading(this.btnSavePersonalisationTop, true);
+    const galleryUrls = Array.isArray(this.galleryPhotos)
+      ? this.galleryPhotos
+      : (this.persGalleryUrls?.value || '')
+          .split('\n')
+          .map(u => u.trim())
+          .filter(Boolean);
+
+    const accreditationUrls = Array.isArray(this.accreditationLogos)
+      ? this.accreditationLogos
+      : (this.persAccreditationUrls?.value || '')
+          .split('\n')
+          .map(u => u.trim())
+          .filter(Boolean);
+
+    const socials = {
+      facebook: this.persSocialFacebook?.value.trim() || '',
+      instagram: this.persSocialInstagram?.value.trim() || '',
+      youtube: this.persSocialYoutube?.value.trim() || '',
+      whatsapp: this.persSocialWhatsapp?.value.trim() || '',
+      linkedin: this.persSocialLinkedin?.value.trim() || '',
+      twitter: this.persSocialTwitter?.value.trim() || ''
+    };
+
+    if (activeBtn) setButtonLoading(activeBtn, true);
+    if (this.btnSavePersonalisation && this.btnSavePersonalisation !== activeBtn) {
+      this.btnSavePersonalisation.disabled = true;
+    }
+    if (this.btnPublishPersonalisation && this.btnPublishPersonalisation !== activeBtn) {
+      this.btnPublishPersonalisation.disabled = true;
+    }
 
     const updatedProfile = {
-      ...store.getAcademyProfile(),
+      ...existingProfile,
       slug: sanitizedSlug,
-      academyName: academyName,
-      category: this.persCategory?.value.trim() || '',
-      tagline: this.persHeroTagline?.value.trim() || '',
-      ownerName: this.persOwnerName?.value.trim() || '',
+      academyName: academyName || existingProfile.academyName || '',
+      category: this.persCategory ? this.persCategory.value.trim() : (existingProfile.category || ''),
+      heroTitleLine1: this.persHeroTitle1?.value.trim() || '',
+      heroTitleLine2: this.persHeroTitle2?.value.trim() || '',
+      tagline: this.persHeroTagline ? (this.persHeroTagline.value.trim() || 'Student Registration') : (existingProfile.tagline || 'Student Registration'),
+      ownerName: this.persOwnerName?.value.trim() || existingProfile.ownerName || this.tenantProfile?.ownerName || this.session?.name || '',
       heroDesc: this.persHeroDesc?.value.trim() || '',
+      heroPhotos: Array.isArray(this.heroPhotos) ? this.heroPhotos.slice(0, 5) : [],
+      heroImg1: (this.heroPhotos && this.heroPhotos[0]) || this.persHeroImg1?.value.trim() || '',
+      heroImg2: (this.heroPhotos && this.heroPhotos[1]) || this.persHeroImg2?.value.trim() || '',
+      notice1Text: this.persNotice1?.value.trim() || '',
+      notice2Text: this.persNotice2?.value.trim() || '',
+      notice3Text: this.persNotice3?.value.trim() || '',
+      bannerPhone: this.persBannerPhone?.value.trim() || '',
+      bannerTagline: this.persBannerTagline?.value.trim() || '',
+      estYear: this.persEstYear?.value.trim() || '',
+      aboutHeadline: this.persAboutHeadline?.value.trim() || '',
+      aboutDirector: this.persAboutDirector?.value.trim() || '',
+      aboutStory: this.persAboutStory?.value.trim() || '',
+      aboutStoryImg: this.persAboutStoryImg?.value.trim() || '',
+      about: this.persAboutStory?.value.trim() || '',
+      aboutHighlights: highlights,
+      logoUrl: this.persLogoUrl?.value.trim() || '',
+      faviconUrl: this.persFaviconUrl?.value.trim() || '',
+      signatureUrl: this.persSignatureUrl?.value.trim() || '',
+      accreditationUrls: accreditationUrls,
+      galleryHeading: this.persGalleryHeading?.value.trim() || '',
+      gallerySubtitle: this.persGallerySubtitle?.value.trim() || '',
+      galleryUrls: galleryUrls,
       phone: this.persPhone?.value.trim() || '',
       secondaryPhone: this.persSecondaryPhone?.value.trim() || '',
-      whatsapp: this.persSecondaryPhone?.value.trim() || '',
+      whatsapp: this.persSocialWhatsapp?.value.trim() || this.persSecondaryPhone?.value.trim() || '',
       email: this.persEmail?.value.trim() || '',
+      branch1: this.persBranch1?.value.trim() || '',
+      branch2: this.persBranch2?.value.trim() || '',
       address: this.persAddress?.value.trim() || '',
       pincode: this.persPinCode?.value.trim() || '',
-      aboutHeadline: this.persAboutHeadline?.value.trim() || '',
-      aboutStory: this.persAboutStory?.value.trim() || '',
-      about: this.persHeroDesc?.value.trim() || this.persAboutStory?.value.trim() || '',
-      aboutHighlights: highlights,
+      mapUrl: this.persMapUrl?.value.trim() || '',
+      socials: socials,
+      footerBio: this.persFooterBio?.value.trim() || '',
+      footerProof: this.persFooterProof?.value.trim() || '',
+      footerCopyright: this.persFooterCopyright?.value.trim() || '',
+      sectionVisibility: {
+        hero: this.toggleVisibilityHero ? this.toggleVisibilityHero.checked : (store.getAcademyProfile()?.sectionVisibility?.hero !== false),
+        banner: this.toggleVisibilityBanner ? this.toggleVisibilityBanner.checked : (store.getAcademyProfile()?.sectionVisibility?.banner !== false),
+        about: this.toggleVisibilityAbout ? this.toggleVisibilityAbout.checked : (store.getAcademyProfile()?.sectionVisibility?.about !== false),
+        accreditations: this.toggleVisibilityAccreditations ? this.toggleVisibilityAccreditations.checked : (store.getAcademyProfile()?.sectionVisibility?.accreditations !== false),
+        gallery: this.toggleVisibilityGallery ? this.toggleVisibilityGallery.checked : (store.getAcademyProfile()?.sectionVisibility?.gallery !== false),
+        contact: this.toggleVisibilityContact ? this.toggleVisibilityContact.checked : (store.getAcademyProfile()?.sectionVisibility?.contact !== false),
+        socials: this.toggleVisibilitySocials ? this.toggleVisibilitySocials.checked : (store.getAcademyProfile()?.sectionVisibility?.socials !== false),
+        footer: this.toggleVisibilityFooter ? this.toggleVisibilityFooter.checked : (store.getAcademyProfile()?.sectionVisibility?.footer !== false)
+      },
+      isPublished: isPublish ? true : (store.getAcademyProfile()?.isPublished ?? true),
+      publishedAt: isPublish ? Date.now() : (store.getAcademyProfile()?.publishedAt || null),
       updatedAt: Date.now()
     };
 
@@ -3440,18 +4205,867 @@ class UIController {
       await store.saveAcademyProfile(updatedProfile);
       this.updatePublicSiteLink();
       this.populatePersonalisationForm();
+      if (this.populateBrandingForm) {
+        this.populateBrandingForm();
+      }
       this.render();
 
-      this.showToast('Personalisation Published!', `Your updates and live subdomain (${sanitizedSlug}) are now synced live to the public portal.`, 'success');
+      if (isPublish) {
+        const publicUrl = this.getPublicUrlForSlug(sanitizedSlug);
+        this.showToast('Published Live!', `Your academy website is now live at ${sanitizedSlug}.`, 'success');
+        try {
+          window.open(publicUrl, '_blank');
+        } catch (_) {}
+      } else {
+        this.showToast('Changes Saved', 'Your personalisation details have been saved.', 'success');
+      }
     } catch (err) {
       this.showToast('Save Failed', err.message || 'Could not update academy profile.', 'error');
     } finally {
-      setButtonLoading(this.btnSavePersonalisation, false);
-      setButtonLoading(this.btnSavePersonalisationTop, false);
+      if (activeBtn) setButtonLoading(activeBtn, false);
+      if (this.btnSavePersonalisation) this.btnSavePersonalisation.disabled = false;
+      if (this.btnPublishPersonalisation) this.btnPublishPersonalisation.disabled = false;
+    }
+  }
+
+  populateBrandingForm() {
+    const profile = store.getAcademyProfile() || {};
+    if (this.brandingAcademyName) this.brandingAcademyName.value = profile.academyName || '';
+    if (this.brandingPhone) this.brandingPhone.value = profile.phone || profile.bannerPhone || '';
+    if (this.brandingEmail) this.brandingEmail.value = profile.email || this.session?.email || '';
+    const logo = profile.logoUrl || '';
+    if (this.brandingLogoUrl) this.brandingLogoUrl.value = logo;
+    this.updateBrandingLogoPreview(logo);
+  }
+
+  updateBrandingLogoPreview(url) {
+    const cleanUrl = (url || '').trim();
+    if (this.brandingLogoImg && this.brandingLogoPlaceholder) {
+      if (cleanUrl) {
+        this.brandingLogoImg.src = cleanUrl;
+        this.brandingLogoImg.style.display = 'block';
+        this.brandingLogoPlaceholder.style.display = 'none';
+        if (this.btnRemoveBrandingLogo) this.btnRemoveBrandingLogo.style.display = 'inline-flex';
+      } else {
+        this.brandingLogoImg.src = '';
+        this.brandingLogoImg.style.display = 'none';
+        this.brandingLogoPlaceholder.style.display = 'block';
+        if (this.btnRemoveBrandingLogo) this.btnRemoveBrandingLogo.style.display = 'none';
+        if (this.brandingLogoFileInput) this.brandingLogoFileInput.value = '';
+        if (this.brandingLogoUrl) this.brandingLogoUrl.value = '';
+      }
+    }
+  }
+
+  handleBrandingLogoSelection(file) {
+    if (!file) return;
+    if (!file.type || !file.type.startsWith('image/')) {
+      this.showToast('Invalid File', 'Please select a valid image file (PNG, JPG, SVG, WebP).', 'error');
+      if (this.brandingLogoFileInput) this.brandingLogoFileInput.value = '';
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      this.showToast('File Too Large', 'Logo image must be smaller than 5 MB.', 'error');
+      if (this.brandingLogoFileInput) this.brandingLogoFileInput.value = '';
+      return;
+    }
+
+    // Direct read for SVG or small images (under 250 KB) to preserve original crisp vector/transparency quality
+    if (file.type === 'image/svg+xml' || file.size <= 250 * 1024) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const dataUrl = e.target?.result;
+        if (this.brandingLogoUrl) this.brandingLogoUrl.value = dataUrl;
+        this.updateBrandingLogoPreview(dataUrl);
+        this.showToast('Logo Selected', 'Logo preview updated. Click "Save Changes" to save.', 'info');
+      };
+      reader.onerror = () => {
+        this.showToast('Error', 'Could not read the selected image file.', 'error');
+      };
+      reader.readAsDataURL(file);
+      return;
+    }
+
+    // For larger images, resize and optimize via canvas to keep data URL compact and responsive
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      const maxDim = 512;
+      let width = img.naturalWidth || img.width;
+      let height = img.naturalHeight || img.height;
+      if (width > maxDim || height > maxDim) {
+        if (width > height) {
+          height = Math.round((height * maxDim) / width);
+          width = maxDim;
+        } else {
+          width = Math.round((width * maxDim) / height);
+          height = maxDim;
+        }
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, width, height);
+      ctx.drawImage(img, 0, 0, width, height);
+
+      let dataUrl = '';
+      try {
+        dataUrl = canvas.toDataURL('image/webp', 0.88);
+        if (!dataUrl || dataUrl.indexOf('data:image/webp') !== 0) {
+          dataUrl = canvas.toDataURL('image/png');
+        }
+      } catch (_) {
+        dataUrl = canvas.toDataURL('image/png');
+      }
+
+      if (this.brandingLogoUrl) this.brandingLogoUrl.value = dataUrl;
+      this.updateBrandingLogoPreview(dataUrl);
+      this.showToast('Logo Selected', 'Logo preview updated. Click "Save Changes" to save.', 'info');
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      this.showToast('Error', 'Failed to load image preview.', 'error');
+    };
+    img.src = objectUrl;
+  }
+
+  renderHeroPhotosGrid() {
+    if (!this.heroPhotosGrid) return;
+    const count = this.heroPhotos.length;
+
+    // Update count badge
+    if (this.heroPhotosCountBadge) {
+      if (count === 0) {
+        this.heroPhotosCountBadge.textContent = '0 / 5 Photos';
+        this.heroPhotosCountBadge.style.background = 'var(--surface-muted)';
+        this.heroPhotosCountBadge.style.color = 'var(--text-secondary)';
+      } else if (count === 1) {
+        this.heroPhotosCountBadge.textContent = '1 / 5 Photo (Static)';
+        this.heroPhotosCountBadge.style.background = '#e0f2fe';
+        this.heroPhotosCountBadge.style.color = '#0369a1';
+      } else {
+        this.heroPhotosCountBadge.textContent = `${count} / 5 Photos (${count} Loop Dissolve)`;
+        this.heroPhotosCountBadge.style.background = '#dcfce7';
+        this.heroPhotosCountBadge.style.color = '#15803d';
+      }
+    }
+
+    // Update prompt text
+    if (this.heroUploadPromptText) {
+      if (count >= 5) {
+        this.heroUploadPromptText.textContent = 'Maximum 5 photos added (slideshow loop ready)';
+      } else {
+        this.heroUploadPromptText.textContent = `Click or Drag & Drop to add photos (Max 5, ${5 - count} remaining)`;
+      }
+    }
+
+    // Update disable state on upload button
+    if (this.btnUploadHeroPhotos) {
+      this.btnUploadHeroPhotos.disabled = count >= 5;
+    }
+    if (this.btnAddHeroPhotoUrl) {
+      this.btnAddHeroPhotoUrl.disabled = count >= 5;
+    }
+
+    // Render cards HTML
+    let html = '';
+    this.heroPhotos.forEach((url, idx) => {
+      html += `
+        <div class="hero-photo-card" data-index="${idx}">
+          <img src="${escapeHtml(url)}" alt="Hero Photo ${idx + 1}" onerror="this.src=''; this.alt='Failed to load';">
+          <span class="hero-photo-badge">Slide ${idx + 1}</span>
+          <button type="button" class="hero-photo-replace-btn" title="Replace photo ${idx + 1}" data-replace-index="${idx}">
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </button>
+          <button type="button" class="hero-photo-remove-btn" title="Remove photo ${idx + 1}" data-remove-index="${idx}">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      `;
+    });
+
+    const remainingSlots = 5 - count;
+    for (let i = 0; i < remainingSlots; i++) {
+      const slotNum = count + i + 1;
+      html += `
+        <div class="hero-photo-add-slot" data-slot-index="${count + i}" title="Click to add photo ${slotNum}">
+          <i class="fa-solid fa-plus"></i>
+          <span>Add Photo</span>
+        </div>
+      `;
+    }
+
+    this.heroPhotosGrid.innerHTML = html;
+
+    // Attach click to add slots
+    this.heroPhotosGrid.querySelectorAll('.hero-photo-add-slot').forEach(slot => {
+      slot.addEventListener('click', () => {
+        if (this.heroPhotos.length >= 5) {
+          this.showToast('Limit Reached', 'Maximum 5 photos allowed.', 'info');
+          return;
+        }
+        if (this.persHeroPhotosFile) {
+          this.persHeroPhotosFile.click();
+        }
+      });
+    });
+
+    // Attach click to replace buttons
+    this.heroPhotosGrid.querySelectorAll('.hero-photo-replace-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const replaceIdx = parseInt(btn.getAttribute('data-replace-index'), 10);
+        if (!isNaN(replaceIdx)) {
+          this.replaceHeroPhoto(replaceIdx);
+        }
+      });
+    });
+
+    // Attach click to remove buttons
+    this.heroPhotosGrid.querySelectorAll('.hero-photo-remove-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const removeIdx = parseInt(btn.getAttribute('data-remove-index'), 10);
+        if (!isNaN(removeIdx)) {
+          this.removeHeroPhoto(removeIdx);
+        }
+      });
+    });
+
+    // Sync legacy hidden inputs
+    if (this.persHeroImg1) this.persHeroImg1.value = this.heroPhotos[0] || '';
+    if (this.persHeroImg2) this.persHeroImg2.value = this.heroPhotos[1] || '';
+  }
+
+  replaceHeroPhoto(index) {
+    const tempInput = document.createElement('input');
+    tempInput.type = 'file';
+    tempInput.accept = 'image/*';
+    tempInput.onchange = async (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      if (!file.type || !file.type.startsWith('image/')) {
+        this.showToast('Invalid File', `${file.name} is not a valid image.`, 'error');
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        this.showToast('File Too Large', `${file.name} exceeds the 5MB size limit.`, 'error');
+        return;
+      }
+      try {
+        const dataUrl = await this.readAndCompressImage(file);
+        if (dataUrl) {
+          this.heroPhotos[index] = dataUrl;
+          this.renderHeroPhotosGrid();
+          this.showToast('Photo Replaced', `Replaced slide photo ${index + 1}. Remember to save changes.`, 'success');
+        }
+      } catch (err) {
+        console.error('Failed replacing photo:', err);
+      }
+    };
+    tempInput.click();
+  }
+
+  removeHeroPhoto(index) {
+    if (index >= 0 && index < this.heroPhotos.length) {
+      this.heroPhotos.splice(index, 1);
+      this.renderHeroPhotosGrid();
+      this.showToast('Photo Removed', `Removed slide photo ${index + 1}. Remember to save changes.`, 'info');
+    }
+  }
+
+  async handleHeroPhotosSelection(files) {
+    if (!files || files.length === 0) return;
+    const availableSlots = 5 - this.heroPhotos.length;
+    if (availableSlots <= 0) {
+      this.showToast('Limit Reached', 'Maximum 5 hero banner photos reached. Remove one before adding more.', 'info');
+      return;
+    }
+
+    const filesToProcess = files.slice(0, availableSlots);
+    if (files.length > availableSlots) {
+      this.showToast('Limit Notice', `Only ${availableSlots} more photo(s) can be added (max 5). Processing first ${availableSlots}.`, 'info');
+    }
+
+    let addedCount = 0;
+    for (const file of filesToProcess) {
+      if (!file.type || !file.type.startsWith('image/')) {
+        this.showToast('Invalid File', `${file.name} is not a valid image.`, 'error');
+        continue;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        this.showToast('File Too Large', `${file.name} exceeds the 5MB size limit.`, 'error');
+        continue;
+      }
+
+      try {
+        const dataUrl = await this.readAndCompressImage(file);
+        if (dataUrl && this.heroPhotos.length < 5) {
+          this.heroPhotos.push(dataUrl);
+          addedCount++;
+        }
+      } catch (err) {
+        console.error('Failed to read image:', err);
+        this.showToast('Upload Error', `Could not process image ${file.name}.`, 'error');
+      }
+    }
+
+    if (addedCount > 0) {
+      this.renderHeroPhotosGrid();
+      this.showToast('Photos Added', `Hero photos updated (${this.heroPhotos.length}/5). Remember to save changes.`, 'success');
+    }
+  }
+
+  readAndCompressImage(file) {
+    return new Promise((resolve, reject) => {
+      if (file.type === 'image/svg+xml' || file.size <= 250 * 1024) {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target?.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+        return;
+      }
+
+      const img = new Image();
+      const objectUrl = URL.createObjectURL(file);
+      img.onload = () => {
+        URL.revokeObjectURL(objectUrl);
+        const maxDim = 1280;
+        let width = img.naturalWidth || img.width;
+        let height = img.naturalHeight || img.height;
+        if (width > maxDim || height > maxDim) {
+          if (width > height) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          } else {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+
+        let dataUrl = '';
+        try {
+          dataUrl = canvas.toDataURL('image/webp', 0.85);
+          if (!dataUrl || dataUrl.indexOf('data:image/webp') !== 0) {
+            dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+          }
+        } catch (_) {
+          dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+        }
+        resolve(dataUrl);
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(objectUrl);
+        reject(new Error('Failed to load image into element'));
+      };
+      img.src = objectUrl;
+    });
+  }
+
+  updateHeroPhotoPreview(index, url) {
+    // Stub kept for compatibility
+  }
+
+  setupSinglePhotoUploader({ dropZone, fileInput, uploadBtn, removeBtn, hiddenInput, updatePreviewFn, labelName }) {
+    if (uploadBtn && fileInput) {
+      uploadBtn.addEventListener('click', () => fileInput.click());
+    }
+    if (fileInput) {
+      fileInput.addEventListener('change', async (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        fileInput.value = '';
+        if (!file.type || !file.type.startsWith('image/')) {
+          this.showToast('Invalid File', `${file.name} is not a valid image.`, 'error');
+          return;
+        }
+        if (file.size > 5 * 1024 * 1024) {
+          this.showToast('File Too Large', `${file.name} exceeds the 5MB limit.`, 'error');
+          return;
+        }
+        try {
+          const dataUrl = await this.readAndCompressImage(file);
+          if (dataUrl) {
+            if (hiddenInput) hiddenInput.value = dataUrl;
+            if (updatePreviewFn) updatePreviewFn(dataUrl);
+            this.showToast('Photo Uploaded', `${labelName} uploaded. Click "Save Changes" to save.`, 'info');
+          }
+        } catch (err) {
+          console.error(`Failed uploading ${labelName}:`, err);
+          this.showToast('Upload Failed', `Could not process ${file.name}.`, 'error');
+        }
+      });
+    }
+    if (removeBtn) {
+      removeBtn.addEventListener('click', () => {
+        if (hiddenInput) hiddenInput.value = '';
+        if (updatePreviewFn) updatePreviewFn('');
+        this.showToast('Photo Removed', `${labelName} removed. Click "Save Changes" to save.`, 'info');
+      });
+    }
+    if (dropZone && fileInput) {
+      ['dragenter', 'dragover'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropZone.classList.add('is-dragover');
+        });
+      });
+      ['dragleave', 'drop'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropZone.classList.remove('is-dragover');
+        });
+      });
+      dropZone.addEventListener('drop', async (e) => {
+        const file = e.dataTransfer?.files?.[0];
+        if (!file) return;
+        if (!file.type || !file.type.startsWith('image/')) {
+          this.showToast('Invalid File', `${file.name} is not an image.`, 'error');
+          return;
+        }
+        if (file.size > 5 * 1024 * 1024) {
+          this.showToast('File Too Large', `${file.name} exceeds the 5MB limit.`, 'error');
+          return;
+        }
+        try {
+          const dataUrl = await this.readAndCompressImage(file);
+          if (dataUrl) {
+            if (hiddenInput) hiddenInput.value = dataUrl;
+            if (updatePreviewFn) updatePreviewFn(dataUrl);
+            this.showToast('Photo Uploaded', `${labelName} uploaded. Click "Save Changes" to save.`, 'info');
+          }
+        } catch (err) {
+          console.error(`Failed uploading ${labelName}:`, err);
+          this.showToast('Upload Failed', `Could not process ${file.name}.`, 'error');
+        }
+      });
+    }
+  }
+
+  setupMultiPhotoDropZone(dropZone, fileInput, handlerFn) {
+    if (!dropZone) return;
+    ['dragenter', 'dragover'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.add('is-dragover');
+      });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.remove('is-dragover');
+      });
+    });
+    dropZone.addEventListener('drop', (e) => {
+      const files = Array.from(e.dataTransfer?.files || []);
+      if (files.length > 0 && handlerFn) {
+        handlerFn(files);
+      }
+    });
+  }
+
+  initPersonalisationUploaders() {
+    // 1. About Story Photo Uploader
+    this.setupSinglePhotoUploader({
+      dropZone: this.aboutStoryDropZone,
+      fileInput: this.persAboutStoryImgFile,
+      uploadBtn: this.btnUploadAboutStoryImg,
+      removeBtn: this.btnRemoveAboutStoryImg,
+      hiddenInput: this.persAboutStoryImg,
+      updatePreviewFn: (url) => this.updateAboutStoryPreview(url),
+      labelName: 'About Story Photo'
+    });
+
+    // 2. Main Logo Uploader
+    this.setupSinglePhotoUploader({
+      dropZone: this.logoDropZone,
+      fileInput: this.persLogoFile,
+      uploadBtn: this.btnUploadLogo,
+      removeBtn: this.btnRemoveLogo,
+      hiddenInput: this.persLogoUrl,
+      updatePreviewFn: (url) => this.updatePersLogoPreview(url),
+      labelName: 'Academy Logo'
+    });
+
+    // 3. Favicon Uploader
+    this.setupSinglePhotoUploader({
+      dropZone: this.faviconDropZone,
+      fileInput: this.persFaviconFile,
+      uploadBtn: this.btnUploadFavicon,
+      removeBtn: this.btnRemoveFavicon,
+      hiddenInput: this.persFaviconUrl,
+      updatePreviewFn: (url) => this.updatePersFaviconPreview(url),
+      labelName: 'Browser Favicon'
+    });
+
+    // 4. Signature Uploader
+    this.setupSinglePhotoUploader({
+      dropZone: this.signatureDropZone,
+      fileInput: this.persSignatureFile,
+      uploadBtn: this.btnUploadSignature,
+      removeBtn: this.btnRemoveSignature,
+      hiddenInput: this.persSignatureUrl,
+      updatePreviewFn: (url) => this.updatePersSignaturePreview(url),
+      labelName: 'Director Signature'
+    });
+
+    // 5. Accreditation Logos Multi-Uploader
+    if (this.btnUploadAccreditations && this.persAccreditationsFile) {
+      this.btnUploadAccreditations.addEventListener('click', () => {
+        this.persAccreditationsFile.click();
+      });
+    }
+    if (this.persAccreditationsFile) {
+      this.persAccreditationsFile.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files || []);
+        if (files.length > 0) this.handleAccreditationFilesSelection(files);
+        this.persAccreditationsFile.value = '';
+      });
+    }
+    this.setupMultiPhotoDropZone(this.accreditationsDropZone, this.persAccreditationsFile, (files) => {
+      this.handleAccreditationFilesSelection(files);
+    });
+
+    // 6. Gallery Photos Multi-Uploader
+    if (this.btnUploadGalleryPhotos && this.persGalleryFiles) {
+      this.btnUploadGalleryPhotos.addEventListener('click', () => {
+        this.persGalleryFiles.click();
+      });
+    }
+    if (this.persGalleryFiles) {
+      this.persGalleryFiles.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files || []);
+        if (files.length > 0) this.handleGalleryFilesSelection(files);
+        this.persGalleryFiles.value = '';
+      });
+    }
+    this.setupMultiPhotoDropZone(this.galleryDropZone, this.persGalleryFiles, (files) => {
+      this.handleGalleryFilesSelection(files);
+    });
+
+    // Initial render of Hero Photo Slots (5 slots)
+    this.renderHeroPhotosGrid();
+  }
+
+  updateAboutStoryPreview(url) {
+    const clean = (url || '').trim();
+    if (this.persAboutStoryPreviewImg && this.persAboutStoryPlaceholder) {
+      if (clean) {
+        this.persAboutStoryPreviewImg.src = clean;
+        this.persAboutStoryPreviewImg.style.display = 'block';
+        this.persAboutStoryPlaceholder.style.display = 'none';
+        if (this.btnRemoveAboutStoryImg) this.btnRemoveAboutStoryImg.style.display = 'inline-flex';
+      } else {
+        this.persAboutStoryPreviewImg.src = '';
+        this.persAboutStoryPreviewImg.style.display = 'none';
+        this.persAboutStoryPlaceholder.style.display = 'flex';
+        if (this.btnRemoveAboutStoryImg) this.btnRemoveAboutStoryImg.style.display = 'none';
+      }
+    }
+  }
+
+  updatePersLogoPreview(url) {
+    const clean = (url || '').trim();
+    if (this.persLogoPreviewImg && this.persLogoPreviewPlaceholder) {
+      if (clean) {
+        this.persLogoPreviewImg.src = clean;
+        this.persLogoPreviewImg.style.display = 'block';
+        this.persLogoPreviewPlaceholder.style.display = 'none';
+        if (this.btnRemoveLogo) this.btnRemoveLogo.style.display = 'inline-flex';
+      } else {
+        this.persLogoPreviewImg.src = '';
+        this.persLogoPreviewImg.style.display = 'none';
+        this.persLogoPreviewPlaceholder.style.display = 'flex';
+        if (this.btnRemoveLogo) this.btnRemoveLogo.style.display = 'none';
+      }
+    }
+  }
+
+  updatePersFaviconPreview(url) {
+    const clean = (url || '').trim();
+    if (this.persFaviconPreviewImg && this.persFaviconPreviewPlaceholder) {
+      if (clean) {
+        this.persFaviconPreviewImg.src = clean;
+        this.persFaviconPreviewImg.style.display = 'block';
+        this.persFaviconPreviewPlaceholder.style.display = 'none';
+        if (this.btnRemoveFavicon) this.btnRemoveFavicon.style.display = 'inline-flex';
+      } else {
+        this.persFaviconPreviewImg.src = '';
+        this.persFaviconPreviewImg.style.display = 'none';
+        this.persFaviconPreviewPlaceholder.style.display = 'flex';
+        if (this.btnRemoveFavicon) this.btnRemoveFavicon.style.display = 'none';
+      }
+    }
+  }
+
+  updatePersSignaturePreview(url) {
+    const clean = (url || '').trim();
+    if (this.persSignaturePreviewImg && this.persSignaturePreviewPlaceholder) {
+      if (clean) {
+        this.persSignaturePreviewImg.src = clean;
+        this.persSignaturePreviewImg.style.display = 'block';
+        this.persSignaturePreviewPlaceholder.style.display = 'none';
+        if (this.btnRemoveSignature) this.btnRemoveSignature.style.display = 'inline-flex';
+      } else {
+        this.persSignaturePreviewImg.src = '';
+        this.persSignaturePreviewImg.style.display = 'none';
+        this.persSignaturePreviewPlaceholder.style.display = 'flex';
+        if (this.btnRemoveSignature) this.btnRemoveSignature.style.display = 'none';
+      }
+    }
+  }
+
+  renderAccreditationLogosGrid() {
+    if (!this.persAccreditationsGrid) return;
+    const count = this.accreditationLogos.length;
+    if (this.accreditationsCountBadge) {
+      this.accreditationsCountBadge.textContent = `${count} Logo${count === 1 ? '' : 's'} Uploaded`;
+      if (count > 0) {
+        this.accreditationsCountBadge.style.background = '#e0f2fe';
+        this.accreditationsCountBadge.style.color = '#0369a1';
+      } else {
+        this.accreditationsCountBadge.style.background = 'var(--surface-muted)';
+        this.accreditationsCountBadge.style.color = 'var(--text-secondary)';
+      }
+    }
+
+    let html = '';
+    this.accreditationLogos.forEach((url, idx) => {
+      html += `
+        <div class="accreditation-logo-card" data-index="${idx}">
+          <img src="${escapeHtml(url)}" alt="Accreditation Logo ${idx + 1}" onerror="this.src=''; this.alt='Failed to load';">
+          <button type="button" class="grid-photo-remove-btn" title="Remove logo ${idx + 1}" data-remove-accreditation="${idx}">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      `;
+    });
+
+    html += `
+      <div class="grid-photo-add-slot" id="accreditationAddSlot" title="Click to add another accreditation logo">
+        <i class="fa-solid fa-plus"></i>
+        <span>Add Logo</span>
+      </div>
+    `;
+
+    this.persAccreditationsGrid.innerHTML = html;
+
+    const addSlot = this.persAccreditationsGrid.querySelector('#accreditationAddSlot');
+    if (addSlot && this.persAccreditationsFile) {
+      addSlot.addEventListener('click', () => {
+        this.persAccreditationsFile.click();
+      });
+    }
+
+    this.persAccreditationsGrid.querySelectorAll('[data-remove-accreditation]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-remove-accreditation'), 10);
+        if (!isNaN(idx)) this.removeAccreditationLogo(idx);
+      });
+    });
+
+    if (this.persAccreditationUrls) {
+      this.persAccreditationUrls.value = this.accreditationLogos.join('\n');
+    }
+  }
+
+  removeAccreditationLogo(index) {
+    if (index >= 0 && index < this.accreditationLogos.length) {
+      this.accreditationLogos.splice(index, 1);
+      this.renderAccreditationLogosGrid();
+      this.showToast('Logo Removed', `Accreditation logo ${index + 1} removed. Click "Save Changes" to save.`, 'info');
+    }
+  }
+
+  async handleAccreditationFilesSelection(files) {
+    if (!files || files.length === 0) return;
+    let added = 0;
+    for (const file of files) {
+      if (!file.type || !file.type.startsWith('image/')) {
+        this.showToast('Invalid File', `${file.name} is not a valid image.`, 'error');
+        continue;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        this.showToast('File Too Large', `${file.name} exceeds 5MB size limit.`, 'error');
+        continue;
+      }
+      try {
+        const dataUrl = await this.readAndCompressImage(file);
+        if (dataUrl) {
+          this.accreditationLogos.push(dataUrl);
+          added++;
+        }
+      } catch (err) {
+        console.error('Failed to read logo image:', err);
+        this.showToast('Upload Error', `Could not process ${file.name}.`, 'error');
+      }
+    }
+    if (added > 0) {
+      this.renderAccreditationLogosGrid();
+      this.showToast('Logos Added', `Added ${added} accreditation logo(s). Click "Save Changes" to save.`, 'success');
+    }
+  }
+
+  renderGalleryPhotosGrid() {
+    if (!this.persGalleryGrid) return;
+    const count = this.galleryPhotos.length;
+    if (this.galleryCountBadge) {
+      this.galleryCountBadge.textContent = `${count} Photo${count === 1 ? '' : 's'} Uploaded`;
+      if (count > 0) {
+        this.galleryCountBadge.style.background = '#e0f2fe';
+        this.galleryCountBadge.style.color = '#0369a1';
+      } else {
+        this.galleryCountBadge.style.background = 'var(--surface-muted)';
+        this.galleryCountBadge.style.color = 'var(--text-secondary)';
+      }
+    }
+
+    let html = '';
+    this.galleryPhotos.forEach((url, idx) => {
+      html += `
+        <div class="gallery-photo-card" data-index="${idx}">
+          <img src="${escapeHtml(url)}" alt="Gallery Photo ${idx + 1}" onerror="this.src=''; this.alt='Failed to load';">
+          <button type="button" class="grid-photo-remove-btn" title="Remove photo ${idx + 1}" data-remove-gallery="${idx}">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      `;
+    });
+
+    html += `
+      <div class="grid-photo-add-slot" id="galleryAddSlot" title="Click to add another gallery photo">
+        <i class="fa-solid fa-plus"></i>
+        <span>Add Photo</span>
+      </div>
+    `;
+
+    this.persGalleryGrid.innerHTML = html;
+
+    const addSlot = this.persGalleryGrid.querySelector('#galleryAddSlot');
+    if (addSlot && this.persGalleryFiles) {
+      addSlot.addEventListener('click', () => {
+        this.persGalleryFiles.click();
+      });
+    }
+
+    this.persGalleryGrid.querySelectorAll('[data-remove-gallery]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-remove-gallery'), 10);
+        if (!isNaN(idx)) this.removeGalleryPhoto(idx);
+      });
+    });
+
+    if (this.persGalleryUrls) {
+      this.persGalleryUrls.value = this.galleryPhotos.join('\n');
+    }
+  }
+
+  removeGalleryPhoto(index) {
+    if (index >= 0 && index < this.galleryPhotos.length) {
+      this.galleryPhotos.splice(index, 1);
+      this.renderGalleryPhotosGrid();
+      this.showToast('Photo Removed', `Gallery photo ${index + 1} removed. Click "Save Changes" to save.`, 'info');
+    }
+  }
+
+  async handleGalleryFilesSelection(files) {
+    if (!files || files.length === 0) return;
+    let added = 0;
+    for (const file of files) {
+      if (!file.type || !file.type.startsWith('image/')) {
+        this.showToast('Invalid File', `${file.name} is not a valid image.`, 'error');
+        continue;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        this.showToast('File Too Large', `${file.name} exceeds 5MB size limit.`, 'error');
+        continue;
+      }
+      try {
+        const dataUrl = await this.readAndCompressImage(file);
+        if (dataUrl) {
+          this.galleryPhotos.push(dataUrl);
+          added++;
+        }
+      } catch (err) {
+        console.error('Failed to read gallery photo:', err);
+        this.showToast('Upload Error', `Could not process ${file.name}.`, 'error');
+      }
+    }
+    if (added > 0) {
+      this.renderGalleryPhotosGrid();
+      this.showToast('Photos Added', `Added ${added} gallery photo(s). Click "Save Changes" to save.`, 'success');
+    }
+  }
+
+  async handleSaveBranding(e) {
+    if (e) e.preventDefault();
+    const academyName = (this.brandingAcademyName?.value || '').trim();
+    if (!academyName) {
+      this.showToast('Required Field', 'Please enter your Academy Brand Name.', 'error');
+      this.brandingAcademyName?.focus();
+      return;
+    }
+    const phone = (this.brandingPhone?.value || '').trim();
+    if (!phone) {
+      this.showToast('Required Field', 'Please enter a Primary Phone Number.', 'error');
+      this.brandingPhone?.focus();
+      return;
+    }
+    const email = (this.brandingEmail?.value || '').trim();
+    if (!email) {
+      this.showToast('Required Field', 'Please enter an Official Email Address.', 'error');
+      this.brandingEmail?.focus();
+      return;
+    }
+
+    const logoUrl = (this.brandingLogoUrl?.value || '').trim();
+    const existing = store.getAcademyProfile() || {};
+
+    const updatedProfile = {
+      ...existing,
+      academyName,
+      phone,
+      email,
+      logoUrl,
+      bannerPhone: existing.bannerPhone && existing.bannerPhone !== existing.phone ? existing.bannerPhone : phone,
+      updatedAt: Date.now()
+    };
+
+    if (this.btnSaveBranding) setButtonLoading(this.btnSaveBranding, true);
+
+    try {
+      await store.saveAcademyProfile(updatedProfile);
+      this.renderUserProfile();
+      this.populateBrandingForm();
+      if (this.populatePersonalisationForm) {
+        this.populatePersonalisationForm();
+      }
+      this.updatePublicSiteLink();
+      this.render();
+      this.showToast('Branding Saved', 'Academy branding details have been saved successfully.', 'success');
+    } catch (err) {
+      this.showToast('Save Failed', err.message || 'Could not update branding details.', 'error');
+    } finally {
+      if (this.btnSaveBranding) setButtonLoading(this.btnSaveBranding, false);
     }
   }
 
   render() {
+    this.updateSuperAdminState();
     this.renderUserProfile();
     this.populateCourseFilterDropdown();
     this.populateBatchFilterDropdown();
@@ -3582,9 +5196,11 @@ class UIController {
           <time class="inbox-row-time">${escapeHtml(formatInboxRowTime(item.createdAt))}</time>
         </button>
       `).join('') : `
-        <div class="dashboard-inbox-empty">
-          <i class="fa-regular fa-envelope-open"></i>
-          <span>No website messages yet.</span>
+        <div class="dashboard-inbox-empty empty-state">
+          <div class="empty-icon">
+            <i class="fa-regular fa-envelope-open"></i>
+          </div>
+          <p>No messages yet</p>
         </div>`;
     }
 
@@ -7121,8 +8737,7 @@ class UIController {
   openAcademySettingsModal() {
     if (!this.academySettingsModal) return;
     const profile = store.getAcademyProfile();
-    const currentSlug = profile?.slug || (this.session?.email?.includes('poulami') ? 'poulami' : 'prantik');
-    const rootDomain = this.getRootDomain();
+    const currentSlug = profile?.slug || (this.session?.email?.includes('poulami') ? 'poulami' : (this.session?.email?.includes('diganta') ? 'diganta' : (this.session?.email ? this.session.email.split('@')[0].replace(/[^a-z0-9]/g, '') : '')));
 
     if (this.settingsAcademyName) {
       this.settingsAcademyName.value = profile?.academyName || '';
@@ -7133,8 +8748,9 @@ class UIController {
     if (this.settingsSubdomainSlug) {
       this.settingsSubdomainSlug.value = currentSlug;
     }
-    if (this.settingsSubdomainSuffix) {
-      this.settingsSubdomainSuffix.textContent = `.${rootDomain}`;
+    if (this.settingsSlugPrefix) {
+      const origin = (window.location.origin || 'https://academy.pixelsetu.com').replace(/^https?:\/\//, '');
+      this.settingsSlugPrefix.textContent = `${origin}/a/`;
     }
 
     this.openModal(this.academySettingsModal);
@@ -7146,19 +8762,239 @@ class UIController {
   }
 
   // ==========================================================================
-  // Onboarding Workflow (One-Time Academy & Owner Setup)
+  // Onboarding Workflow & Tenant Account Status Gate
   // ==========================================================================
   checkOnboarding() {
+    this.checkAccountStatus();
+  }
+
+  checkAccountStatus() {
     const profile = store.getAcademyProfile();
-    if (!profile || !profile.academyName || !profile.ownerName) {
+    const isConfigured = Boolean(profile && profile.academyName && profile.ownerName);
+
+    if (!isConfigured) {
+      if (this.accountOnHoldScreen) this.accountOnHoldScreen.style.display = 'none';
       this.openOnboardingModal();
+      return;
+    }
+
+    const isSuperAdmin = Boolean(store.isSuperAdmin && store.ownerEmail === 'dasprantik76@gmail.com');
+    const status = isSuperAdmin ? 'active' : (store.tenantStatus || 'pending');
+
+    if (status !== 'active') {
+      // Show Account on Hold Screen
+      if (this.accountOnHoldScreen) {
+        this.accountOnHoldScreen.style.display = 'flex';
+        if (this.holdAcademyName) this.holdAcademyName.textContent = profile.academyName || 'Your Academy';
+        const slug = profile.slug || '';
+        const fullUrl = this.getPublicUrlForSlug(slug);
+        if (this.holdSubdomainUrl) this.holdSubdomainUrl.textContent = fullUrl;
+        if (this.holdOwnerName) this.holdOwnerName.textContent = profile.ownerName || this.session?.name || 'Administrator';
+        if (this.holdOwnerEmail) this.holdOwnerEmail.textContent = store.ownerEmail || this.session?.email || '—';
+        if (this.holdStatusBadge) {
+          if (status === 'suspended') {
+            this.holdStatusBadge.className = 'badge badge-inactive';
+            this.holdStatusBadge.textContent = 'Account Suspended';
+          } else {
+            this.holdStatusBadge.className = 'badge badge-warning';
+            this.holdStatusBadge.textContent = 'Pending Super Admin Approval';
+          }
+        }
+      }
+      // Hide active views & disable navigation tabs while on hold
+      this.views.forEach(section => section.classList.remove('active'));
+      this.navItems.forEach(item => {
+        item.style.opacity = '0.35';
+        item.style.pointerEvents = 'none';
+      });
+      this.updateSuperAdminState();
+      return;
+    }
+
+    // Account is Active / Approved
+    if (this.accountOnHoldScreen) this.accountOnHoldScreen.style.display = 'none';
+    this.navItems.forEach(item => {
+      item.style.opacity = '';
+      item.style.pointerEvents = '';
+    });
+
+    // Super Admin Navigation
+    this.updateSuperAdminState();
+  }
+
+  // ==========================================================================
+  // Super Admin Platform Tenants Management
+  // ==========================================================================
+  async loadPlatformTenants() {
+    if (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com') return;
+    try {
+      const res = await store.getAllTenants();
+      if (res && res.success && Array.isArray(res.tenants)) {
+        this.platformTenants = res.tenants;
+        const total = this.platformTenants.length;
+        const pending = this.platformTenants.filter(t => t.status === 'pending').length;
+        const active = this.platformTenants.filter(t => t.status === 'active').length;
+
+        if (this.statTotalTenants) this.statTotalTenants.textContent = total;
+        if (this.statPendingTenants) this.statPendingTenants.textContent = pending;
+        if (this.statActiveTenants) this.statActiveTenants.textContent = active;
+        if (this.pillPendingCount) this.pillPendingCount.textContent = pending;
+
+        if (this.pendingTenantsBadge) {
+          this.pendingTenantsBadge.textContent = pending;
+          this.pendingTenantsBadge.style.display = pending > 0 ? 'inline-block' : 'none';
+        }
+
+        this.renderTenantsTable();
+      }
+    } catch (e) {
+      console.warn('[SuperAdmin] Failed to load tenants:', e);
+    }
+  }
+
+  renderTenantsTable() {
+    if (!this.tenantsTableBody || !Array.isArray(this.platformTenants)) return;
+
+    const filter = this.tenantActiveFilter || 'all';
+    const query = (this.tenantSearchQuery?.value || '').toLowerCase().trim();
+
+    const filtered = this.platformTenants.filter(tenant => {
+      if (filter !== 'all' && tenant.status !== filter) return false;
+      if (query) {
+        const target = `${tenant.academyName || ''} ${tenant.ownerName || ''} ${tenant.ownerEmail || ''} ${tenant.slug || ''}`.toLowerCase();
+        if (!target.includes(query)) return false;
+      }
+      return true;
+    });
+
+    if (filtered.length === 0) {
+      this.tenantsTableBody.innerHTML = `
+        <tr>
+          <td colspan="6" style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+            <i class="fa-solid fa-filter" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block; opacity: 0.5;"></i>
+            No academy tenants found matching the selected filter.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    this.tenantsTableBody.innerHTML = filtered.map(t => {
+      const isApproved = t.status === 'active';
+      const isSuperAdminTenant = t.ownerEmail === 'dasprantik76@gmail.com';
+      const isMainDiganta = t.ownerEmail === 'rcavirup@gmail.com';
+
+      let statusBadgeHtml = '<span class="badge badge-warning"><i class="fa-solid fa-clock"></i> Pending Review</span>';
+      if (t.status === 'active') {
+        statusBadgeHtml = '<span class="badge badge-active"><i class="fa-solid fa-circle-check"></i> Active</span>';
+      } else if (t.status === 'suspended') {
+        statusBadgeHtml = '<span class="badge badge-inactive"><i class="fa-solid fa-ban"></i> Suspended</span>';
+      }
+
+      const publicUrl = `https://${t.slug || 'academy'}.${this.getRootDomain()}`;
+      const previewUrl = `/?academy=${encodeURIComponent(t.slug || '')}`;
+
+      return `
+        <tr data-email="${escapeHtml(t.ownerEmail)}">
+          <td>
+            <div style="font-weight: 700; color: #0f172a; font-size: 0.9375rem;">${escapeHtml(t.academyName || 'Untitled Academy')}</div>
+            <div style="font-size: 0.8125rem; color: #64748b;">${escapeHtml(t.category || 'General Academy')}</div>
+            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">ID Prefix: <code>${escapeHtml(t.studentIdPrefix || '—')}</code></div>
+          </td>
+          <td>
+            <div style="font-weight: 600; color: #334155;">${escapeHtml(t.ownerName || '—')}</div>
+            <div style="font-size: 0.8125rem; color: #64748b;">${escapeHtml(t.ownerEmail)}</div>
+            ${t.phone ? `<div style="font-size: 0.75rem; color: #2563eb;"><i class="fa-solid fa-phone" style="font-size: 9px;"></i> ${escapeHtml(t.phone)}</div>` : ''}
+          </td>
+          <td>
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <code style="background: #e2e8f0; color: #1e40af; padding: 2px 6px; border-radius: 4px; font-weight: 700;">${escapeHtml(t.slug || '—')}</code>
+              <a href="${previewUrl}" target="_blank" title="Preview public website" style="color: #64748b; font-size: 0.85rem;"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">${escapeHtml(publicUrl)}</div>
+          </td>
+          <td>
+            <div style="font-size: 0.8125rem; color: #334155;"><strong>${t.studentCount || 0}</strong> Students</div>
+            <div style="font-size: 0.8125rem; color: #64748b;"><strong>${t.courseCount || 0}</strong> Courses</div>
+          </td>
+          <td>${statusBadgeHtml}</td>
+          <td style="text-align: right;">
+            <div style="display: flex; align-items: center; justify-content: flex-end; gap: 0.4rem; flex-wrap: wrap;">
+              ${isSuperAdminTenant ? `
+                <span class="badge badge-primary" style="padding: 0.3rem 0.65rem; font-size: 0.75rem;"><i class="fa-solid fa-crown"></i> Super Admin</span>
+              ` : (isMainDiganta ? `
+                <span class="badge badge-active" style="padding: 0.3rem 0.65rem; font-size: 0.75rem; background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd;"><i class="fa-solid fa-star"></i> Main Academy</span>
+              ` : (!isApproved ? `
+                <button type="button" class="btn btn-sm btn-approve-tenant" data-email="${escapeHtml(t.ownerEmail)}" data-name="${escapeHtml(t.academyName || '')}" style="background: #10b981; color: #fff; font-weight: 600; padding: 0.3rem 0.65rem;">
+                  <i class="fa-solid fa-check"></i> Approve
+                </button>
+              ` : `
+                <button type="button" class="btn btn-sm btn-hold-tenant" data-email="${escapeHtml(t.ownerEmail)}" data-name="${escapeHtml(t.academyName || '')}" style="background: #f1f5f9; color: #d97706; border: 1px solid #fde68a; font-weight: 600; padding: 0.3rem 0.65rem;">
+                  <i class="fa-solid fa-pause"></i> Put on Hold
+                </button>
+              `))}
+              <a href="${previewUrl}" target="_blank" class="btn btn-sm btn-outline" style="padding: 0.3rem 0.65rem;" title="Preview Site">
+                <i class="fa-solid fa-eye"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    this.tenantsTableBody.querySelectorAll('.btn-approve-tenant').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const email = btn.getAttribute('data-email');
+        const name = btn.getAttribute('data-name');
+        setButtonLoading(btn, true);
+        await this.handleApproveTenant(email, name);
+      });
+    });
+
+    this.tenantsTableBody.querySelectorAll('.btn-hold-tenant').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const email = btn.getAttribute('data-email');
+        const name = btn.getAttribute('data-name');
+        setButtonLoading(btn, true);
+        await this.handleHoldTenant(email, name);
+      });
+    });
+  }
+
+  async handleApproveTenant(targetOwnerEmail, academyName) {
+    try {
+      const res = await store.updateTenantStatus(targetOwnerEmail, 'active');
+      if (res && res.success) {
+        this.showToast('Academy Approved!', `${academyName} has been approved. The tenant now has full access to their portal.`, 'success');
+        await this.loadPlatformTenants();
+      } else {
+        this.showToast('Approval Failed', 'Could not update tenant approval status.', 'error');
+      }
+    } catch (e) {
+      this.showToast('Approval Error', e.message || 'Network error updating tenant.', 'error');
+    }
+  }
+
+  async handleHoldTenant(targetOwnerEmail, academyName) {
+    try {
+      const res = await store.updateTenantStatus(targetOwnerEmail, 'pending');
+      if (res && res.success) {
+        this.showToast('Account Put on Hold', `${academyName} is now on hold.`, 'info');
+        await this.loadPlatformTenants();
+      } else {
+        this.showToast('Update Failed', 'Could not update tenant status.', 'error');
+      }
+    } catch (e) {
+      this.showToast('Update Error', e.message || 'Network error updating tenant.', 'error');
     }
   }
 
   openOnboardingModal() {
     if (!this.onboardingModal) return;
-    const rootDomain = this.getRootDomain();
-    const defaultSlug = this.session?.email?.includes('poulami') ? 'poulami' : 'prantik';
+    const userEmail = (this.session?.email || '').toLowerCase().trim();
+    const defaultSlug = userEmail.includes('poulami')
+      ? 'poulami'
+      : (userEmail.includes('diganta') ? 'diganta' : (userEmail ? userEmail.split('@')[0].replace(/[^a-z0-9]/g, '') : ''));
 
     if (this.onboardingOwnerName && this.session && this.session.name && this.session.name !== 'Super Administrator') {
       this.onboardingOwnerName.value = this.session.name;
@@ -7166,8 +9002,9 @@ class UIController {
     if (this.onboardingSubdomainSlug) {
       this.onboardingSubdomainSlug.value = defaultSlug;
     }
-    if (this.onboardingSubdomainSuffix) {
-      this.onboardingSubdomainSuffix.textContent = `.${rootDomain}`;
+    if (this.onboardingSlugPrefix) {
+      const origin = (window.location.origin || 'https://academy.pixelsetu.com').replace(/^https?:\/\//, '');
+      this.onboardingSlugPrefix.textContent = `${origin}/a/`;
     }
 
     this.openModal(this.onboardingModal);

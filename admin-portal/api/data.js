@@ -15,18 +15,36 @@ const COLLECTIONS = {
 };
 
 async function getNextStudentId(db, ownerEmail) {
+  const profile = await db.collection(COLLECTIONS.PROFILE).findOne(
+    { ownerEmail },
+    { projection: { studentIdPrefix: 1, slug: 1, academyName: 1 } }
+  );
+
+  let prefix = profile?.studentIdPrefix;
+  if (!prefix) {
+    if (ownerEmail === 'rcavirup@gmail.com') {
+      prefix = 'DCC/SMP/';
+    } else if (profile?.slug) {
+      prefix = `${profile.slug.toUpperCase().slice(0, 4)}/`;
+    } else {
+      prefix = 'STU/';
+    }
+  }
+  if (!prefix.endsWith('/')) prefix += '/';
+
+  const defaultStartSeq = (ownerEmail === 'rcavirup@gmail.com') ? 2009 : 1000;
   const counter = await db.collection(COLLECTIONS.COUNTERS).findOneAndUpdate(
     { _id: `student-id:${ownerEmail}` },
     [{
       $set: {
         sequence: {
-          $add: [{ $max: [{ $ifNull: ['$sequence', 2009] }, 2009] }, 1]
+          $add: [{ $max: [{ $ifNull: ['$sequence', defaultStartSeq] }, defaultStartSeq] }, 1]
         }
       }
     }],
     { upsert: true, returnDocument: 'after' }
   );
-  return `DCC/SMP/${String(counter.sequence).padStart(5, '0')}`;
+  return `${prefix}${String(counter.sequence).padStart(5, '0')}`;
 }
 
 const COURSE_SEED_VERSION = 2;
@@ -67,19 +85,40 @@ async function deleteImageKitFile(fileId) {
   }
 }
 
+// Super Administrator Accounts with Platform Tenant Approval Rights
+const configuredSuperAdmin = process.env.SUPER_ADMIN_EMAIL || process.env.SUPER_ADMIN_EMAILS || 'dasprantik76@gmail.com';
+const SUPER_ADMIN_EMAILS = new Set(
+  configuredSuperAdmin.split(',').map(e => e.trim().toLowerCase()).filter(Boolean)
+);
+SUPER_ADMIN_EMAILS.add('dasprantik76@gmail.com');
+
 // Default seed profiles for multi-tenant academies
 const DEFAULT_TENANTS = {
-  'dasprantik76@gmail.com': {
-    ownerEmail: 'dasprantik76@gmail.com',
+  'rcavirup@gmail.com': {
+    ownerEmail: 'rcavirup@gmail.com',
     academyName: 'Diganta Computer Centre',
-    ownerName: 'Prantik Das',
-    email: 'swarupkhan1@gmail.com',
+    ownerName: 'Diganta',
+    email: 'rcavirup@gmail.com',
     phone: '9733894742',
     secondaryPhone: '9733894742',
     whatsapp: '9733894742',
-    slug: 'prantik',
+    address: 'Shyampur, Howrah',
+    pincode: '711314',
+    slug: 'diganta',
+    status: 'active',
+    studentIdPrefix: 'DCC/SMP/',
     category: 'Computer Science & Information Technology',
-    about: 'Premier professional computer and software training academy offering certified courses.'
+    about: 'Premier professional computer and software training academy offering certified courses.',
+    aboutHeadline: 'West Bengal',
+    aboutStory: 'Premier professional computer and software training academy offering certified courses.',
+    heroDesc: 'Premier professional computer and software training academy offering certified courses.',
+    aboutHighlights: [
+      'Certified Expert & Industry-Experienced Faculty',
+      '100% Practical Hands-on Lab Sessions',
+      'Recognized Government & Industry Certifications',
+      'Comprehensive Career Guidance & Placement Assistance'
+    ],
+    tagline: 'Admissions & Registrations Open 2026'
   },
   'poulami.13thmay@gmail.com': {
     ownerEmail: 'poulami.13thmay@gmail.com',
@@ -88,6 +127,7 @@ const DEFAULT_TENANTS = {
     email: 'poulami.13thmay@gmail.com',
     phone: '9876543211',
     slug: 'poulami',
+    status: 'active',
     category: 'Performing Arts & Classical Dance',
     about: 'Dedicated institute for Classical Dance, Bharatanatyam, Kathak, and Contemporary Dance training.'
   }
@@ -95,74 +135,74 @@ const DEFAULT_TENANTS = {
 
 // Default sample courses for new academies
 const DEFAULT_COURSES_BY_TENANT = {
-  'dasprantik76@gmail.com': [
+  'rcavirup@gmail.com': [
     {
       id: 'CRS-101',
       title: 'Diploma in Computer Applications (DCA)',
       duration: '6 Months',
       description: 'Comprehensive fundamentals of computer operations, MS Office suite, Internet basics, and database concepts.',
-      ownerEmail: 'dasprantik76@gmail.com'
+      ownerEmail: 'rcavirup@gmail.com'
     },
     {
       id: 'CRS-102',
       title: 'Full Stack Web Development',
       duration: '1 Year',
       description: 'Modern front-end and back-end web development with HTML5, CSS3, JavaScript, Node.js, and Databases.',
-      ownerEmail: 'dasprantik76@gmail.com'
+      ownerEmail: 'rcavirup@gmail.com'
     },
     {
       id: 'CRS-103',
       title: 'Post Graduate Diploma in Computer Applications (PGDCA)',
       duration: '1 Year',
       description: 'Advanced programming concepts, system architecture, database administration, and project implementation.',
-      ownerEmail: 'dasprantik76@gmail.com'
+      ownerEmail: 'rcavirup@gmail.com'
     },
     {
       id: 'CRS-104',
       title: 'Certificate in Office Automation',
       duration: '3 Months',
       description: 'Practical training in Word, Excel, PowerPoint, email, document formatting, and everyday office productivity.',
-      ownerEmail: 'dasprantik76@gmail.com'
+      ownerEmail: 'rcavirup@gmail.com'
     },
     {
       id: 'CRS-105',
       title: 'Tally Prime with GST',
       duration: '4 Months',
       description: 'Learn computerized accounting, inventory management, GST invoicing, taxation reports, and payroll using Tally Prime.',
-      ownerEmail: 'dasprantik76@gmail.com'
+      ownerEmail: 'rcavirup@gmail.com'
     },
     {
       id: 'CRS-106',
       title: 'Graphic Design Fundamentals',
       duration: '6 Months',
       description: 'Build creative design skills through typography, image editing, branding, social media graphics, and print layouts.',
-      ownerEmail: 'dasprantik76@gmail.com'
+      ownerEmail: 'rcavirup@gmail.com'
     },
-    {"id": "CRS-DEMO-001", "title": "Advanced Excel & MIS Reporting", "duration": "3 Months", "description": "Build spreadsheet models using lookup functions, PivotTables, data validation, Power Query, and interactive dashboards. Complete a monthly sales reporting project.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-002", "title": "Python Programming", "duration": "4 Months", "description": "Learn variables, control flow, functions, collections, file handling, exceptions, and object-oriented programming. Build command-line utilities and automate routine tasks.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-003", "title": "Data Analysis with Python", "duration": "6 Months", "description": "Clean and explore datasets with pandas and NumPy, visualize results with Matplotlib, and summarize findings using descriptive statistics and reproducible notebooks.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-004", "title": "SQL & Database Design", "duration": "3 Months", "description": "Write queries with joins, subqueries, aggregate functions, and window functions. Design relational schemas, apply normalization, and practice transactions and indexing.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-005", "title": "Power BI Dashboard Development", "duration": "3 Months", "description": "Import and transform data with Power Query, build relationships and DAX measures, and create interactive reports with filters, drill-through pages, and business metrics.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-006", "title": "Web Design with HTML & CSS", "duration": "3 Months", "description": "Create responsive websites with semantic HTML, CSS Grid, Flexbox, accessible forms, and media queries. Publish a portfolio website with layouts for mobile and desktop.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-007", "title": "JavaScript Programming", "duration": "4 Months", "description": "Practice functions, arrays, objects, DOM manipulation, events, promises, and asynchronous requests. Build interactive browser applications with validation and error handling.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-008", "title": "React Frontend Development", "duration": "4 Months", "description": "Build reusable components with props, state, hooks, routing, and forms. Connect a frontend to an API and complete an accessible multi-page application.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-009", "title": "Node.js & Express Backend Development", "duration": "4 Months", "description": "Create REST APIs with routing, middleware, validation, authentication, and database integration. Practice automated tests, error handling, and application deployment.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-010", "title": "Django Web Development", "duration": "4 Months", "description": "Develop database-backed websites using models, views, templates, forms, authentication, and the Django admin. Build and deploy a complete student project.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-011", "title": "Java Programming", "duration": "6 Months", "description": "Learn Java syntax, classes, inheritance, interfaces, collections, exceptions, and JDBC. Develop a database-connected application using structured object-oriented design.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-012", "title": "C Programming Fundamentals", "duration": "3 Months", "description": "Understand data types, loops, functions, arrays, pointers, structures, and file operations. Practice debugging and implement small programs for common computing problems.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-013", "title": "C++ & Data Structures", "duration": "6 Months", "description": "Study classes, templates, the standard library, linked lists, stacks, queues, trees, and graphs. Compare sorting and searching algorithms using time and space complexity.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-014", "title": "Computer Hardware & Troubleshooting", "duration": "4 Months", "description": "Identify desktop components, assemble systems, install operating systems and drivers, diagnose common faults, and practice backups and preventive maintenance.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-015", "title": "Computer Networking Fundamentals", "duration": "4 Months", "description": "Learn network devices, Ethernet, IP addressing, subnetting, DNS, DHCP, routing, and wireless networks. Configure a small office network and troubleshoot connectivity.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-016", "title": "Linux Administration", "duration": "4 Months", "description": "Use the Linux shell, manage users and permissions, configure services, inspect logs, schedule jobs, and write shell scripts for routine administration tasks.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-017", "title": "Cybersecurity Fundamentals", "duration": "4 Months", "description": "Study access control, secure configuration, phishing awareness, network security, backups, and incident response. Practice defensive analysis in isolated training labs.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-018", "title": "Cloud Computing Fundamentals", "duration": "3 Months", "description": "Understand virtual machines, storage, networking, identity management, monitoring, and shared responsibility. Design a small cloud-hosted application and estimate resource usage.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-019", "title": "Git, Docker & CI/CD Fundamentals", "duration": "4 Months", "description": "Manage branches and code reviews with Git, package applications in Docker containers, and build automated pipelines for testing and deployment.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-020", "title": "UI & UX Design with Figma", "duration": "4 Months", "description": "Practice user interviews, information architecture, wireframes, component libraries, responsive layouts, and interactive prototypes. Conduct usability testing on a design project.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-021", "title": "Adobe Photoshop & Image Editing", "duration": "3 Months", "description": "Edit photographs using layers, masks, selections, retouching, color correction, and nondestructive adjustments. Prepare images for print, websites, and social media.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-022", "title": "Vector Illustration with Adobe Illustrator", "duration": "3 Months", "description": "Create vector artwork with shapes, paths, the Pen tool, typography, and reusable graphic assets. Design logos, icons, packaging layouts, and print-ready illustrations.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-023", "title": "Video Editing with Adobe Premiere Pro", "duration": "4 Months", "description": "Organize footage, edit sequences, synchronize audio, add titles and transitions, correct color, and export video. Complete a short promotional film from raw footage.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-024", "title": "WordPress Website Development", "duration": "3 Months", "description": "Build websites using themes, blocks, menus, forms, and plugins. Practice backups, security updates, performance optimization, and basic search-friendly site structure.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"},
-    {"id": "CRS-DEMO-025", "title": "AutoCAD 2D Drafting", "duration": "4 Months", "description": "Create technical drawings with precise dimensions, layers, blocks, annotations, layouts, and plotting. Produce a complete set of 2D plans for a drafting project.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "dasprantik76@gmail.com"}
+    {"id": "CRS-DEMO-001", "title": "Advanced Excel & MIS Reporting", "duration": "3 Months", "description": "Build spreadsheet models using lookup functions, PivotTables, data validation, Power Query, and interactive dashboards. Complete a monthly sales reporting project.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-002", "title": "Python Programming", "duration": "4 Months", "description": "Learn variables, control flow, functions, collections, file handling, exceptions, and object-oriented programming. Build command-line utilities and automate routine tasks.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-003", "title": "Data Analysis with Python", "duration": "6 Months", "description": "Clean and explore datasets with pandas and NumPy, visualize results with Matplotlib, and summarize findings using descriptive statistics and reproducible notebooks.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-004", "title": "SQL & Database Design", "duration": "3 Months", "description": "Write queries with joins, subqueries, aggregate functions, and window functions. Design relational schemas, apply normalization, and practice transactions and indexing.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-005", "title": "Power BI Dashboard Development", "duration": "3 Months", "description": "Import and transform data with Power Query, build relationships and DAX measures, and create interactive reports with filters, drill-through pages, and business metrics.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-006", "title": "Web Design with HTML & CSS", "duration": "3 Months", "description": "Create responsive websites with semantic HTML, CSS Grid, Flexbox, accessible forms, and media queries. Publish a portfolio website with layouts for mobile and desktop.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-007", "title": "JavaScript Programming", "duration": "4 Months", "description": "Practice functions, arrays, objects, DOM manipulation, events, promises, and asynchronous requests. Build interactive browser applications with validation and error handling.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-008", "title": "React Frontend Development", "duration": "4 Months", "description": "Build reusable components with props, state, hooks, routing, and forms. Connect a frontend to an API and complete an accessible multi-page application.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-009", "title": "Node.js & Express Backend Development", "duration": "4 Months", "description": "Create REST APIs with routing, middleware, validation, authentication, and database integration. Practice automated tests, error handling, and application deployment.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-010", "title": "Django Web Development", "duration": "4 Months", "description": "Develop database-backed websites using models, views, templates, forms, authentication, and the Django admin. Build and deploy a complete student project.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-011", "title": "Java Programming", "duration": "6 Months", "description": "Learn Java syntax, classes, inheritance, interfaces, collections, exceptions, and JDBC. Develop a database-connected application using structured object-oriented design.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-012", "title": "C Programming Fundamentals", "duration": "3 Months", "description": "Understand data types, loops, functions, arrays, pointers, structures, and file operations. Practice debugging and implement small programs for common computing problems.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-013", "title": "C++ & Data Structures", "duration": "6 Months", "description": "Study classes, templates, the standard library, linked lists, stacks, queues, trees, and graphs. Compare sorting and searching algorithms using time and space complexity.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-014", "title": "Computer Hardware & Troubleshooting", "duration": "4 Months", "description": "Identify desktop components, assemble systems, install operating systems and drivers, diagnose common faults, and practice backups and preventive maintenance.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-015", "title": "Computer Networking Fundamentals", "duration": "4 Months", "description": "Learn network devices, Ethernet, IP addressing, subnetting, DNS, DHCP, routing, and wireless networks. Configure a small office network and troubleshoot connectivity.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-016", "title": "Linux Administration", "duration": "4 Months", "description": "Use the Linux shell, manage users and permissions, configure services, inspect logs, schedule jobs, and write shell scripts for routine administration tasks.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-017", "title": "Cybersecurity Fundamentals", "duration": "4 Months", "description": "Study access control, secure configuration, phishing awareness, network security, backups, and incident response. Practice defensive analysis in isolated training labs.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-018", "title": "Cloud Computing Fundamentals", "duration": "3 Months", "description": "Understand virtual machines, storage, networking, identity management, monitoring, and shared responsibility. Design a small cloud-hosted application and estimate resource usage.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-019", "title": "Git, Docker & CI/CD Fundamentals", "duration": "4 Months", "description": "Manage branches and code reviews with Git, package applications in Docker containers, and build automated pipelines for testing and deployment.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-020", "title": "UI & UX Design with Figma", "duration": "4 Months", "description": "Practice user interviews, information architecture, wireframes, component libraries, responsive layouts, and interactive prototypes. Conduct usability testing on a design project.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-021", "title": "Adobe Photoshop & Image Editing", "duration": "3 Months", "description": "Edit photographs using layers, masks, selections, retouching, color correction, and nondestructive adjustments. Prepare images for print, websites, and social media.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-022", "title": "Vector Illustration with Adobe Illustrator", "duration": "3 Months", "description": "Create vector artwork with shapes, paths, the Pen tool, typography, and reusable graphic assets. Design logos, icons, packaging layouts, and print-ready illustrations.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-023", "title": "Video Editing with Adobe Premiere Pro", "duration": "4 Months", "description": "Organize footage, edit sequences, synchronize audio, add titles and transitions, correct color, and export video. Complete a short promotional film from raw footage.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-024", "title": "WordPress Website Development", "duration": "3 Months", "description": "Build websites using themes, blocks, menus, forms, and plugins. Practice backups, security updates, performance optimization, and basic search-friendly site structure.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"},
+    {"id": "CRS-DEMO-025", "title": "AutoCAD 2D Drafting", "duration": "4 Months", "description": "Create technical drawings with precise dimensions, layers, blocks, annotations, layouts, and plotting. Produce a complete set of 2D plans for a drafting project.", "createdAt": "2026-09-01T09:00:00.000Z", "ownerEmail": "rcavirup@gmail.com"}
   ],
   'poulami.13thmay@gmail.com': [
     {
@@ -211,10 +251,10 @@ const DEFAULT_COURSES_BY_TENANT = {
 };
 
 const DEFAULT_MESSAGES_BY_TENANT = {
-  'dasprantik76@gmail.com': [
+  'rcavirup@gmail.com': [
     {
       id: 'msg_101',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Sourav Mukherjee',
       phone: '9830145291',
@@ -225,7 +265,7 @@ const DEFAULT_MESSAGES_BY_TENANT = {
     },
     {
       id: 'msg_102',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Priyanka Sengupta',
       phone: '9874120365',
@@ -236,7 +276,7 @@ const DEFAULT_MESSAGES_BY_TENANT = {
     },
     {
       id: 'msg_103',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Subhajit Karmakar',
       phone: '9123456780',
@@ -247,7 +287,7 @@ const DEFAULT_MESSAGES_BY_TENANT = {
     },
     {
       id: 'msg_104',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Ananya Roychowdhury',
       phone: '9433219087',
@@ -258,7 +298,7 @@ const DEFAULT_MESSAGES_BY_TENANT = {
     },
     {
       id: 'msg_105',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Debjit Banerjee',
       phone: '9836541298',
@@ -269,7 +309,7 @@ const DEFAULT_MESSAGES_BY_TENANT = {
     },
     {
       id: 'msg_106',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Riya Chakraborty',
       phone: '9748231905',
@@ -280,7 +320,7 @@ const DEFAULT_MESSAGES_BY_TENANT = {
     },
     {
       id: 'msg_107',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Tanmay Dutta',
       phone: '9831098234',
@@ -292,7 +332,7 @@ const DEFAULT_MESSAGES_BY_TENANT = {
     },
     {
       id: 'msg_108',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Sneha Bhattacharya',
       phone: '9051876432',
@@ -304,7 +344,7 @@ const DEFAULT_MESSAGES_BY_TENANT = {
     },
     {
       id: 'msg_109',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Arindam Halder',
       phone: '9874561230',
@@ -316,7 +356,7 @@ const DEFAULT_MESSAGES_BY_TENANT = {
     },
     {
       id: 'msg_110',
-      ownerEmail: 'dasprantik76@gmail.com',
+      ownerEmail: 'rcavirup@gmail.com',
       academySlug: 'prantik',
       name: 'Moumita Paul',
       phone: '9432109876',
@@ -330,10 +370,10 @@ const DEFAULT_MESSAGES_BY_TENANT = {
 };
 
 const DEFAULT_BATCHES_BY_TENANT = {
-  "dasprantik76@gmail.com": [
+  "rcavirup@gmail.com": [
   {
     "id": "6e3812a3-9c16-4c92-810d-91d8c1a34b9c",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-13T09:38:36.607Z",
     "name": "Full Stack Web Development - Batch 2026",
     "status": "Active",
@@ -351,7 +391,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "666b2ca0-cc40-4857-a244-dbd5bd6c8558",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-12T11:02:27.287Z",
     "name": "DCC Course",
     "status": "Active",
@@ -368,7 +408,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "grade": "A+"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "22ffd44f-bdfb-4ae5-aeee-65fc7d6b883c",
     "createdAt": "2026-09-11T17:29:02.591Z",
     "name": "New Batch 2021",
@@ -385,7 +425,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "d751d0a3-6fbf-4dd9-90aa-4872718ccd5a",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-11T13:52:29.133Z",
     "name": "computer science",
     "status": "Completed",
@@ -405,7 +445,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "grade": "A+"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "360c0a7b-dd41-4988-9e88-16ad6a123f33",
     "createdAt": "2026-09-10T15:41:50.551Z",
     "name": "ABC",
@@ -421,7 +461,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "ff4eff8d-e437-4476-ba82-9c3d88067f60",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-10T15:34:22.539Z",
     "name": "Python for Data Analytics - Morning Cohort",
     "status": "Active",
@@ -436,7 +476,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "46703bae-aba5-468d-9f57-a1ddfcafb62c",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-08T10:56:46.934Z",
     "name": "Tally Prime & GST Filing - Weekend Batch",
     "status": "Active",
@@ -457,7 +497,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "af86a220-831a-4c25-9287-5b62ad4d00d1",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-05T08:15:45.050Z",
     "name": "Advanced Excel & MIS Reporting - Fast Track",
     "status": "Completed",
@@ -478,7 +518,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-09-05T08:15:45.050Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "64b3974f-848b-43a3-a77e-b580959c3b2e",
     "createdAt": "2026-09-02T18:03:54.477Z",
     "name": "Graphic Design & UI/UX - Batch Alpha",
@@ -504,7 +544,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "af929672-216c-4f3c-b5fd-db314934ca0c",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-31T14:35:44.976Z",
     "name": "Cybersecurity & Ethical Hacking - Cohort 1",
     "status": "Active",
@@ -529,7 +569,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-08-31T14:35:44.976Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "a0357697-9e15-4d7f-9d5f-80719dd77105",
     "createdAt": "2026-08-28T19:29:32.922Z",
     "name": "Diploma in Computer Applications (DCA) - Regular",
@@ -553,7 +593,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "b12bb9b2-e59d-469e-9830-103282c99e6b",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-26T12:02:13.493Z",
     "name": "Cloud Computing & AWS - Evening Batch",
     "status": "Active",
@@ -568,7 +608,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "25e45c23-c0d9-40bc-9461-9e78cb5fabfe",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-24T14:41:04.297Z",
     "name": "Digital Marketing & SEO - Batch 2026-A",
     "status": "Completed",
@@ -588,7 +628,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "ae43300f-cefb-4860-b94f-0a174e43b69b",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-21T16:10:35.675Z",
     "name": "Java Enterprise & Spring Boot - Weekend Intensive",
     "status": "Active",
@@ -604,7 +644,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-08-21T16:10:35.675Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "b7e12059-53bd-4b11-8ede-b8d45c41967e",
     "createdAt": "2026-08-18T18:01:08.148Z",
     "name": "AutoCAD 2D/3D & Interior Drafting - Batch 3",
@@ -624,7 +664,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-08-18T18:01:08.148Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "872ad8c1-fe23-4734-b2e3-289a2a224fac",
     "createdAt": "2026-08-16T23:22:11.177Z",
     "name": "Computer Hardware & Networking - Morning 1",
@@ -643,7 +683,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "ef5221d4-a9fb-4d36-8054-e6359d7782a9",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-13T23:31:46.243Z",
     "name": "React & Next.js Masterclass - Cohort B",
     "status": "Active",
@@ -657,7 +697,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-08-13T23:31:46.243Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "68530de7-71f1-4292-b770-50cbb396623a",
     "createdAt": "2026-08-12T03:05:40.728Z",
     "name": "Financial Accounting with Tally - Batch Delta",
@@ -679,7 +719,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-08-12T03:05:40.728Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "c697dff2-e7b6-4b55-8edf-bf57de3491a2",
     "createdAt": "2026-08-09T12:29:44.247Z",
     "name": "C++ & Algorithms - Winter Cohort",
@@ -700,7 +740,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "07c8a65d-da29-4cbc-ab78-95b5018e8fbc",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-06T05:40:42.880Z",
     "name": "Office Automation & Typing - Regular Batch",
     "status": "Active",
@@ -714,7 +754,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "8c2694a8-62d1-4574-a98c-2aa515b09153",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-03T17:56:23.714Z",
     "name": "Flutter & Mobile App Development - Weekend",
     "status": "Active",
@@ -737,7 +777,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "89ee35d0-c9f8-4206-93ea-2e93d5c19e68",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-01T20:28:22.458Z",
     "name": "Artificial Intelligence & Prompt Engineering - Cohort 2",
     "status": "Active",
@@ -756,7 +796,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-08-01T20:28:22.458Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "f54c9bf4-4ea1-4f99-a0f9-06d3f0b25014",
     "createdAt": "2026-07-30T10:47:11.803Z",
     "name": "DTP, InDesign & Photoshop - Evening Batch",
@@ -781,7 +821,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-07-30T10:47:11.803Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "1d403882-815e-45b6-bb76-5b54ec3a51ea",
     "createdAt": "2026-07-28T02:31:56.036Z",
     "name": "SQL & Database Administration - Fast Track",
@@ -797,7 +837,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-07-28T02:31:56.036Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "72f3a4af-5b8f-4a12-a6b5-7940f0c06767",
     "createdAt": "2026-07-25T14:16:02.899Z",
     "name": "IT Support & System Administration - Batch 4",
@@ -817,7 +857,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-07-25T14:16:02.899Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "6a5aabdf-f78a-4abb-bb36-683b703e1d0f",
     "createdAt": "2026-07-22T12:55:11.620Z",
     "name": "Web Design & Frontend Development - Cohort Gamma",
@@ -832,7 +872,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "615a4275-6c74-40ee-9840-2d7b28965654",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-07-20T10:25:42.909Z",
     "name": "Node.js & Microservices - Weekend Cohort",
     "status": "Active",
@@ -851,7 +891,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
   },
   {
     "id": "8dcf54cd-92cd-4386-b3f7-fc10d2dd1c5a",
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-07-18T01:51:06.481Z",
     "name": "Certificate in Financial Management (CFM) - Batch 2",
     "status": "Completed",
@@ -872,7 +912,7 @@ const DEFAULT_BATCHES_BY_TENANT = {
     "updatedAt": "2026-07-18T01:51:06.481Z"
   },
   {
-    "ownerEmail": "dasprantik76@gmail.com",
+    "ownerEmail": "rcavirup@gmail.com",
     "id": "a1ab6746-a5f4-4c1e-a4ab-0415e17c5ac3",
     "createdAt": "2026-07-15T12:11:18.614Z",
     "name": "Python Django & REST API - Evening Cohort",
@@ -890,6 +930,70 @@ const DEFAULT_BATCHES_BY_TENANT = {
   }
 ]
 };
+
+
+let digantaMigrationChecked = false;
+async function ensureDigantaTenantInDatabase(db) {
+  if (digantaMigrationChecked) return;
+  digantaMigrationChecked = true;
+  try {
+    const DIGANTA_EMAIL = 'rcavirup@gmail.com';
+    const canonicalDiganta = DEFAULT_TENANTS[DIGANTA_EMAIL];
+    if (!canonicalDiganta) return;
+
+    // Ensure Diganta profile exists with rcavirup@gmail.com and active status
+    const existingProfile = await db.collection(COLLECTIONS.PROFILE).findOne({
+      $or: [{ ownerEmail: DIGANTA_EMAIL }, { slug: 'diganta' }]
+    });
+
+    if (!existingProfile) {
+      await db.collection(COLLECTIONS.PROFILE).insertOne({
+        ...canonicalDiganta,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      });
+    } else if (existingProfile.ownerEmail !== DIGANTA_EMAIL || existingProfile.slug !== 'diganta' || existingProfile.status !== 'active') {
+      await db.collection(COLLECTIONS.PROFILE).updateOne(
+        { _id: existingProfile._id },
+        {
+          $set: {
+            ownerEmail: DIGANTA_EMAIL,
+            slug: 'diganta',
+            academyName: canonicalDiganta.academyName,
+            status: 'active',
+            studentIdPrefix: 'DCC/SMP/',
+            updatedAt: new Date().toISOString()
+          }
+        }
+      );
+    }
+
+    // Ensure counter exists for rcavirup@gmail.com
+    const counterDoc = await db.collection(COLLECTIONS.COUNTERS).findOne({ _id: `student-id:${DIGANTA_EMAIL}` });
+    if (!counterDoc) {
+      const startingSeq = 2112;
+      await db.collection(COLLECTIONS.COUNTERS).updateOne(
+        { _id: `student-id:${DIGANTA_EMAIL}` },
+        { $setOnInsert: { sequence: startingSeq } },
+        { upsert: true }
+      );
+    }
+
+    // Super Admin dasprantik76@gmail.com is NOT an academy owner.
+    // Clean up any historical tenant data created under dasprantik76@gmail.com.
+    await Promise.all([
+      db.collection(COLLECTIONS.PROFILE).deleteMany({ ownerEmail: 'dasprantik76@gmail.com' }),
+      db.collection(COLLECTIONS.COURSES).deleteMany({ ownerEmail: 'dasprantik76@gmail.com' }),
+      db.collection(COLLECTIONS.STUDENTS).deleteMany({ ownerEmail: 'dasprantik76@gmail.com' }),
+      db.collection(COLLECTIONS.BATCHES).deleteMany({ ownerEmail: 'dasprantik76@gmail.com' }),
+      db.collection(COLLECTIONS.MESSAGES).deleteMany({ ownerEmail: 'dasprantik76@gmail.com' }),
+      db.collection(COLLECTIONS.AUTH_TOKEN).deleteMany({ ownerEmail: 'dasprantik76@gmail.com' }),
+      db.collection(COLLECTIONS.COUNTERS).deleteMany({ _id: 'student-id:dasprantik76@gmail.com' })
+    ]);
+  } catch (err) {
+    console.warn('[Diganta Setup / Purge Warning]:', err);
+  }
+}
 
 export default async function handler(req, res) {
   // Universal CORS Headers
@@ -917,6 +1021,7 @@ export default async function handler(req, res) {
   let db;
   try {
     db = await getDatabase();
+    await ensureDigantaTenantInDatabase(db);
   } catch (dbErr) {
     console.error('[MongoDB Connection Error]:', dbErr);
     return res.status(500).json({
@@ -931,6 +1036,12 @@ export default async function handler(req, res) {
     let email = (queryEmail || '').toLowerCase().trim();
     let slug = (querySlug || '').toLowerCase().trim();
 
+    // If slug parameter actually contains an email, treat it as email directly
+    if (!email && slug && slug.includes('@')) {
+      email = slug;
+      slug = '';
+    }
+
     // Resolve legacy tenant-style hostnames when a slug was not supplied.
     if (!slug && reqHost) {
       const parts = reqHost.toLowerCase().split('.');
@@ -943,12 +1054,12 @@ export default async function handler(req, res) {
     }
 
     if (!email && slug) {
-      if (slug === 'prantik' || slug === 'dasprantik76@gmail.com') {
-        email = 'dasprantik76@gmail.com';
+      if (slug === 'diganta' || slug === 'rcavirup' || slug === 'rcavirup@gmail.com' || slug === 'prantik') {
+        email = 'rcavirup@gmail.com';
       } else if (slug === 'poulami' || slug === 'poulami.13thmay@gmail.com') {
         email = 'poulami.13thmay@gmail.com';
       } else {
-        const profileDoc = await db.collection(COLLECTIONS.PROFILE).findOne({ slug }, { projection: { _id: 0 } });
+        const profileDoc = await db.collection(COLLECTIONS.PROFILE).findOne({ slug }, { projection: { _id: 0, ownerEmail: 1 } });
         if (profileDoc && profileDoc.ownerEmail) {
           email = profileDoc.ownerEmail;
         } else {
@@ -960,7 +1071,7 @@ export default async function handler(req, res) {
 
     // Default tenant fallback only when bare domain accessed with no specific subdomain/slug
     if (!email && !slug) {
-      email = 'dasprantik76@gmail.com';
+      email = 'rcavirup@gmail.com';
     }
     return email;
   }
@@ -1006,19 +1117,20 @@ export default async function handler(req, res) {
         );
       }
 
-      // This deployment is dedicated to Diganta Computer Centre. Keep the
-      // public-facing identity canonical even when an older personalised
-      // profile is already present in MongoDB.
-      if (ownerEmail === 'dasprantik76@gmail.com') {
+      // Populate missing default fields for default tenant without overwriting customized values
+      if (ownerEmail === 'rcavirup@gmail.com' && (!profileDoc || !profileDoc.updatedAt)) {
         const canonicalProfile = DEFAULT_TENANTS[ownerEmail];
-        const needsCanonicalProfile = Object.entries(canonicalProfile)
-          .some(([key, value]) => profileDoc?.[key] !== value);
-
-        if (needsCanonicalProfile) {
-          profileDoc = { ...(profileDoc || {}), ...canonicalProfile };
+        const missingFields = {};
+        Object.entries(canonicalProfile).forEach(([key, value]) => {
+          if (profileDoc?.[key] === undefined) {
+            missingFields[key] = value;
+          }
+        });
+        if (Object.keys(missingFields).length > 0) {
+          profileDoc = { ...(profileDoc || {}), ...missingFields };
           await db.collection(COLLECTIONS.PROFILE).updateOne(
             { ownerEmail },
-            { $set: canonicalProfile },
+            { $set: missingFields },
             { upsert: true }
           );
         }
@@ -1026,7 +1138,7 @@ export default async function handler(req, res) {
 
       // Seed the six starter courses once. The profile marker prevents courses
       // intentionally deleted in the Admin Portal from being recreated later.
-      const courseSeedVersion = ownerEmail === 'dasprantik76@gmail.com' ? 3 : COURSE_SEED_VERSION;
+      const courseSeedVersion = (ownerEmail === 'rcavirup@gmail.com') ? 3 : COURSE_SEED_VERSION;
       if (DEFAULT_COURSES_BY_TENANT[ownerEmail] && profileDoc?.courseSeedVersion !== courseSeedVersion) {
         const starterCourses = DEFAULT_COURSES_BY_TENANT[ownerEmail];
         const existingIds = new Set((coursesList || []).map(course => course.id));
@@ -1047,12 +1159,20 @@ export default async function handler(req, res) {
         profileDoc = { ...(profileDoc || {}), courseSeedVersion: courseSeedVersion };
       }
 
+      const isSuperAdmin = SUPER_ADMIN_EMAILS.has(ownerEmail);
+      const currentStatus = profileDoc?.status || ((isSuperAdmin || DEFAULT_TENANTS[ownerEmail]) ? 'active' : 'pending');
+      if (profileDoc && !profileDoc.status) {
+        profileDoc.status = currentStatus;
+      }
+
       return res.status(200).json({
         success: true,
         isConfigured: true,
         tenant: {
           ownerEmail,
-          slug: profileDoc?.slug || (ownerEmail.includes('poulami') ? 'poulami' : 'prantik')
+          slug: profileDoc?.slug || (ownerEmail.includes('poulami') ? 'poulami' : (ownerEmail === 'rcavirup@gmail.com' ? 'diganta' : '')),
+          status: currentStatus,
+          isSuperAdmin
         },
         data: {
           profile: profileDoc || null,
@@ -1091,6 +1211,30 @@ export default async function handler(req, res) {
       }
 
       const ownerEmail = await resolveOwnerEmail(payload?.ownerEmail, payload?.academySlug);
+
+      // Check tenant approval status for restricted actions
+      const RESTRICTED_ACTIONS = new Set([
+        'add_student', 'save_students', 'update_student', 'bulk_update_students', 'delete_student',
+        'add_course', 'save_courses', 'delete_course',
+        'save_batch', 'delete_batch',
+        'save_auth_token'
+      ]);
+
+      if (RESTRICTED_ACTIONS.has(action)) {
+        const tenantProfile = await db.collection(COLLECTIONS.PROFILE).findOne(
+          { ownerEmail },
+          { projection: { status: 1 } }
+        );
+        const isSuperAdmin = SUPER_ADMIN_EMAILS.has(ownerEmail);
+        const currentStatus = tenantProfile?.status || ((isSuperAdmin || DEFAULT_TENANTS[ownerEmail]) ? 'active' : 'pending');
+        if (currentStatus !== 'active') {
+          return res.status(403).json({
+            success: false,
+            code: 'ACCOUNT_ON_HOLD',
+            error: 'Your academy account is currently on hold pending administrator approval.'
+          });
+        }
+      }
 
       switch (action) {
         case 'submit_contact_message': {
@@ -1207,7 +1351,19 @@ export default async function handler(req, res) {
           if (!payload?.profile) {
             return res.status(400).json({ success: false, error: 'Missing profile in payload' });
           }
-          const updatedProfile = { ...payload.profile, ownerEmail };
+          const existingProfile = await db.collection(COLLECTIONS.PROFILE).findOne({ ownerEmail });
+          const isSuperAdmin = SUPER_ADMIN_EMAILS.has(ownerEmail);
+          let status = existingProfile?.status;
+          if (!status) {
+            status = (isSuperAdmin || DEFAULT_TENANTS[ownerEmail]) ? 'active' : 'pending';
+          }
+
+          const updatedProfile = {
+            ...payload.profile,
+            ownerEmail,
+            status,
+            requestedAt: existingProfile?.requestedAt || new Date().toISOString()
+          };
           await db.collection(COLLECTIONS.PROFILE).updateOne(
             { ownerEmail },
             { $set: updatedProfile },
@@ -1477,6 +1633,122 @@ export default async function handler(req, res) {
             db.collection(COLLECTIONS.BATCHES).deleteMany({ ownerEmail })
           ]);
           return res.status(200).json({ success: true, message: `All student and course records cleared for ${ownerEmail}` });
+        }
+
+        // 12. Super Admin: List All Platform Tenants
+        case 'get_all_tenants': {
+          if (!SUPER_ADMIN_EMAILS.has(ownerEmail)) {
+            return res.status(403).json({ success: false, error: 'Forbidden: Super Admin access required' });
+          }
+          const superAdminList = Array.from(SUPER_ADMIN_EMAILS);
+          const profiles = await db.collection(COLLECTIONS.PROFILE)
+            .find({ ownerEmail: { $nin: superAdminList } }, { projection: { _id: 0 } })
+            .sort({ requestedAt: -1, _id: -1 })
+            .toArray();
+
+          const [studentCounts, courseCounts, certCounts] = await Promise.all([
+            db.collection(COLLECTIONS.STUDENTS).aggregate([
+              { $match: { ownerEmail: { $nin: superAdminList } } },
+              { $group: { _id: '$ownerEmail', count: { $sum: 1 } } }
+            ]).toArray(),
+            db.collection(COLLECTIONS.COURSES).aggregate([
+              { $match: { ownerEmail: { $nin: superAdminList } } },
+              { $group: { _id: '$ownerEmail', count: { $sum: 1 } } }
+            ]).toArray(),
+            db.collection(COLLECTIONS.STUDENTS).aggregate([
+              { $match: { issueCertificate: true, ownerEmail: { $nin: superAdminList } } },
+              { $group: { _id: '$ownerEmail', count: { $sum: 1 } } }
+            ]).toArray()
+          ]);
+
+          const studentMap = Object.fromEntries(studentCounts.map(s => [s._id, s.count]));
+          const courseMap = Object.fromEntries(courseCounts.map(c => [c._id, c.count]));
+          const certMap = Object.fromEntries(certCounts.map(c => [c._id, c.count]));
+
+          const enrichedTenants = profiles
+            .filter(p => !SUPER_ADMIN_EMAILS.has(p.ownerEmail))
+            .map(p => ({
+              ...p,
+              status: p.status || (DEFAULT_TENANTS[p.ownerEmail] ? 'active' : 'pending'),
+              studentCount: studentMap[p.ownerEmail] || 0,
+              courseCount: courseMap[p.ownerEmail] || 0,
+              certCount: certMap[p.ownerEmail] || 0
+            }));
+
+          return res.status(200).json({ success: true, tenants: enrichedTenants });
+        }
+
+        // 13. Super Admin: Update Tenant Approval Status
+        case 'update_tenant_status': {
+          if (!SUPER_ADMIN_EMAILS.has(ownerEmail)) {
+            return res.status(403).json({ success: false, error: 'Forbidden: Super Admin access required' });
+          }
+          const { targetOwnerEmail, status: newStatus } = payload || {};
+          if (!targetOwnerEmail || !['active', 'pending', 'suspended', 'rejected'].includes(newStatus)) {
+            return res.status(400).json({ success: false, error: 'Invalid target email or status' });
+          }
+          await db.collection(COLLECTIONS.PROFILE).updateOne(
+            { ownerEmail: targetOwnerEmail },
+            {
+              $set: {
+                status: newStatus,
+                statusUpdatedAt: new Date().toISOString(),
+                approvedBy: ownerEmail
+              }
+            }
+          );
+          return res.status(200).json({ success: true, targetOwnerEmail, status: newStatus });
+        }
+
+        // 14. Super Admin: List All Platform Students across All Tenants
+        case 'get_all_platform_students': {
+          if (!SUPER_ADMIN_EMAILS.has(ownerEmail)) {
+            return res.status(403).json({ success: false, error: 'Forbidden: Super Admin access required' });
+          }
+          const limit = Math.min(Number(payload?.limit || 1000), 2000);
+          const students = await db.collection(COLLECTIONS.STUDENTS)
+            .find({}, { projection: { _id: 0 } })
+            .sort({ createdAt: -1, _id: -1 })
+            .limit(limit)
+            .toArray();
+          return res.status(200).json({ success: true, students });
+        }
+
+        // 15. Super Admin: Create New Tenant Provisionally
+        case 'superadmin_create_tenant': {
+          if (!SUPER_ADMIN_EMAILS.has(ownerEmail)) {
+            return res.status(403).json({ success: false, error: 'Forbidden: Super Admin access required' });
+          }
+          const { academyName, ownerName, targetOwnerEmail, slug, category, phone } = payload || {};
+          if (!targetOwnerEmail || !academyName || !slug) {
+            return res.status(400).json({ success: false, error: 'Missing required tenant fields' });
+          }
+          const cleanSlug = slug.toLowerCase().replace(/[^a-z0-9-]/g, '').trim();
+          const cleanEmail = targetOwnerEmail.toLowerCase().trim();
+
+          const existing = await db.collection(COLLECTIONS.PROFILE).findOne({
+            $or: [{ ownerEmail: cleanEmail }, { slug: cleanSlug }]
+          });
+          if (existing) {
+            return res.status(400).json({ success: false, error: 'An academy with this email or slug already exists' });
+          }
+
+          const newTenant = {
+            ownerEmail: cleanEmail,
+            academyName: academyName.trim(),
+            ownerName: (ownerName || 'Academy Director').trim(),
+            email: cleanEmail,
+            phone: (phone || '').trim(),
+            slug: cleanSlug,
+            category: category || 'Education & Vocational Training',
+            status: 'active',
+            studentIdPrefix: (cleanSlug.toUpperCase() + '/'),
+            requestedAt: new Date().toISOString(),
+            approvedBy: ownerEmail,
+            statusUpdatedAt: new Date().toISOString()
+          };
+          await db.collection(COLLECTIONS.PROFILE).insertOne(newTenant);
+          return res.status(200).json({ success: true, tenant: newTenant });
         }
 
         default:

@@ -1,11 +1,22 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/a/:slug*",
+      "destination": "/public-site/index.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/login.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/academy/:slug",
+      "destination": "/a/:slug",
+      "permanent": false
     }
   ]
 }

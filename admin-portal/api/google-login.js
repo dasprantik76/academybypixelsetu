@@ -65,11 +65,16 @@ export default async function handler(req, res) {
     }
 
     const user = await verifyGoogleCredential(body.credential);
+    const userEmail = String(user.email).toLowerCase().trim();
+    const isSuperAdmin = userEmail === 'dasprantik76@gmail.com';
+    const redirectUrl = isSuperAdmin ? '/superadmin.html' : '/admin.html';
+
     const session = {
       name: user.name || 'Administrator',
-      email: String(user.email).toLowerCase().trim(),
+      email: userEmail,
       avatar: user.picture || '',
       provider: 'google',
+      isSuperAdmin,
       loggedInAt: Date.now()
     };
     const nonce = randomBytes(16).toString('base64');
@@ -78,7 +83,7 @@ export default async function handler(req, res) {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', 'no-store');
     res.setHeader('Content-Security-Policy', `default-src 'none'; script-src 'nonce-${nonce}'; base-uri 'none'; frame-ancestors 'none'`);
-    return res.status(200).send(`<!doctype html><html><head><meta charset="utf-8"><title>Signing in…</title></head><body><script nonce="${nonce}">localStorage.setItem('educore_admin_session', JSON.stringify(${serializedSession}));location.replace('/admin.html');</script></body></html>`);
+    return res.status(200).send(`<!doctype html><html><head><meta charset="utf-8"><title>Signing in…</title></head><body><script nonce="${nonce}">localStorage.setItem('educore_admin_session', JSON.stringify(${serializedSession}));location.replace('${redirectUrl}');</script></body></html>`);
   } catch (error) {
     console.error('[Google Login Error]:', error.message);
     return redirectToLogin(res);

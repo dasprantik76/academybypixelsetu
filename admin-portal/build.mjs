@@ -4,11 +4,15 @@ const outputDirectory = new URL('./public/', import.meta.url);
 const publicFiles = [
   'index.html',
   'admin.html',
+  'superadmin.html',
+  'superadmin-style.css',
+  'superadmin-script.js',
   'admin-config.js',
   'admin-script.js',
   'certificate-canvas.js',
   'admin-style.css',
-  'assets'
+  'assets',
+  'public-site'
 ];
 
 await rm(outputDirectory, { recursive: true, force: true });
