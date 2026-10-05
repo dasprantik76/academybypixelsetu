@@ -428,6 +428,7 @@ textarea {
   background: #00017c;
   border-bottom: 0;
   box-shadow: 0 4px 16px rgba(0, 1, 124, 0.3);
+  clip-path: inset(0px -1000px -1000px -1000px);
 }
 
 .public-navbar::before {
@@ -3572,7 +3573,7 @@ button:hover,
 .nav-dropdown-arrow {
   font-size: 0.65rem;
   margin-left: 0.25rem;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
   opacity: 0.85;
 }
 
@@ -3595,17 +3596,14 @@ button:hover,
   margin: 0;
   overflow: hidden;
   z-index: 0;
-  opacity: 0;
   visibility: hidden;
-  transform: translateY(-50px);
+  transform: translateY(-100%);
   pointer-events: none;
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.45s ease-out,
-              visibility 0.65s;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              visibility 0.55s;
 }
 
 .nav-item-dropdown.open .nav-dropdown-menu {
-  opacity: 1;
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
@@ -3613,7 +3611,6 @@ button:hover,
 
 @media (min-width: 769px) {
   .nav-item-dropdown:hover:not(.closed-by-selection) .nav-dropdown-menu {
-    opacity: 1;
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
@@ -3679,21 +3676,17 @@ button:hover,
     margin-top: 0.25rem;
     overflow: hidden;
     max-height: 0;
-    opacity: 0;
     visibility: hidden;
-    transform: translateY(-6px);
+    transform: none;
     pointer-events: none;
-    transition: max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.5s ease-out,
-                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-                visibility 0.65s;
+    transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.45s;
   }
 
   .nav-item-dropdown.open .nav-dropdown-menu {
     max-height: 280px;
-    opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: none;
     pointer-events: auto;
   }
 
