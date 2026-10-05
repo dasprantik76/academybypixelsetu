@@ -430,6 +430,19 @@ textarea {
   box-shadow: 0 4px 16px rgba(0, 1, 124, 0.3);
 }
 
+.public-navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #00017c;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0, 1, 124, 0.3);
+}
+
 .nav-container {
   max-width: 100%;
   width: 100%;
@@ -453,6 +466,8 @@ textarea {
   gap: 0.65rem;
   text-decoration: none;
   color: #ffffff;
+  position: relative;
+  z-index: 2;
 }
 
 .brand-icon {
@@ -518,6 +533,8 @@ textarea {
   width: 100%;
   cursor: pointer;
   border: none;
+  position: relative;
+  z-index: 2;
 }
 
 .nav-link:hover {
@@ -554,6 +571,8 @@ textarea {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  position: relative;
+  z-index: 2;
 }
 
 .btn-nav-admin {
@@ -3575,20 +3594,17 @@ button:hover,
   padding: 0;
   margin: 0;
   overflow: hidden;
-  z-index: 1000;
-  max-height: 0;
+  z-index: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-12px);
+  transform: translateY(-50px);
   pointer-events: none;
-  transition: max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.5s ease-out,
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.45s ease-out,
               visibility 0.65s;
 }
 
 .nav-item-dropdown.open .nav-dropdown-menu {
-  max-height: 280px;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -3597,7 +3613,6 @@ button:hover,
 
 @media (min-width: 769px) {
   .nav-item-dropdown:hover:not(.closed-by-selection) .nav-dropdown-menu {
-    max-height: 280px;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
