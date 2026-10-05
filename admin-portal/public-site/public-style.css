@@ -3580,6 +3580,15 @@ button:hover,
   display: block;
 }
 
+@media (min-width: 769px) {
+  .nav-item-dropdown:hover .nav-dropdown-menu {
+    display: block;
+  }
+  .nav-item-dropdown:hover .nav-dropdown-arrow {
+    transform: rotate(180deg);
+  }
+}
+
 @keyframes navDropdownFade {
   from { opacity: 0; transform: translateY(-6px); }
   to { opacity: 1; transform: translateY(0); }
