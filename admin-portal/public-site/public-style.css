@@ -3566,7 +3566,7 @@ button:hover,
   min-width: 260px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0;
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
   list-style: none;
   padding: 0;
@@ -3651,7 +3651,7 @@ button:hover,
     min-width: 100%;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 6px;
+    border-radius: 0;
     box-shadow: none;
     padding: 0;
     margin-top: 0.25rem;
