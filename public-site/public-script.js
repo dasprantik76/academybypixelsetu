@@ -775,7 +775,7 @@ class PublicAcademyApp {
     if (this.navStudentRegLink) {
       this.navStudentRegLink.addEventListener('click', (e) => {
         e.preventDefault();
-        this.closeStudentDropdown(true, true);
+        this.closeStudentDropdown(true);
         this.switchView('student');
       });
     }
@@ -783,7 +783,7 @@ class PublicAcademyApp {
     if (this.navStudentVerifyLink) {
       this.navStudentVerifyLink.addEventListener('click', (e) => {
         e.preventDefault();
-        this.closeStudentDropdown(true, true);
+        this.closeStudentDropdown(true);
         this.switchView('student-verification');
       });
     }
@@ -791,7 +791,7 @@ class PublicAcademyApp {
     if (this.navDownloadMarksheetLink) {
       this.navDownloadMarksheetLink.addEventListener('click', (e) => {
         e.preventDefault();
-        this.closeStudentDropdown(true, true);
+        this.closeStudentDropdown(true);
         this.switchView('marksheet');
       });
     }
@@ -805,7 +805,7 @@ class PublicAcademyApp {
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        this.closeStudentDropdown(true);
+        this.closeStudentDropdown(false);
       }
     });
 
@@ -1434,7 +1434,7 @@ class PublicAcademyApp {
     }
 
     // Always close student dropdown on view navigation
-    this.closeStudentDropdown(true, true);
+    this.closeStudentDropdown(true);
 
     // Close Mobile Menu if open
     if (this.navMenu) {
@@ -2516,59 +2516,34 @@ class PublicAcademyApp {
   toggleStudentDropdown(forceState) {
     if (!this.navStudentDropdownItem) return;
     this.navStudentDropdownItem.classList.remove('closed-by-selection');
-    const isCurrentlyOpen = (this.navStudentDropdownItem.classList.contains('open') ||
-      (this.navStudentDropdownItem.matches(':hover') && !this.navStudentDropdownItem.classList.contains('closing'))) &&
-      !this.navStudentDropdownItem.classList.contains('closing');
+    const isCurrentlyOpen = this.navStudentDropdownItem.classList.contains('open');
     const shouldOpen = typeof forceState === 'boolean' ? forceState : !isCurrentlyOpen;
 
-    if (shouldOpen) {
-      clearTimeout(this._dropdownCloseTimer);
-      this.navStudentDropdownItem.classList.remove('closing');
-      this.navStudentDropdownItem.classList.add('open');
-      if (this.navStudentLink) {
-        this.navStudentLink.setAttribute('aria-expanded', 'true');
-      }
-    } else {
-      this.closeStudentDropdown(true, false);
+    this.navStudentDropdownItem.classList.toggle('open', shouldOpen);
+    if (this.navStudentLink) {
+      this.navStudentLink.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
     }
   }
 
-  closeStudentDropdown(animated = true, bySelection = false) {
+  closeStudentDropdown(bySelection = false) {
     if (!this.navStudentDropdownItem) return;
 
     if (bySelection) {
       this.navStudentDropdownItem.classList.add('closed-by-selection');
-    } else if (!animated) {
+      clearTimeout(this._dropdownSelectionTimer);
+      this._dropdownSelectionTimer = setTimeout(() => {
+        if (this.navStudentDropdownItem) {
+          this.navStudentDropdownItem.classList.remove('closed-by-selection');
+        }
+      }, 400);
+    } else {
       this.navStudentDropdownItem.classList.remove('closed-by-selection');
     }
 
+    this.navStudentDropdownItem.classList.remove('open');
     if (this.navStudentLink) {
       this.navStudentLink.setAttribute('aria-expanded', 'false');
     }
-
-    const menu = this.navStudentDropdownItem.querySelector('.nav-dropdown-menu');
-    const isVisible = this.navStudentDropdownItem.classList.contains('open') ||
-      this.navStudentDropdownItem.classList.contains('closing') ||
-      (menu && window.getComputedStyle(menu).display !== 'none');
-
-    if (!animated || !isVisible) {
-      clearTimeout(this._dropdownCloseTimer);
-      this.navStudentDropdownItem.classList.remove('open', 'closing');
-      return;
-    }
-
-    if (this.navStudentDropdownItem.classList.contains('closing')) {
-      return;
-    }
-
-    this.navStudentDropdownItem.classList.add('closing');
-
-    clearTimeout(this._dropdownCloseTimer);
-    this._dropdownCloseTimer = setTimeout(() => {
-      if (this.navStudentDropdownItem) {
-        this.navStudentDropdownItem.classList.remove('open', 'closing');
-      }
-    }, 220);
   }
 
   // ==========================================================================
