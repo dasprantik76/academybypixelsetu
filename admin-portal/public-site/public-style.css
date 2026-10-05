@@ -3553,7 +3553,7 @@ button:hover,
 .nav-dropdown-arrow {
   font-size: 0.65rem;
   margin-left: 0.25rem;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   opacity: 0.85;
 }
 
@@ -3568,23 +3568,27 @@ button:hover,
   min-width: 260px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
+  border-top: none;
   border-radius: 0;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
   list-style: none;
   padding: 0;
   margin: 0;
   overflow: hidden;
   z-index: 1000;
+  max-height: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px);
+  transform: translateY(-12px);
   pointer-events: none;
-  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.5s ease-out,
+              visibility 0.65s;
 }
 
 .nav-item-dropdown.open .nav-dropdown-menu {
+  max-height: 280px;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -3593,6 +3597,7 @@ button:hover,
 
 @media (min-width: 769px) {
   .nav-item-dropdown:hover:not(.closed-by-selection) .nav-dropdown-menu {
+    max-height: 280px;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -3661,16 +3666,16 @@ button:hover,
     max-height: 0;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     pointer-events: none;
-    transition: max-height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.5s ease-out,
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.65s;
   }
 
   .nav-item-dropdown.open .nav-dropdown-menu {
-    max-height: 240px;
+    max-height: 280px;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);

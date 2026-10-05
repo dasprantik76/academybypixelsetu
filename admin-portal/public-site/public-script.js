@@ -2535,7 +2535,7 @@ class PublicAcademyApp {
         if (this.navStudentDropdownItem) {
           this.navStudentDropdownItem.classList.remove('closed-by-selection');
         }
-      }, 400);
+      }, 700);
     } else {
       this.navStudentDropdownItem.classList.remove('closed-by-selection');
     }
