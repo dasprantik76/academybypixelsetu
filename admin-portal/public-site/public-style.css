@@ -3532,3 +3532,602 @@ button:hover,
   display: none !important;
 }
 
+/* ==========================================================================
+   Student Navigation Dropdown & Submenu
+   ========================================================================== */
+.nav-item-dropdown {
+  position: relative;
+  height: 100%;
+}
+
+.nav-dropdown-toggle {
+  position: relative;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nav-dropdown-arrow {
+  font-size: 0.65rem;
+  margin-left: 0.25rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.85;
+}
+
+.nav-item-dropdown.open .nav-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 260px;
+  background: #00017c;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 3px solid #e85d04;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 14px 32px rgba(0, 1, 124, 0.45);
+  list-style: none;
+  padding: 0.45rem 0;
+  margin: 0;
+  display: none;
+  z-index: 1000;
+  animation: navDropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-item-dropdown.open .nav-dropdown-menu {
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .nav-item-dropdown:hover .nav-dropdown-menu {
+    display: block;
+  }
+  .nav-item-dropdown:hover .nav-dropdown-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes navDropdownFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-dropdown-menu > li {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-family: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-dropdown-item i {
+  font-size: 0.875rem;
+  color: #fb923c;
+  width: 18px;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding-left: 1.45rem;
+}
+
+.nav-dropdown-item:hover i {
+  transform: scale(1.15);
+  color: #ffffff;
+}
+
+.nav-dropdown-item.active {
+  background: #e85d04;
+  color: #ffffff;
+}
+
+.nav-dropdown-item.active i {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .nav-item-dropdown {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    width: 100%;
+    min-width: 100%;
+    background: rgba(0, 0, 0, 0.28);
+    border: none;
+    border-left: 3px solid #e85d04;
+    border-radius: 0 0 6px 6px;
+    box-shadow: none;
+    padding: 0.35rem 0;
+    margin-top: 0.25rem;
+    display: none;
+  }
+
+  .nav-item-dropdown.open .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-item {
+    padding: 0.65rem 1rem 0.65rem 1.25rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* ==========================================================================
+   Student Verification Page Styling
+   ========================================================================== */
+.verification-result-box {
+  margin-top: 2rem;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.verification-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  background: #f8fafc;
+  border-bottom: 1.5px solid #e2e8f0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.verification-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.verification-badge-pill i {
+  color: #10b981;
+  font-size: 1rem;
+}
+
+.verification-details-card {
+  padding: 1.75rem;
+}
+
+.verification-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 1.5rem;
+}
+
+.verification-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  border: 2px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #64748b;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.verification-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.verification-primary-meta h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.4rem;
+}
+
+.verification-sub-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.verification-sub-meta strong {
+  color: #1e40af;
+  background: #eff6ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.verification-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .verification-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.verification-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: #f8fafc;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.verification-meta-item .meta-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.verification-meta-item .meta-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.verification-actions-footer {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1.25rem;
+}
+
+/* ==========================================================================
+   Marksheet Document & Styling
+   ========================================================================== */
+.marksheet-preview-box {
+  margin-top: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.marksheet-document {
+  background: #ffffff;
+  padding: 20px;
+  border: 12px solid #00017c;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  margin: 1.5rem auto 0;
+  max-width: 800px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.marksheet-inner-border {
+  border: 2px solid #e85d04;
+  padding: 2rem;
+  position: relative;
+  background: radial-gradient(circle at center, #ffffff 0%, #fafafa 100%);
+}
+
+.marksheet-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid #00017c;
+  margin-bottom: 1.25rem;
+}
+
+.marksheet-brand-logo {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #eff6ff;
+  border: 2px solid #00017c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00017c;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.marksheet-brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.marksheet-header-text {
+  flex: 1;
+}
+
+.marksheet-academy-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #00017c;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.marksheet-academy-meta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e85d04;
+  margin: 0 0 0.2rem;
+}
+
+.marksheet-academy-address {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.marksheet-title-banner {
+  text-align: center;
+  background: #00017c;
+  color: #ffffff;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.marksheet-title-banner h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.marksheet-title-banner .marksheet-serial {
+  font-size: 0.75rem;
+  color: #fdba74;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.marksheet-student-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .marksheet-student-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ms-info-row {
+  display: flex;
+  margin-bottom: 0.4rem;
+  font-size: 0.875rem;
+}
+
+.ms-info-row:last-child {
+  margin-bottom: 0;
+}
+
+.ms-label {
+  width: 140px;
+  font-weight: 600;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.ms-val {
+  color: #0f172a;
+}
+
+.marksheet-table-wrap {
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.marksheet-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.marksheet-table th,
+.marksheet-table td {
+  border: 1px solid #cbd5e1;
+  padding: 0.65rem 0.75rem;
+  text-align: center;
+}
+
+.marksheet-table th {
+  background: #f1f5f9;
+  color: #00017c;
+  font-weight: 700;
+}
+
+.marksheet-table td:nth-child(2) {
+  text-align: left;
+  font-weight: 500;
+}
+
+.ms-total-row {
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.marksheet-summary-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ms-summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.ms-summary-lbl {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.ms-summary-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #00017c;
+}
+
+.ms-pass-badge {
+  color: #15803d;
+}
+
+.marksheet-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.ms-sig-block {
+  text-align: center;
+  width: 170px;
+}
+
+.ms-sig-line {
+  border-bottom: 1.5px solid #64748b;
+  margin-bottom: 0.35rem;
+  height: 25px;
+}
+
+.ms-sig-block span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.ms-official-seal {
+  width: 75px;
+  height: 75px;
+  border: 2px dashed #00017c;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #00017c;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px;
+}
+
+.ms-official-seal i {
+  font-size: 1.2rem;
+  color: #e85d04;
+  margin-bottom: 2px;
+}
+
+/* Print Marksheet */
+@media print {
+  @page { size: A4 portrait; margin: 10mm; }
+  body:has(#marksheetPrintArea) { margin: 0; background: white; }
+  body:has(#marksheetPrintArea) > :not(#view-marksheet) { display: none !important; }
+  #view-marksheet, #view-marksheet .student-view-container,
+  #view-marksheet .registration-card, #marksheetResultContainer {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+  #view-marksheet .compact-page-hero, #view-marksheet .certificate-actions-bar,
+  #view-marksheet #marksheetSearchForm, #view-marksheet .registration-card::before {
+    display: none !important;
+  }
+  #marksheetPrintArea {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 6px solid #00017c !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  /* Print Student Verification Slip */
+  body:has(#verifyResultContainer) { margin: 0; background: white; }
+  body:has(#verifyResultContainer) > :not(#view-student-verification) { display: none !important; }
+  #view-student-verification, #view-student-verification .student-view-container,
+  #view-student-verification .registration-card, #verifyResultContainer {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+  #view-student-verification .compact-page-hero, #view-student-verification .verification-actions-footer,
+  #view-student-verification #studentVerifyForm, #view-student-verification .btn-cert-reset,
+  #view-student-verification .registration-card::before {
+    display: none !important;
+  }
+}
+
+
+

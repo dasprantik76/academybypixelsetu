@@ -20,7 +20,7 @@
     }
   </script>
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="public-style.css?v=28.7">
+  <link rel="stylesheet" href="public-style.css?v=28.8">
   <script src="site-config.js?v=7"></script>
   <script>
     // Fast synchronous pre-hydration to eliminate any flash or delay of text
@@ -193,10 +193,27 @@
               <i class="fa-solid fa-book-open"></i> COURSES
             </a>
           </li>
-          <li>
-            <a href="#student" class="nav-link" data-view="student" id="navStudentLink">
-              <i class="fa-solid fa-user-graduate"></i> STUDENT
+          <li class="nav-item-dropdown" id="navStudentDropdownItem">
+            <a href="#student" class="nav-link nav-dropdown-toggle" data-view="student" id="navStudentLink" role="button" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-user-graduate"></i> STUDENT <i class="fa-solid fa-chevron-down nav-dropdown-arrow"></i>
             </a>
+            <ul class="nav-dropdown-menu" id="studentDropdownMenu">
+              <li>
+                <a href="#student-registration" class="nav-dropdown-item" data-view="student" id="navStudentRegLink">
+                  <i class="fa-solid fa-user-plus"></i> STUDENT REGISTRATION
+                </a>
+              </li>
+              <li>
+                <a href="#student-verification" class="nav-dropdown-item" data-view="student-verification" id="navStudentVerifyLink">
+                  <i class="fa-solid fa-user-check"></i> STUDENT VERIFICATION
+                </a>
+              </li>
+              <li>
+                <a href="#marksheet" class="nav-dropdown-item" data-view="marksheet" id="navDownloadMarksheetLink">
+                  <i class="fa-solid fa-file-lines"></i> DOWNLOAD MARKSHEET
+                </a>
+              </li>
+            </ul>
           </li>
           <li>
             <a href="#certificate" class="nav-link" data-view="certificate" id="navCertificateLink">
@@ -885,6 +902,310 @@
   </div>
 
 
+  <!-- ================= VIEW: STUDENT VERIFICATION ================= -->
+  <div class="view-section" id="view-student-verification" style="display: none;">
+    <section class="hero-section compact-page-hero">
+      <div class="hero-container">
+        <h1>Student Verification</h1>
+        <p>Enter your registered mobile number and date of birth to verify student enrollment and authentic record.</p>
+      </div>
+    </section>
+
+    <div class="student-view-container">
+      <div class="registration-card">
+        <form id="studentVerifyForm" autocomplete="off" novalidate>
+          <div class="form-grid">
+            <!-- 1. Mobile Number -->
+            <div class="form-group">
+              <label for="verifyPhone">Mobile Number <span class="required-star">*</span></label>
+              <div class="input-icon-wrap">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" id="verifyPhone" maxlength="10" pattern="[0-9]{10}" inputmode="numeric" placeholder="Enter 10-digit mobile number" required>
+              </div>
+              <span class="input-error-msg" id="verifyPhoneError">Please enter a valid 10-digit mobile number.</span>
+            </div>
+
+            <!-- 2. Date of Birth -->
+            <div class="form-group">
+              <label for="verifyDob">Date of Birth <span class="required-star">*</span></label>
+              <div class="input-icon-wrap">
+                <i class="fa-regular fa-calendar"></i>
+                <input type="date" id="verifyDob" required>
+              </div>
+              <span class="input-error-msg" id="verifyDobError">Please enter your date of birth.</span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit-reg" id="btnSubmitVerify">
+              <i class="fa-solid fa-user-check"></i> Verify Student Details
+            </button>
+          </div>
+        </form>
+
+        <!-- Not Found Alert Card -->
+        <div id="verifyNotFoundState" class="cert-not-found-card" style="display: none;">
+          <div class="cert-not-found-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </div>
+          <div class="cert-not-found-text">
+            <h4>No Record Found</h4>
+            <p>No student record found with the given Mobile Number and Date of Birth.</p>
+          </div>
+        </div>
+
+        <!-- Verification Result Container -->
+        <div id="verifyResultContainer" class="verification-result-box" style="display: none;">
+          <div class="verification-card-header">
+            <div class="verification-badge-pill">
+              <i class="fa-solid fa-circle-check"></i> Official Student Record Verified
+            </div>
+            <button type="button" class="btn-cert-reset" id="btnResetStudentVerify">
+              <i class="fa-solid fa-arrow-left"></i> Check Another Student
+            </button>
+          </div>
+
+          <div class="verification-details-card">
+            <div class="verification-profile-header">
+              <div class="verification-avatar" id="verifyStudentAvatar">
+                <i class="fa-solid fa-user-graduate"></i>
+              </div>
+              <div class="verification-primary-meta">
+                <h3 id="verifyStudentName">—</h3>
+                <div class="verification-sub-meta">
+                  <span><i class="fa-solid fa-id-card"></i> Student ID: <strong id="verifyStudentId">—</strong></span>
+                  <span id="verifyStatusBadge" class="badge badge-active"><i class="fa-solid fa-circle-check"></i> Active Student</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="verification-meta-grid">
+              <div class="verification-meta-item">
+                <span class="meta-label">Enrolled Course</span>
+                <span class="meta-val" id="verifyCourseName">—</span>
+              </div>
+              <div class="verification-meta-item">
+                <span class="meta-label">Date of Birth</span>
+                <span class="meta-val" id="verifyDobDisplay">—</span>
+              </div>
+              <div class="verification-meta-item">
+                <span class="meta-label">Mobile Number</span>
+                <span class="meta-val" id="verifyPhoneDisplay">—</span>
+              </div>
+              <div class="verification-meta-item">
+                <span class="meta-label">Father's Name</span>
+                <span class="meta-val" id="verifyFatherName">—</span>
+              </div>
+              <div class="verification-meta-item">
+                <span class="meta-label">Mother's Name</span>
+                <span class="meta-val" id="verifyMotherName">—</span>
+              </div>
+              <div class="verification-meta-item">
+                <span class="meta-label">Admission / Enrolled Date</span>
+                <span class="meta-val" id="verifyJoinDate">—</span>
+              </div>
+              <div class="verification-meta-item">
+                <span class="meta-label">Training Center / Academy</span>
+                <span class="meta-val" id="verifyAcademyName">—</span>
+              </div>
+              <div class="verification-meta-item">
+                <span class="meta-label">Certificate Status</span>
+                <span class="meta-val" id="verifyCertStatus">—</span>
+              </div>
+            </div>
+
+            <div class="verification-actions-footer">
+              <button type="button" class="btn-cert-download" id="btnPrintVerificationSlip">
+                <i class="fa-solid fa-print"></i> Print Verification Slip
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= VIEW: DOWNLOAD MARKSHEET ================= -->
+  <div class="view-section" id="view-marksheet" style="display: none;">
+    <section class="hero-section compact-page-hero">
+      <div class="hero-container">
+        <h1>Download Marksheet</h1>
+        <p>Enter your registered mobile number and date of birth to verify and download your official marksheet.</p>
+      </div>
+    </section>
+
+    <div class="student-view-container">
+      <div class="registration-card">
+        <form id="marksheetSearchForm" autocomplete="off" novalidate>
+          <div class="form-grid">
+            <!-- 1. Mobile Number -->
+            <div class="form-group">
+              <label for="marksheetPhone">Mobile Number <span class="required-star">*</span></label>
+              <div class="input-icon-wrap">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" id="marksheetPhone" maxlength="10" pattern="[0-9]{10}" inputmode="numeric" placeholder="Enter 10-digit mobile number" required>
+              </div>
+              <span class="input-error-msg" id="marksheetPhoneError">Please enter a valid 10-digit mobile number.</span>
+            </div>
+
+            <!-- 2. Date of Birth -->
+            <div class="form-group">
+              <label for="marksheetDob">Date of Birth <span class="required-star">*</span></label>
+              <div class="input-icon-wrap">
+                <i class="fa-regular fa-calendar"></i>
+                <input type="date" id="marksheetDob" required>
+              </div>
+              <span class="input-error-msg" id="marksheetDobError">Please enter your date of birth.</span>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit-reg" id="btnSubmitMarksheet">
+              <i class="fa-solid fa-file-arrow-down"></i> Verify &amp; View Marksheet
+            </button>
+          </div>
+        </form>
+
+        <!-- Not Found Alert Card -->
+        <div id="marksheetNotFoundState" class="cert-not-found-card" style="display: none;">
+          <div class="cert-not-found-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </div>
+          <div class="cert-not-found-text">
+            <h4>No Marksheet Record Found</h4>
+            <p>No marksheet or academic evaluation found with the given Mobile Number and Date of Birth.</p>
+          </div>
+        </div>
+
+        <!-- Marksheet Result Container -->
+        <div id="marksheetResultContainer" class="marksheet-preview-box" style="display: none;">
+          <div class="certificate-actions-bar">
+            <button type="button" class="btn-cert-reset" id="btnResetMarksheetSearch">
+              <i class="fa-solid fa-arrow-left"></i> Check Another Student
+            </button>
+            <button type="button" class="btn-cert-download" id="btnPrintMarksheet">
+              <i class="fa-solid fa-print"></i> Print / Download Marksheet (PDF)
+            </button>
+          </div>
+
+          <!-- Printable Marksheet Document Area -->
+          <div id="marksheetPrintArea" class="marksheet-document">
+            <div class="marksheet-inner-border">
+              <header class="marksheet-header">
+                <div class="marksheet-brand-logo" id="marksheetLogo">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="marksheet-header-text">
+                  <h2 class="marksheet-academy-title" id="marksheetAcademyName">ACADEMY NAME</h2>
+                  <p class="marksheet-academy-meta" id="marksheetAcademyCategory">An Autonomous Vocational &amp; Technical Training Institute</p>
+                  <p class="marksheet-academy-address" id="marksheetAcademyAddress">Approved Academic Certification</p>
+                </div>
+              </header>
+
+              <div class="marksheet-title-banner">
+                <h3>STATEMENT OF MARKS &amp; EVALUATION</h3>
+                <span class="marksheet-serial">CERTIFICATE OF PERFORMANCE</span>
+              </div>
+
+              <div class="marksheet-student-info">
+                <div class="ms-info-col">
+                  <div class="ms-info-row">
+                    <span class="ms-label">Student Name:</span>
+                    <strong class="ms-val" id="msStudentName">—</strong>
+                  </div>
+                  <div class="ms-info-row">
+                    <span class="ms-label">Student / Roll ID:</span>
+                    <strong class="ms-val" id="msStudentId">—</strong>
+                  </div>
+                  <div class="ms-info-row">
+                    <span class="ms-label">Father's Name:</span>
+                    <span class="ms-val" id="msFatherName">—</span>
+                  </div>
+                </div>
+                <div class="ms-info-col">
+                  <div class="ms-info-row">
+                    <span class="ms-label">Course:</span>
+                    <strong class="ms-val" id="msCourseName">—</strong>
+                  </div>
+                  <div class="ms-info-row">
+                    <span class="ms-label">Course Duration:</span>
+                    <span class="ms-val" id="msCourseDuration">—</span>
+                  </div>
+                  <div class="ms-info-row">
+                    <span class="ms-label">Issue Date:</span>
+                    <span class="ms-val" id="msIssueDate">—</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Marks Table -->
+              <div class="marksheet-table-wrap">
+                <table class="marksheet-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 10%;">Sl.</th>
+                      <th style="width: 45%;">Module / Paper Title</th>
+                      <th style="width: 15%;">Full Marks</th>
+                      <th style="width: 15%;">Pass Marks</th>
+                      <th style="width: 15%;">Marks Obtained</th>
+                    </tr>
+                  </thead>
+                  <tbody id="marksheetTableBody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                  <tfoot>
+                    <tr class="ms-total-row">
+                      <td colspan="2"><strong>GRAND TOTAL</strong></td>
+                      <td><strong id="msGrandMax">400</strong></td>
+                      <td><strong>160</strong></td>
+                      <td><strong id="msGrandObtained">356</strong></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+
+              <!-- Summary & Grade Box -->
+              <div class="marksheet-summary-box">
+                <div class="ms-summary-item">
+                  <span class="ms-summary-lbl">Percentage</span>
+                  <strong class="ms-summary-val" id="msPercentage">89.00%</strong>
+                </div>
+                <div class="ms-summary-item">
+                  <span class="ms-summary-lbl">Overall Grade</span>
+                  <strong class="ms-summary-val" id="msOverallGrade">A+</strong>
+                </div>
+                <div class="ms-summary-item">
+                  <span class="ms-summary-lbl">Result Status</span>
+                  <strong class="ms-summary-val ms-pass-badge" id="msResultStatus">PASSED</strong>
+                </div>
+              </div>
+
+              <!-- Signatures & Seal -->
+              <footer class="marksheet-footer">
+                <div class="ms-sig-block">
+                  <div class="ms-sig-line"></div>
+                  <span>Verified By</span>
+                </div>
+                <div class="ms-seal-block">
+                  <div class="ms-official-seal">
+                    <i class="fa-solid fa-award"></i>
+                    <span>OFFICIAL SEAL</span>
+                  </div>
+                </div>
+                <div class="ms-sig-block">
+                  <div class="ms-sig-line"></div>
+                  <span>Controller of Examination</span>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ================= VIEW 3: CERTIFICATE DOWNLOAD PAGE ================= -->
   <div class="view-section" id="view-certificate">
     <section class="hero-section compact-page-hero">
@@ -1142,7 +1463,7 @@
   <!-- Public Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
   <script src="certificate-canvas.js?v=21"></script>
-  <script src="public-script.js?v=7.25"></script>
+  <script src="public-script.js?v=7.26"></script>
 </body>
 
 </html>
