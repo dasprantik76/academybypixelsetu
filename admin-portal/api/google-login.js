@@ -66,7 +66,11 @@ export default async function handler(req, res) {
 
     const user = await verifyGoogleCredential(body.credential);
     const userEmail = String(user.email).toLowerCase().trim();
-    const isSuperAdmin = userEmail === 'dasprantik76@gmail.com';
+    const configuredSuperAdmin = process.env.SUPER_ADMIN_EMAIL || process.env.SUPER_ADMIN_EMAILS || '';
+    const superAdminEmails = new Set(
+      configuredSuperAdmin.split(',').map(e => e.trim().toLowerCase()).filter(Boolean)
+    );
+    const isSuperAdmin = superAdminEmails.has(userEmail);
     const redirectUrl = isSuperAdmin ? '/superadmin.html' : '/admin.html';
 
     const session = {

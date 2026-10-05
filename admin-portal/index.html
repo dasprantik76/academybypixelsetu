@@ -95,7 +95,7 @@
         const session = JSON.parse(existingSession);
         const userEmail = (session?.email || '').toLowerCase().trim();
         if (session && session.provider === 'google' && userEmail) {
-          if (userEmail === 'dasprantik76@gmail.com' || session.isSuperAdmin) {
+          if (session.isSuperAdmin) {
             window.location.href = 'superadmin.html';
           } else {
             window.location.href = 'admin.html' + (window.location.hash || '');

@@ -24,13 +24,12 @@ function codesMatch(activeCode, submittedCode) {
 }
 
 async function resolveOwnerEmail(db, academySlug) {
-  if (academySlug === 'prantik') return 'dasprantik76@gmail.com';
-  if (academySlug === 'poulami') return 'poulami.13thmay@gmail.com';
+  if (!academySlug) return null;
   const profile = await db.collection('profile').findOne(
-    { slug: academySlug },
+    { $or: [{ slug: academySlug }, { ownerEmail: academySlug }] },
     { projection: { _id: 0, ownerEmail: 1 } }
   );
-  return profile?.ownerEmail || null;
+  return profile?.ownerEmail || academySlug;
 }
 
 export default async function handler(req, res) {

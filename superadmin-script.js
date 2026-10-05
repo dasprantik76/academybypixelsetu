@@ -7,7 +7,6 @@
   'use strict';
 
   const SESSION_KEY = 'educore_admin_session';
-  const SUPER_ADMIN_EMAIL = 'dasprantik76@gmail.com';
 
   // State
   let currentSession = null;
@@ -37,7 +36,7 @@
       }
 
       // Check superadmin permissions
-      const isSuper = email === SUPER_ADMIN_EMAIL || Boolean(session.isSuperAdmin);
+      const isSuper = Boolean(session.isSuperAdmin);
       if (!isSuper) {
         alert('Access Denied: Super Admin privileges required to view this interface.');
         window.location.replace('admin.html');
@@ -125,7 +124,7 @@
       body: JSON.stringify({
         action,
         payload: {
-          ownerEmail: currentSession?.email || SUPER_ADMIN_EMAIL,
+          ownerEmail: currentSession?.email || '',
           ...payload
         }
       })
@@ -150,10 +149,10 @@
       ]);
 
       if (tenantsRes.success) {
-        allTenants = (tenantsRes.tenants || []).filter(t => t.ownerEmail !== SUPER_ADMIN_EMAIL && !t.isSuperAdmin);
+        allTenants = (tenantsRes.tenants || []).filter(t => !t.isSuperAdmin && t.ownerEmail !== currentSession?.email);
       }
       if (studentsRes.success) {
-        allStudents = (studentsRes.students || []).filter(s => s.ownerEmail !== SUPER_ADMIN_EMAIL);
+        allStudents = (studentsRes.students || []).filter(s => s.ownerEmail !== currentSession?.email);
       }
 
       renderAll();
@@ -168,6 +167,10 @@
 
   // 5. Render Functions
   function renderAll() {
+    const emailEl = document.getElementById('superAdminDisplayEmail');
+    if (emailEl && currentSession && currentSession.email) {
+      emailEl.textContent = currentSession.email;
+    }
     renderKPIs();
     renderOverviewPanels();
     renderTenantsTable();
@@ -226,7 +229,7 @@
 
     const displayTenants = allTenants.slice(0, 5);
     container.innerHTML = displayTenants.map(t => {
-      const isSuper = t.ownerEmail === SUPER_ADMIN_EMAIL;
+      const isSuper = Boolean(t.isSuperAdmin);
       const statusColor = t.status === 'active' ? '#10b981' : (t.status === 'pending' ? '#f59e0b' : '#ef4444');
       return `
         <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
@@ -286,7 +289,7 @@
     }
 
     tbody.innerHTML = filtered.map(t => {
-      const isSuper = t.ownerEmail === SUPER_ADMIN_EMAIL;
+      const isSuper = Boolean(t.isSuperAdmin);
       const statusClass = t.status === 'active' ? 'badge-active' : (t.status === 'pending' ? 'badge-pending' : 'badge-suspended');
       const publicUrl = `/a/${encodeURIComponent(t.slug || '')}`;
       const impersonateUrl = `admin.html?impersonate=${encodeURIComponent(t.ownerEmail)}`;
@@ -543,7 +546,8 @@
       pingText.textContent = 'Pinging /api/data...';
       const t0 = performance.now();
       try {
-        const res = await fetch('/api/data?admin=1&ownerEmail=' + encodeURIComponent(SUPER_ADMIN_EMAIL));
+        const testEmail = currentSession?.email || '';
+        const res = await fetch('/api/data?admin=1' + (testEmail ? '&ownerEmail=' + encodeURIComponent(testEmail) : ''));
         const t1 = performance.now();
         const latency = Math.round(t1 - t0);
         if (res.ok) {

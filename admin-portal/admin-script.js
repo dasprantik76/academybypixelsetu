@@ -137,7 +137,6 @@ function getInboxIconSvg() {
 const DEFAULT_INBOX_MESSAGES = [
   {
     id: "msg_101",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Sourav Mukherjee",
     phone: "9830145291",
@@ -148,7 +147,6 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_102",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Priyanka Sengupta",
     phone: "9874120365",
@@ -159,7 +157,6 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_103",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Subhajit Karmakar",
     phone: "9123456780",
@@ -170,7 +167,6 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_104",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Ananya Roychowdhury",
     phone: "9433219087",
@@ -181,7 +177,6 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_105",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Debjit Banerjee",
     phone: "9836541298",
@@ -192,7 +187,6 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_106",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Riya Chakraborty",
     phone: "9748231905",
@@ -203,7 +197,6 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_107",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Tanmay Dutta",
     phone: "9831098234",
@@ -215,7 +208,6 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_108",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Sneha Bhattacharya",
     phone: "9051876432",
@@ -227,7 +219,6 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_109",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Arindam Halder",
     phone: "9874561230",
@@ -239,7 +230,6 @@ const DEFAULT_INBOX_MESSAGES = [
   },
   {
     id: "msg_110",
-    ownerEmail: "rcavirup@gmail.com",
     academySlug: "diganta",
     name: "Moumita Paul",
     phone: "9432109876",
@@ -254,7 +244,6 @@ const DEFAULT_INBOX_MESSAGES = [
 const DEFAULT_BATCHES = [
   {
     "id": "6e3812a3-9c16-4c92-810d-91d8c1a34b9c",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-13T09:38:36.607Z",
     "name": "Full Stack Web Development - Batch 2026",
     "status": "Active",
@@ -272,7 +261,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "666b2ca0-cc40-4857-a244-dbd5bd6c8558",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-12T11:02:27.287Z",
     "name": "DCC Course",
     "status": "Active",
@@ -289,7 +277,6 @@ const DEFAULT_BATCHES = [
     "grade": "A+"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "22ffd44f-bdfb-4ae5-aeee-65fc7d6b883c",
     "createdAt": "2026-09-11T17:29:02.591Z",
     "name": "New Batch 2021",
@@ -306,7 +293,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "d751d0a3-6fbf-4dd9-90aa-4872718ccd5a",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-11T13:52:29.133Z",
     "name": "computer science",
     "status": "Completed",
@@ -326,7 +312,6 @@ const DEFAULT_BATCHES = [
     "grade": "A+"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "360c0a7b-dd41-4988-9e88-16ad6a123f33",
     "createdAt": "2026-09-10T15:41:50.551Z",
     "name": "ABC",
@@ -342,7 +327,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "ff4eff8d-e437-4476-ba82-9c3d88067f60",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-10T15:34:22.539Z",
     "name": "Python for Data Analytics - Morning Cohort",
     "status": "Active",
@@ -357,7 +341,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "46703bae-aba5-468d-9f57-a1ddfcafb62c",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-08T10:56:46.934Z",
     "name": "Tally Prime & GST Filing - Weekend Batch",
     "status": "Active",
@@ -378,7 +361,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "af86a220-831a-4c25-9287-5b62ad4d00d1",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-09-05T08:15:45.050Z",
     "name": "Advanced Excel & MIS Reporting - Fast Track",
     "status": "Completed",
@@ -399,7 +381,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-09-05T08:15:45.050Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "64b3974f-848b-43a3-a77e-b580959c3b2e",
     "createdAt": "2026-09-02T18:03:54.477Z",
     "name": "Graphic Design & UI/UX - Batch Alpha",
@@ -425,7 +406,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "af929672-216c-4f3c-b5fd-db314934ca0c",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-31T14:35:44.976Z",
     "name": "Cybersecurity & Ethical Hacking - Cohort 1",
     "status": "Active",
@@ -450,7 +430,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-31T14:35:44.976Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "a0357697-9e15-4d7f-9d5f-80719dd77105",
     "createdAt": "2026-08-28T19:29:32.922Z",
     "name": "Diploma in Computer Applications (DCA) - Regular",
@@ -474,7 +453,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "b12bb9b2-e59d-469e-9830-103282c99e6b",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-26T12:02:13.493Z",
     "name": "Cloud Computing & AWS - Evening Batch",
     "status": "Active",
@@ -489,7 +467,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "25e45c23-c0d9-40bc-9461-9e78cb5fabfe",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-24T14:41:04.297Z",
     "name": "Digital Marketing & SEO - Batch 2026-A",
     "status": "Completed",
@@ -509,7 +486,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "ae43300f-cefb-4860-b94f-0a174e43b69b",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-21T16:10:35.675Z",
     "name": "Java Enterprise & Spring Boot - Weekend Intensive",
     "status": "Active",
@@ -525,7 +501,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-21T16:10:35.675Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "b7e12059-53bd-4b11-8ede-b8d45c41967e",
     "createdAt": "2026-08-18T18:01:08.148Z",
     "name": "AutoCAD 2D/3D & Interior Drafting - Batch 3",
@@ -545,7 +520,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-18T18:01:08.148Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "872ad8c1-fe23-4734-b2e3-289a2a224fac",
     "createdAt": "2026-08-16T23:22:11.177Z",
     "name": "Computer Hardware & Networking - Morning 1",
@@ -564,7 +538,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "ef5221d4-a9fb-4d36-8054-e6359d7782a9",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-13T23:31:46.243Z",
     "name": "React & Next.js Masterclass - Cohort B",
     "status": "Active",
@@ -578,7 +551,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-13T23:31:46.243Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "68530de7-71f1-4292-b770-50cbb396623a",
     "createdAt": "2026-08-12T03:05:40.728Z",
     "name": "Financial Accounting with Tally - Batch Delta",
@@ -600,7 +572,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-12T03:05:40.728Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "c697dff2-e7b6-4b55-8edf-bf57de3491a2",
     "createdAt": "2026-08-09T12:29:44.247Z",
     "name": "C++ & Algorithms - Winter Cohort",
@@ -621,7 +592,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "07c8a65d-da29-4cbc-ab78-95b5018e8fbc",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-06T05:40:42.880Z",
     "name": "Office Automation & Typing - Regular Batch",
     "status": "Active",
@@ -635,7 +605,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "8c2694a8-62d1-4574-a98c-2aa515b09153",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-03T17:56:23.714Z",
     "name": "Flutter & Mobile App Development - Weekend",
     "status": "Active",
@@ -658,7 +627,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "89ee35d0-c9f8-4206-93ea-2e93d5c19e68",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-08-01T20:28:22.458Z",
     "name": "Artificial Intelligence & Prompt Engineering - Cohort 2",
     "status": "Active",
@@ -677,7 +645,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-08-01T20:28:22.458Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "f54c9bf4-4ea1-4f99-a0f9-06d3f0b25014",
     "createdAt": "2026-07-30T10:47:11.803Z",
     "name": "DTP, InDesign & Photoshop - Evening Batch",
@@ -702,7 +669,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-07-30T10:47:11.803Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "1d403882-815e-45b6-bb76-5b54ec3a51ea",
     "createdAt": "2026-07-28T02:31:56.036Z",
     "name": "SQL & Database Administration - Fast Track",
@@ -718,7 +684,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-07-28T02:31:56.036Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "72f3a4af-5b8f-4a12-a6b5-7940f0c06767",
     "createdAt": "2026-07-25T14:16:02.899Z",
     "name": "IT Support & System Administration - Batch 4",
@@ -738,7 +703,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-07-25T14:16:02.899Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "6a5aabdf-f78a-4abb-bb36-683b703e1d0f",
     "createdAt": "2026-07-22T12:55:11.620Z",
     "name": "Web Design & Frontend Development - Cohort Gamma",
@@ -753,7 +717,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "615a4275-6c74-40ee-9840-2d7b28965654",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-07-20T10:25:42.909Z",
     "name": "Node.js & Microservices - Weekend Cohort",
     "status": "Active",
@@ -772,7 +735,6 @@ const DEFAULT_BATCHES = [
   },
   {
     "id": "8dcf54cd-92cd-4386-b3f7-fc10d2dd1c5a",
-    "ownerEmail": "rcavirup@gmail.com",
     "createdAt": "2026-07-18T01:51:06.481Z",
     "name": "Certificate in Financial Management (CFM) - Batch 2",
     "status": "Completed",
@@ -793,7 +755,6 @@ const DEFAULT_BATCHES = [
     "updatedAt": "2026-07-18T01:51:06.481Z"
   },
   {
-    "ownerEmail": "rcavirup@gmail.com",
     "id": "a1ab6746-a5f4-4c1e-a4ab-0415e17c5ac3",
     "createdAt": "2026-07-15T12:11:18.614Z",
     "name": "Python Django & REST API - Evening Cohort",
@@ -831,11 +792,17 @@ class AcademyStore {
   }
 
   init() {
-    const isSuperAdminEmail = this.ownerEmail === 'dasprantik76@gmail.com';
-    const isMainDigantaEmail = this.ownerEmail === 'rcavirup@gmail.com' || this.ownerEmail === 'diganta';
-    this.tenantStatus = localStorage.getItem(this.getStorageKey('educore_tenant_status')) || (isSuperAdminEmail || isMainDigantaEmail || this.ownerEmail === 'prantik' ? 'active' : 'pending');
-    this.isSuperAdmin = isSuperAdminEmail;
-    if (!isSuperAdminEmail) {
+    const rawSession = localStorage.getItem('educore_admin_session');
+    let session = null;
+    try { session = rawSession ? JSON.parse(rawSession) : null; } catch {}
+    this.session = session;
+    const isSuperAdminUser = Boolean(session?.isSuperAdmin);
+    this.isSuperAdmin = isSuperAdminUser;
+    this.tenantStatus = localStorage.getItem(this.getStorageKey('educore_tenant_status')) || (isSuperAdminUser ? 'active' : 'pending');
+    if (isSuperAdminUser) {
+      localStorage.setItem(this.getStorageKey('educore_is_super_admin'), 'true');
+      localStorage.setItem('educore_is_super_admin', 'true');
+    } else {
       localStorage.removeItem(this.getStorageKey('educore_is_super_admin'));
       localStorage.removeItem('educore_is_super_admin');
     }
@@ -844,7 +811,7 @@ class AcademyStore {
     const rawMessages = localStorage.getItem(this.getStorageKey(STORAGE_KEYS.MESSAGES));
     const rawBatches = localStorage.getItem(this.getStorageKey(STORAGE_KEYS.BATCHES));
 
-    const isDiganta = isMainDigantaEmail || isSuperAdminEmail || this.ownerEmail === 'prantik';
+    const isDiganta = this.ownerEmail === 'diganta' || this.ownerEmail === 'prantik';
     if (rawCourses) {
       try {
         this.courses = JSON.parse(rawCourses) || [];
@@ -927,7 +894,7 @@ class AcademyStore {
       if (json && json.success) {
         if (json.tenant) {
           this.tenantStatus = json.tenant.status || (this.isSuperAdmin ? 'active' : 'pending');
-          this.isSuperAdmin = Boolean(json.tenant.isSuperAdmin) && (this.ownerEmail === 'dasprantik76@gmail.com');
+          this.isSuperAdmin = Boolean(json.tenant.isSuperAdmin);
           localStorage.setItem(this.getStorageKey('educore_tenant_status'), this.tenantStatus);
           if (this.isSuperAdmin) {
             localStorage.setItem(this.getStorageKey('educore_is_super_admin'), 'true');
@@ -1121,7 +1088,8 @@ class AcademyStore {
   getAcademyProfile() {
     const raw = localStorage.getItem(this.getStorageKey(STORAGE_KEYS.ACADEMY_PROFILE));
     if (!raw) {
-      if (this.ownerEmail.includes('poulami')) {
+      if (!this.ownerEmail) return null;
+      if (this.ownerEmail === 'poulami') {
         return {
           academyName: 'Poulami Dance Academy',
           ownerName: 'Poulami',
@@ -1130,11 +1098,11 @@ class AcademyStore {
           slug: 'poulami'
         };
       }
-      if (this.ownerEmail === 'rcavirup@gmail.com' || this.ownerEmail === 'diganta') {
+      if (this.ownerEmail === 'diganta' || this.ownerEmail === 'prantik') {
         return {
           academyName: 'Diganta Computer Centre',
           ownerName: 'Diganta',
-          email: 'rcavirup@gmail.com',
+          email: this.ownerEmail,
           phone: '9733894742',
           secondaryPhone: '9733894742',
           whatsapp: '9733894742',
@@ -1143,18 +1111,16 @@ class AcademyStore {
           studentIdPrefix: 'DCC/SMP/'
         };
       }
-      if (this.ownerEmail === 'rcavirup@gmail.com' || this.ownerEmail === 'prantik' || this.ownerEmail === 'diganta') {
-        return {
-          academyName: 'PixelSetu Academy Platform',
-          ownerName: 'Prantik Das',
-          email: 'rcavirup@gmail.com',
-          phone: '9733894742',
-          secondaryPhone: '9733894742',
-          whatsapp: '9733894742',
-          slug: 'prantik'
-        };
-      }
-      return null;
+      const emailPrefix = this.ownerEmail.includes('@') ? this.ownerEmail.split('@')[0] : this.ownerEmail;
+      const cleanSlug = emailPrefix.toLowerCase().replace(/[^a-z0-9]/g, '') || 'academy';
+      const readableName = cleanSlug.split(/[-_.]/).map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ') || 'Academy';
+      return {
+        academyName: `${readableName} Academy`,
+        ownerName: this.session?.name || readableName,
+        email: this.ownerEmail,
+        phone: '',
+        slug: cleanSlug
+      };
     }
     try {
       return JSON.parse(raw);
@@ -1354,18 +1320,17 @@ const store = new AcademyStore(activeAcademySlug);
 // ==========================================================================
 class UIController {
   constructor() {
-    // Check for local development auto-login parameter (?dev=superadmin or ?dev=rcavirup or ?dev=new)
+    // Check for local development auto-login parameter (?dev=superadmin or ?dev=new)
     const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const devParam = new URLSearchParams(window.location.search).get('dev');
     if (isLocalhost && devParam) {
-      let email = 'dasprantik76@gmail.com';
-      let name = 'Prantik Das (Super Admin)';
-      if (devParam === 'rcavirup' || devParam === 'diganta') {
-        email = 'rcavirup@gmail.com';
-        name = 'Diganta';
-      } else if (devParam === 'new' || devParam === 'pending') {
-        email = 'newtenant@academy.com';
-        name = 'New Academy Owner';
+      let email = 'admin@academy.local';
+      let name = 'Local Admin';
+      let isSuperAdmin = false;
+      if (devParam === 'superadmin') {
+        email = 'superadmin@platform.local';
+        name = 'Super Administrator';
+        isSuperAdmin = true;
       } else if (devParam.includes('@')) {
         email = devParam.toLowerCase().trim();
         name = email.split('@')[0];
@@ -1373,6 +1338,7 @@ class UIController {
       localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify({
         name,
         email,
+        isSuperAdmin,
         provider: 'google',
         loggedInAt: Date.now()
       }));
@@ -1401,7 +1367,7 @@ class UIController {
 
     // Keep storage and cloud requests scoped to the authenticated administrator.
     const userEmail = (this.session?.email || '').toLowerCase().trim();
-    const isMasterSuperAdmin = userEmail === 'dasprantik76@gmail.com' || Boolean(this.session?.isSuperAdmin);
+    const isMasterSuperAdmin = Boolean(this.session?.isSuperAdmin);
 
     const urlParams = new URLSearchParams(window.location.search);
     const impersonateEmail = urlParams.get('impersonate')?.toLowerCase().trim();
@@ -2632,7 +2598,7 @@ class UIController {
       item.addEventListener('click', (e) => {
         e.preventDefault();
         const view = item.getAttribute('data-view');
-        if (view === 'tenants' && (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com')) {
+        if (view === 'tenants' && !store.isSuperAdmin) {
           return;
         }
         this.switchView(view);
@@ -2644,7 +2610,7 @@ class UIController {
     window.addEventListener('hashchange', () => {
       const hash = window.location.hash.replace('#', '');
       if (['dashboard', 'students', 'courses', 'batches', 'certificates', 'idcards', 'inbox', 'branding', 'personalisation', 'tenants'].includes(hash)) {
-        if (hash === 'tenants' && (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com')) {
+        if (hash === 'tenants' && !store.isSuperAdmin) {
           this.switchView('dashboard', true);
           return;
         }
@@ -3768,7 +3734,7 @@ class UIController {
   }
 
   applyViewLayout(viewName) {
-    if (viewName === 'tenants' && (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com')) {
+    if (viewName === 'tenants' && !store.isSuperAdmin) {
       this.switchView('dashboard', true);
       return;
     }
@@ -3858,7 +3824,7 @@ class UIController {
   }
 
   switchView(viewName, updateHash = true) {
-    if (viewName === 'tenants' && (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com')) {
+    if (viewName === 'tenants' && !store.isSuperAdmin) {
       viewName = 'dashboard';
     }
     this.currentView = viewName;
@@ -3879,7 +3845,7 @@ class UIController {
     if (viewName === 'personalisation') {
       this.populatePersonalisationForm();
     }
-    if (viewName === 'tenants' && store.isSuperAdmin && store.ownerEmail === 'dasprantik76@gmail.com') {
+    if (viewName === 'tenants' && store.isSuperAdmin) {
       this.loadPlatformTenants();
     }
     store.fetchCloudData(() => {
@@ -3890,7 +3856,7 @@ class UIController {
       if (this.currentView === 'personalisation') {
         this.populatePersonalisationForm();
       }
-      if (viewName === 'tenants' && store.isSuperAdmin && store.ownerEmail === 'dasprantik76@gmail.com') {
+      if (viewName === 'tenants' && store.isSuperAdmin) {
         this.loadPlatformTenants();
       }
     });
@@ -5091,7 +5057,7 @@ class UIController {
       this.sidebarUserName.textContent = ownerName;
     }
     if (this.sidebarUserEmail) {
-      this.sidebarUserEmail.textContent = this.session?.email || 'admin@pixelsetu.com';
+      this.sidebarUserEmail.textContent = this.session?.email || '';
     }
     if (this.sidebarUserAvatar) {
       if (this.session && this.session.avatar) {
@@ -8778,7 +8744,7 @@ class UIController {
       return;
     }
 
-    const isSuperAdmin = Boolean(store.isSuperAdmin && store.ownerEmail === 'dasprantik76@gmail.com');
+    const isSuperAdmin = Boolean(store.isSuperAdmin);
     const status = isSuperAdmin ? 'active' : (store.tenantStatus || 'pending');
 
     if (status !== 'active') {
@@ -8826,7 +8792,7 @@ class UIController {
   // Super Admin Platform Tenants Management
   // ==========================================================================
   async loadPlatformTenants() {
-    if (!store.isSuperAdmin || store.ownerEmail !== 'dasprantik76@gmail.com') return;
+    if (!store.isSuperAdmin) return;
     try {
       const res = await store.getAllTenants();
       if (res && res.success && Array.isArray(res.tenants)) {
@@ -8881,8 +8847,8 @@ class UIController {
 
     this.tenantsTableBody.innerHTML = filtered.map(t => {
       const isApproved = t.status === 'active';
-      const isSuperAdminTenant = t.ownerEmail === 'dasprantik76@gmail.com';
-      const isMainDiganta = t.ownerEmail === 'rcavirup@gmail.com';
+      const isSuperAdminTenant = Boolean(t.isSuperAdmin);
+      const isMainDiganta = t.slug === 'diganta';
 
       let statusBadgeHtml = '<span class="badge badge-warning"><i class="fa-solid fa-clock"></i> Pending Review</span>';
       if (t.status === 'active') {

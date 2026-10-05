@@ -80,27 +80,22 @@ class PublicAcademyApp {
 
     // Resolve active academy from query parameter, path, or domain
     this.currentAcademySlug = this.resolveTenant();
-    if (this.currentAcademySlug.includes('poulami')) {
-      this.currentOwnerEmail = 'poulami.13thmay@gmail.com';
-    } else if (this.currentAcademySlug === 'diganta' || this.currentAcademySlug === 'prantik') {
-      this.currentOwnerEmail = 'rcavirup@gmail.com';
-    } else {
-      // Dynamic slug tenant - check local storage cache for owner email
-      let cachedEmail = '';
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i);
-        if (k && (k.startsWith('educore_academy_profile_') || k.startsWith('pixelsetu_academy_profile_'))) {
-          try {
-            const p = JSON.parse(localStorage.getItem(k));
-            if (p && p.slug === this.currentAcademySlug && p.ownerEmail) {
-              cachedEmail = p.ownerEmail;
-              break;
-            }
-          } catch {}
-        }
+    
+    // Dynamic slug tenant - check local storage cache for owner email
+    let cachedEmail = '';
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && (k.startsWith('educore_academy_profile_') || k.startsWith('pixelsetu_academy_profile_'))) {
+        try {
+          const p = JSON.parse(localStorage.getItem(k));
+          if (p && (p.slug === this.currentAcademySlug || !this.currentAcademySlug) && p.ownerEmail) {
+            cachedEmail = p.ownerEmail;
+            break;
+          }
+        } catch {}
       }
-      this.currentOwnerEmail = cachedEmail || '';
     }
+    this.currentOwnerEmail = cachedEmail || '';
 
     this.cacheDOMElements();
     this.initData();
@@ -196,20 +191,20 @@ class PublicAcademyApp {
   }
 
   getDefaultProfile() {
-    if (this.currentAcademySlug === 'poulami' || this.currentOwnerEmail.includes('poulami')) {
+    if (this.currentAcademySlug === 'poulami') {
       return {
         academyName: 'Poulami Dance Academy',
         ownerName: 'Poulami',
-        email: 'poulami.13thmay@gmail.com',
+        email: this.currentOwnerEmail || '',
         phone: '9876543211',
         slug: 'poulami'
       };
     }
-    if (this.currentAcademySlug === 'diganta' || this.currentAcademySlug === 'prantik' || this.currentOwnerEmail === 'rcavirup@gmail.com') {
+    if (this.currentAcademySlug === 'diganta' || this.currentAcademySlug === 'prantik') {
       return {
         academyName: 'Diganta Computer Centre',
         ownerName: 'Diganta',
-        email: 'rcavirup@gmail.com',
+        email: this.currentOwnerEmail || '',
         phone: '9733894742',
         secondaryPhone: '9733894742',
         whatsapp: '9733894742',
@@ -426,7 +421,7 @@ class PublicAcademyApp {
     this.academyProfile = loadedProfile || this.getDefaultProfile();
 
     // Load Available Courses for active tenant
-    const isDiganta = this.currentAcademySlug === 'diganta' || this.currentAcademySlug === 'prantik' || this.currentOwnerEmail === 'rcavirup@gmail.com';
+    const isDiganta = this.currentAcademySlug === 'diganta' || this.currentAcademySlug === 'prantik';
     const rawCourses = localStorage.getItem(this.getStorageKey(STORAGE_KEYS.COURSES));
     if (rawCourses) {
       try {
@@ -486,7 +481,7 @@ class PublicAcademyApp {
         if (Array.isArray(courses)) {
           this.courses = courses;
           // The Diganta site includes its established courses
-          const isDiganta = this.currentAcademySlug === 'diganta' || this.currentAcademySlug === 'prantik' || this.currentOwnerEmail === 'rcavirup@gmail.com';
+          const isDiganta = this.currentAcademySlug === 'diganta' || this.currentAcademySlug === 'prantik';
           if (isDiganta) {
             const cloudCourseIds = new Set(this.courses.map(course => course.id));
             DEFAULT_PUBLIC_COURSES.forEach(course => {
@@ -1435,18 +1430,24 @@ class PublicAcademyApp {
       }
     }
 
-    const email = profile.email || 'admissions@academy.com';
+    const email = profile.email || this.currentOwnerEmail || '';
     if (this.aboutEmailLink) {
       this.aboutEmailLink.textContent = email;
-      this.aboutEmailLink.href = `mailto:${email}`;
+      this.aboutEmailLink.href = email ? `mailto:${email}` : '#';
+      if (this.aboutEmailLink.closest('.about-meta-item')) {
+        this.aboutEmailLink.closest('.about-meta-item').style.display = email ? '' : 'none';
+      }
     }
     if (this.footerPhoneLink) {
-      this.footerPhoneLink.href = `tel:${primaryPhone}`;
-      this.footerPhoneLink.querySelector('span').textContent = `+91 ${primaryPhone}`;
+      this.footerPhoneLink.href = primaryPhone ? `tel:${primaryPhone}` : '#';
+      const phoneSpan = this.footerPhoneLink.querySelector('span');
+      if (phoneSpan) phoneSpan.textContent = primaryPhone ? `+91 ${primaryPhone}` : '';
     }
     if (this.footerEmailLink) {
-      this.footerEmailLink.href = `mailto:${email}`;
-      this.footerEmailLink.querySelector('span').textContent = email;
+      this.footerEmailLink.href = email ? `mailto:${email}` : '#';
+      const emailSpan = this.footerEmailLink.querySelector('span');
+      if (emailSpan) emailSpan.textContent = email;
+      this.footerEmailLink.style.display = email ? '' : 'none';
     }
 
     // Branch Cards
