@@ -3574,7 +3574,7 @@ button:hover,
   overflow: hidden;
   display: none;
   z-index: 1000;
-  animation: navDropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: navDropdownFade 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-item-dropdown.open .nav-dropdown-menu {
@@ -3582,17 +3582,34 @@ button:hover,
 }
 
 @media (min-width: 769px) {
-  .nav-item-dropdown:hover .nav-dropdown-menu {
+  .nav-item-dropdown:hover:not(.closed-by-selection) .nav-dropdown-menu {
     display: block;
   }
-  .nav-item-dropdown:hover .nav-dropdown-arrow {
+  .nav-item-dropdown:hover:not(.closed-by-selection) .nav-dropdown-arrow {
     transform: rotate(180deg);
   }
 }
 
+/* Smooth exit animation */
+.nav-item-dropdown.closing .nav-dropdown-menu,
+.nav-dropdown-menu.closing {
+  display: block !important;
+  animation: navDropdownFadeOut 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  pointer-events: none !important;
+}
+
+.nav-item-dropdown.closing .nav-dropdown-arrow {
+  transform: rotate(0deg) !important;
+}
+
 @keyframes navDropdownFade {
-  from { opacity: 0; transform: translateY(-6px); }
+  from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes navDropdownFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-8px); }
 }
 
 .nav-dropdown-menu > li {
