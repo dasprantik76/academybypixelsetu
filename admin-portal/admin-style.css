@@ -3308,7 +3308,7 @@ button:hover,
 .hero-photo-uploader-card,
 .hero-multi-uploader-card {
   background: #f8fafc;
-  border: 1.5px dashed var(--border-color);
+  border: 1.5px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 1.25rem;
   transition: all var(--transition-fast);
