@@ -4420,7 +4420,7 @@ class UIController {
         this.showToast('File Too Large', `${file.name} exceeds the 15MB size limit.`, 'error');
         return;
       }
-      this.showToast('Uploading Photo', `Uploading replacement photo to ImageKit...`, 'info');
+      this.showToast('Optimizing Photo', `Compressing and uploading replacement photo...`, 'info');
       try {
         const uploaded = await this.uploadHeroPhotoToImageKit(file);
         if (uploaded?.url) {
@@ -4444,6 +4444,112 @@ class UIController {
     }
   }
 
+  async compressHeroPhoto(file) {
+    if (!file) throw new Error('No photo provided for compression.');
+
+    const sourceUrl = URL.createObjectURL(file);
+    const image = new Image();
+    try {
+      await new Promise((resolve, reject) => {
+        image.onload = resolve;
+        image.onerror = () => reject(new Error('The selected image could not be loaded.'));
+        image.src = sourceUrl;
+      });
+
+      const targetMaxBytes = 250 * 1024; // Under 250 KB
+      const longestSide = Math.max(image.naturalWidth, image.naturalHeight);
+      let scale = Math.min(1, 1920 / Math.max(1, longestSide));
+      let quality = 0.85;
+      let blob = null;
+
+      // Determine preferred MIME type (webp if supported by canvas, else jpeg)
+      let outputMime = 'image/webp';
+      let outputExt = 'webp';
+
+      const testCanvas = document.createElement('canvas');
+      testCanvas.width = 1;
+      testCanvas.height = 1;
+      const canEncodeWebp = await new Promise(res => {
+        testCanvas.toBlob(b => res(!!(b && b.type === 'image/webp')), 'image/webp');
+      });
+      if (!canEncodeWebp) {
+        outputMime = 'image/jpeg';
+        outputExt = 'jpg';
+      }
+
+      // If the original file is already <= 250 KB, within 1920px, and is webp/jpeg, use it directly
+      const isAlreadyWebpOrJpeg = file.type === 'image/webp' || file.type === 'image/jpeg' || file.type === 'image/jpg';
+      if (file.size <= targetMaxBytes && longestSide <= 1920 && isAlreadyWebpOrJpeg) {
+        return file;
+      }
+
+      let attempts = 0;
+      while (scale >= 0.15 && attempts < 15) {
+        attempts++;
+        const targetWidth = Math.max(200, Math.round(image.naturalWidth * scale));
+        const targetHeight = Math.max(150, Math.round(image.naturalHeight * scale));
+
+        const canvas = document.createElement('canvas');
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+        const ctx = canvas.getContext('2d');
+
+        if (outputMime === 'image/jpeg') {
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, targetWidth, targetHeight);
+        }
+        ctx.drawImage(image, 0, 0, targetWidth, targetHeight);
+
+        blob = await new Promise(res => canvas.toBlob(res, outputMime, quality));
+        if (!blob && outputMime === 'image/webp') {
+          outputMime = 'image/jpeg';
+          outputExt = 'jpg';
+          blob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', quality));
+        }
+
+        if (!blob) throw new Error('Could not compress hero banner photo.');
+        if (blob.size <= targetMaxBytes) break;
+
+        if (quality > 0.45) {
+          quality -= 0.08;
+        } else {
+          scale *= 0.82;
+          quality = 0.75;
+        }
+      }
+
+      if (!blob || blob.size > targetMaxBytes) {
+        // Fallback pass to guarantee size under 250 KB
+        const fallbackCanvas = document.createElement('canvas');
+        const fallbackScale = Math.min(scale, 0.5);
+        fallbackCanvas.width = Math.max(200, Math.round(image.naturalWidth * fallbackScale));
+        fallbackCanvas.height = Math.max(150, Math.round(image.naturalHeight * fallbackScale));
+        const fCtx = fallbackCanvas.getContext('2d');
+        if (outputMime === 'image/jpeg') {
+          fCtx.fillStyle = '#ffffff';
+          fCtx.fillRect(0, 0, fallbackCanvas.width, fallbackCanvas.height);
+        }
+        fCtx.drawImage(image, 0, 0, fallbackCanvas.width, fallbackCanvas.height);
+        blob = await new Promise(res => fallbackCanvas.toBlob(res, outputMime, 0.45));
+      }
+
+      if (!blob) {
+        throw new Error('Hero photo compression failed.');
+      }
+
+      const cleanName = (file.name || 'hero')
+        .replace(/\.[^.]+$/, '')
+        .replace(/[^a-zA-Z0-9_-]+/g, '_') || 'hero';
+
+      return new File([blob], `${cleanName}.${outputExt}`, {
+        type: outputMime,
+        lastModified: Date.now()
+      });
+    } finally {
+      URL.revokeObjectURL(sourceUrl);
+    }
+  }
+
   async uploadHeroPhotoToImageKit(file) {
     if (!file) throw new Error('No file provided for upload.');
 
@@ -4459,10 +4565,13 @@ class UIController {
       throw new Error(`Unsupported image format (${fileType || 'unknown'}). Please choose JPG, PNG, or WebP.`);
     }
 
-    const maxBytes = 15 * 1024 * 1024;
-    if (file.size > maxBytes) {
-      throw new Error(`File is too large (${(file.size / (1024 * 1024)).toFixed(1)} MB). Maximum size is 15 MB.`);
+    const maxInputBytes = 15 * 1024 * 1024;
+    if (file.size > maxInputBytes) {
+      throw new Error(`File is too large (${(file.size / (1024 * 1024)).toFixed(1)} MB). Maximum input size is 15 MB.`);
     }
+
+    // Convert & compress under 250 KB before uploading
+    const uploadFile = await this.compressHeroPhoto(file);
 
     // Determine tenant slug
     const existingProfile = (typeof store !== 'undefined' && store.getAcademyProfile) ? (store.getAcademyProfile() || {}) : {};
@@ -4471,7 +4580,7 @@ class UIController {
 
     const ownerEmail = store?.ownerEmail || (this.session?.email) || sanitizedSlug;
 
-    // Request ImageKit auth signature
+    // Request ImageKit auth signature for the compressed file
     let authResponse;
     try {
       authResponse = await fetch('/api/imagekit-auth', {
@@ -4481,8 +4590,8 @@ class UIController {
           isAdmin: true,
           ownerEmail: ownerEmail,
           academySlug: sanitizedSlug,
-          fileType: fileType,
-          fileSize: file.size
+          fileType: uploadFile.type,
+          fileSize: uploadFile.size
         })
       });
     } catch {
@@ -4494,12 +4603,12 @@ class UIController {
       throw new Error(auth?.error || 'Could not authorize hero photo upload.');
     }
 
-    const safeBaseName = (file.name || 'hero.jpg').replace(/[^a-zA-Z0-9._-]/g, '_');
+    const safeBaseName = (uploadFile.name || 'hero.jpg').replace(/[^a-zA-Z0-9._-]/g, '_');
     const fileName = `hero_${Date.now()}_${safeBaseName}`;
     const folderPath = `/Academy-by-PixelSetu/${sanitizedSlug}/Hero/`;
 
     const uploadBody = new FormData();
-    uploadBody.append('file', file);
+    uploadBody.append('file', uploadFile);
     uploadBody.append('fileName', fileName);
     uploadBody.append('folder', folderPath);
     uploadBody.append('useUniqueFileName', 'true');
@@ -4555,7 +4664,7 @@ class UIController {
         continue;
       }
 
-      this.showToast('Uploading Photo', `Uploading ${file.name} to ImageKit...`, 'info');
+      this.showToast('Optimizing Photo', `Compressing and uploading ${file.name}...`, 'info');
       try {
         const uploaded = await this.uploadHeroPhotoToImageKit(file);
         if (uploaded?.url && this.heroPhotos.length < 5) {
