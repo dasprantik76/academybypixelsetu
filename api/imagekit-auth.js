@@ -66,11 +66,13 @@ export default async function handler(req, res) {
   if (!isAdmin && !/^\d{6}$/.test(authCode)) {
     return res.status(400).json({ success: false, code: 'INVALID_CODE', error: 'Authentication code must be exactly 6 digits.' });
   }
-  if (!ALLOWED_TYPES.has(fileType) || !Number.isFinite(fileSize) || fileSize <= 0 || fileSize > MAX_FILE_BYTES) {
+  const maxBytes = isAdmin ? 15 * 1024 * 1024 : MAX_FILE_BYTES;
+  const allowedTypes = new Set(['image/jpeg', 'image/jpg', 'image/png', 'image/webp']);
+  if (!allowedTypes.has(fileType) || !Number.isFinite(fileSize) || fileSize <= 0 || fileSize > maxBytes) {
     return res.status(400).json({
       success: false,
       code: 'INVALID_PHOTO',
-      error: 'Choose a JPG, JPEG, PNG or WebP passport photo that is 2 MB or smaller.'
+      error: isAdmin ? 'Choose a JPG, JPEG, PNG or WebP image that is 15 MB or smaller.' : 'Choose a JPG, JPEG, PNG or WebP passport photo that is 2 MB or smaller.'
     });
   }
 

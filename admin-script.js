@@ -4416,19 +4416,21 @@ class UIController {
         this.showToast('Invalid File', `${file.name} is not a valid image.`, 'error');
         return;
       }
-      if (file.size > 5 * 1024 * 1024) {
-        this.showToast('File Too Large', `${file.name} exceeds the 5MB size limit.`, 'error');
+      if (file.size > 15 * 1024 * 1024) {
+        this.showToast('File Too Large', `${file.name} exceeds the 15MB size limit.`, 'error');
         return;
       }
+      this.showToast('Uploading Photo', `Uploading replacement photo to ImageKit...`, 'info');
       try {
-        const dataUrl = await this.readAndCompressImage(file);
-        if (dataUrl) {
-          this.heroPhotos[index] = dataUrl;
+        const uploaded = await this.uploadHeroPhotoToImageKit(file);
+        if (uploaded?.url) {
+          this.heroPhotos[index] = uploaded.url;
           this.renderHeroPhotosGrid();
           this.showToast('Photo Replaced', `Replaced slide photo ${index + 1}. Remember to save changes.`, 'success');
         }
       } catch (err) {
         console.error('Failed replacing photo:', err);
+        this.showToast('Upload Error', err.message || `Could not replace photo.`, 'error');
       }
     };
     tempInput.click();
@@ -4440,6 +4442,92 @@ class UIController {
       this.renderHeroPhotosGrid();
       this.showToast('Photo Removed', `Removed slide photo ${index + 1}. Remember to save changes.`, 'info');
     }
+  }
+
+  async uploadHeroPhotoToImageKit(file) {
+    if (!file) throw new Error('No file provided for upload.');
+
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+    let fileType = (file.type || '').toLowerCase();
+    if (!fileType && file.name) {
+      if (/\.jpe?g$/i.test(file.name)) fileType = 'image/jpeg';
+      else if (/\.png$/i.test(file.name)) fileType = 'image/png';
+      else if (/\.webp$/i.test(file.name)) fileType = 'image/webp';
+    }
+
+    if (!allowedTypes.includes(fileType)) {
+      throw new Error(`Unsupported image format (${fileType || 'unknown'}). Please choose JPG, PNG, or WebP.`);
+    }
+
+    const maxBytes = 15 * 1024 * 1024;
+    if (file.size > maxBytes) {
+      throw new Error(`File is too large (${(file.size / (1024 * 1024)).toFixed(1)} MB). Maximum size is 15 MB.`);
+    }
+
+    // Determine tenant slug
+    const existingProfile = (typeof store !== 'undefined' && store.getAcademyProfile) ? (store.getAcademyProfile() || {}) : {};
+    const rawSlug = (this.persSubdomainSlug?.value || existingProfile.slug || store?.ownerEmail?.split?.('@')?.[0] || 'default').trim();
+    const sanitizedSlug = rawSlug.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '') || 'default';
+
+    const ownerEmail = store?.ownerEmail || (this.session?.email) || sanitizedSlug;
+
+    // Request ImageKit auth signature
+    let authResponse;
+    try {
+      authResponse = await fetch('/api/imagekit-auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          isAdmin: true,
+          ownerEmail: ownerEmail,
+          academySlug: sanitizedSlug,
+          fileType: fileType,
+          fileSize: file.size
+        })
+      });
+    } catch {
+      throw new Error('Could not connect to photo upload authentication service.');
+    }
+
+    const auth = await authResponse.json().catch(() => null);
+    if (!authResponse.ok || !auth?.success) {
+      throw new Error(auth?.error || 'Could not authorize hero photo upload.');
+    }
+
+    const safeBaseName = (file.name || 'hero.jpg').replace(/[^a-zA-Z0-9._-]/g, '_');
+    const fileName = `hero_${Date.now()}_${safeBaseName}`;
+    const folderPath = `/Academy-by-PixelSetu/${sanitizedSlug}/Hero/`;
+
+    const uploadBody = new FormData();
+    uploadBody.append('file', file);
+    uploadBody.append('fileName', fileName);
+    uploadBody.append('folder', folderPath);
+    uploadBody.append('useUniqueFileName', 'true');
+    uploadBody.append('publicKey', auth.publicKey);
+    uploadBody.append('token', auth.token);
+    uploadBody.append('signature', auth.signature);
+    uploadBody.append('expire', String(auth.expire));
+
+    let uploadResponse;
+    try {
+      uploadResponse = await fetch('https://upload.imagekit.io/api/v1/files/upload', {
+        method: 'POST',
+        body: uploadBody
+      });
+    } catch {
+      throw new Error('Photo could not reach ImageKit server. Please check connection.');
+    }
+
+    const uploaded = await uploadResponse.json().catch(() => null);
+    if (!uploadResponse.ok || !uploaded?.url) {
+      throw new Error(uploaded?.message || 'Hero photo upload failed.');
+    }
+
+    return {
+      url: uploaded.url,
+      fileId: uploaded.fileId,
+      filePath: uploaded.filePath
+    };
   }
 
   async handleHeroPhotosSelection(files) {
@@ -4457,24 +4545,27 @@ class UIController {
 
     let addedCount = 0;
     for (const file of filesToProcess) {
+      if (this.heroPhotos.length >= 5) break;
       if (!file.type || !file.type.startsWith('image/')) {
         this.showToast('Invalid File', `${file.name} is not a valid image.`, 'error');
         continue;
       }
-      if (file.size > 5 * 1024 * 1024) {
-        this.showToast('File Too Large', `${file.name} exceeds the 5MB size limit.`, 'error');
+      if (file.size > 15 * 1024 * 1024) {
+        this.showToast('File Too Large', `${file.name} exceeds the 15MB size limit.`, 'error');
         continue;
       }
 
+      this.showToast('Uploading Photo', `Uploading ${file.name} to ImageKit...`, 'info');
       try {
-        const dataUrl = await this.readAndCompressImage(file);
-        if (dataUrl && this.heroPhotos.length < 5) {
-          this.heroPhotos.push(dataUrl);
+        const uploaded = await this.uploadHeroPhotoToImageKit(file);
+        if (uploaded?.url && this.heroPhotos.length < 5) {
+          this.heroPhotos.push(uploaded.url);
           addedCount++;
+          this.renderHeroPhotosGrid();
         }
       } catch (err) {
-        console.error('Failed to read image:', err);
-        this.showToast('Upload Error', `Could not process image ${file.name}.`, 'error');
+        console.error('Failed to upload hero photo:', err);
+        this.showToast('Upload Error', err.message || `Could not upload ${file.name}.`, 'error');
       }
     }
 
