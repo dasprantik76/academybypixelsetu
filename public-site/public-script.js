@@ -1554,6 +1554,7 @@ class PublicAcademyApp {
     }
     // Hero dissolving photos loop (supports up to 5 loop photos)
     const heroChevronInner = document.getElementById('heroChevronInner') || document.querySelector('.hero-chevron-inner');
+    const heroImagePlaceholder = document.getElementById('heroImagePlaceholder');
     let heroPhotos = [];
     if (Array.isArray(profile.heroPhotos)) {
       heroPhotos = profile.heroPhotos.filter(Boolean).slice(0, 5);
@@ -1562,17 +1563,23 @@ class PublicAcademyApp {
       if (legacy.length > 0) heroPhotos = legacy.slice(0, 5);
     }
 
-    if (heroChevronInner && heroPhotos.length > 0) {
-      heroChevronInner.innerHTML = heroPhotos.map((url, idx) => `
-        <img 
-          id="heroImg${idx + 1}" 
-          class="hero-chevron-slide${idx === 0 ? ' active' : ''}" 
-          src="${escapeHtml(url)}" 
-          alt="${escapeHtml(name)} Hero Slide ${idx + 1}" 
-          loading="${idx === 0 ? 'eager' : 'lazy'}"
-        />
-      `).join('');
-      this.initHeroCarousel();
+    if (heroChevronInner) {
+      if (heroPhotos.length > 0) {
+        if (heroImagePlaceholder) heroImagePlaceholder.style.display = '';
+        heroChevronInner.innerHTML = heroPhotos.map((url, idx) => `
+          <img 
+            id="heroImg${idx + 1}" 
+            class="hero-chevron-slide${idx === 0 ? ' active' : ''}" 
+            src="${escapeHtml(url)}" 
+            alt="${escapeHtml(name)} Hero Slide ${idx + 1}" 
+            loading="${idx === 0 ? 'eager' : 'lazy'}"
+          />
+        `).join('');
+        this.initHeroCarousel();
+      } else {
+        heroChevronInner.innerHTML = '';
+        if (heroImagePlaceholder) heroImagePlaceholder.style.display = 'none';
+      }
     }
 
     // 3. Approvals & Accreditation Logos
